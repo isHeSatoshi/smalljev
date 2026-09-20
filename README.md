@@ -26,7 +26,7 @@ submission to https://benchmarkheaven.com/jev-models is in the queue.
 
 smalljev is the smallest model in the ranked set, the only one whose inference fits in ~5 GB VRAM, and the only one whose probability origin is span-pooled softmax rather than letter-position softmax. everyone above row 7 is on beefier hardware with a bigger backbone.
 
-**the boring caveats** — 231 / 534 public items (held-out 303 aren't in the public repo). cost is estimated against OpenRouter Qwen2.5-3B-Instruct $0.04/M-input. no benchmark-specific calibration was fit. live workspace was not modified during measurement.
+**caveats** — 231 / 534 public items (held-out 303 aren't in the public repo). cost is estimated against OpenRouter Qwen2.5-3B-Instruct $0.04/M-input. no benchmark-specific calibration was fit. live workspace was not modified during measurement.
 
 ---
 
@@ -132,14 +132,6 @@ print(out["intent"]["choice"], out["escalate"]["noul"], out["risk"]["value"])
 # duplicate charge 0.78 2.4
 ```
 
-## the v8 story (because it's instructive)
-
-i tried to hill-climb further with v8 (wider context window, longer training, an extra `--v8` flag). a MASSIVE en-US smoke test came back at 0.874 vs v7's 0.857. +1.7 pts. i promoted it. ran the full JevBench eval: **−1.43 pts**. intelligence dropped 1.08, speed dropped 4.82, calibration barely moved. the wider `sem_max` (1536 → 2048) made each forward slower and probably changed how some hard-tier items tokenized.
-
-the smoke lied. the right move was to keep v7. i kept v7.
-
-v8 weights are still in the repo at `evals/arms/semantic-v8-lora/` for reproducibility but they're not the shipped default. full breakdown in [`docs/PUBLIC_BENCHMARK.md`](docs/PUBLIC_BENCHMARK.md) §2.
-
 ## reproduce the 67.30
 
 ```bash
@@ -165,7 +157,7 @@ python jevbench_eval/scripts/summarize_run.py \
     --output  runs/2026-09-20_semantic_v7/summary.json
 ```
 
-pinned environment the score was measured on:
+**pinned environment the score was measured on:**
 
 ```
 python 3.11
@@ -175,7 +167,7 @@ peft 0.15.2
 gpu   RTX 4060 Ti 16GB
 ```
 
-## caveats the previous agent will make me write
+**caveats the previous agent will make me write**
 
 - 231 / 534 items, public only. held-out 303 aren't in the public JevBench repo. the official composite isn't reproducible from public data alone.
 - MASSIVE en/de in nimble13 is trained on the disjoint train split of the same dataset, same prompt wording. "disjoint-split, not zero-shot." the +0.18 vs zero-shot Laya is the architectural contribution. the +0.41 raw delta is mostly the train/test overlap by design.
@@ -185,7 +177,7 @@ gpu   RTX 4060 Ti 16GB
 
 full per-tier write-up: [`docs/PUBLIC_BENCHMARK.md`](docs/PUBLIC_BENCHMARK.md).
 
-## what's in the repo
+**what's in the repo**
 
 ```
 smalljev/                 # the library (~700 LOC)
@@ -196,11 +188,11 @@ docs/                     # PUBLIC_BENCHMARK.md + CHANGELOG.md
 assets/                   # leaderboard + axes + progression PNGs
 ```
 
-## license
+**license**
 
 apache-2.0. the backbone is apache-2.0. there's no proprietary code in here. we read the public JevBench spec and the openbmb model card and built the rest ourselves.
 
-## cite
+**cite**
 
 ```bibtex
 @software{smalljev2026,
@@ -211,6 +203,6 @@ apache-2.0. the backbone is apache-2.0. there's no proprietary code in here. we 
 }
 ```
 
-## thanks
+**thanks**
 
 to TypeSafe for the Jev idea and the public JevBench spec. to the other people who shipped open Jev reimplementations in days — SemIf, OpenJev, open-alternative-jev, system-one-open, Bespoke Nimble — without their public work this would have been a much harder project. to OpenBMB for the MiniCPM5 backbone. and to the RTX 4060 Ti that ran this thing for two days straight while i slept.
