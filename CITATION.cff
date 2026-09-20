@@ -1,0 +1,33 @@
+cff-version: 1.2.0
+message: |
+  If you use smalljev in academic work, please cite both the smalljev
+  repository and the JevBench benchmark it was evaluated on.
+type: software
+title: "smalljev: typed calibrated decisions from a 2.5B open-weights language model"
+version: 0.4.0
+date-released: 2026-09-20
+license: Apache-2.0
+keywords:
+  - jev
+  - system-one
+  - typed-decisions
+  - calibration
+  - structured-output
+  - noul
+  - choice
+  - score
+  - open-weights
+  - transformers
+references:
+  - type: software
+    title: "JevBench"
+    authors:
+      - name: "Florian Standhartinger"
+    year: 2026
+    url: "https://github.com/fstandhartinger/jevbench"
+  - type: software
+    title: "MiniCPM5-2B-Base"
+    authors:
+      - name: "OpenBMB"
+    year: 2026
+    url: "https://huggingface.co/openbmb/MiniCPM5-2B-Base"
