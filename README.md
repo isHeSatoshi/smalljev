@@ -6,8 +6,6 @@
 
 ## install
 
-the repo is not on PyPI. you install it from source.
-
 ```bash
 # step 1: clone + install the library
 git clone https://github.com/isHeSatoshi/smalljev
