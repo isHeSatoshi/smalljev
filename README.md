@@ -62,11 +62,11 @@ no backbone downloads yet. no LoRA downloads. no GPU required to install.
 
 verified environment: python 3.11, torch 2.8.0, transformers 4.57.6, peft 0.15.2. other 3.10/3.12 versions likely work but aren't pinned in CI.
 
-## try it — three paths
+## try it — two paths
 
 ### path A: 30-second sanity check (no GPU, no weights, no download)
 
-this exercises the `decide()` API against a deterministic stub backend. proves the install works.
+sanity check only. proves the install works and the test suite passes.
 
 ```bash
 git clone https://github.com/isHeSatoshi/smalljev
@@ -77,35 +77,7 @@ python -m pytest tests/ -q
 
 expected: `64 passed in ~30s` (CPU only, no model download).
 
-if that passes, the install is good and the API shape is what we ship.
-
-### path B: real call (no GPU, no v9 weights, deterministic)
-
-same library, but you write the call yourself. uses the StubBackend so no model weights are loaded — just the prompt-rendering + softmax plumbing:
-
-```python
-from smalljev import decide
-
-out = decide(
-    "the package arrived broken and the customer wants a refund",
-    {"intent": {"type": "choice", "question": "primary issue?",
-                "choices": ["damaged", "wrong_item", "late", "other"]}},
-    backend="stub",
-)
-print(out)
-```
-
-expected output (deterministic — StubBackend hashes the input):
-
-```python
-{
-  "intent": {"values": ["damaged", "wrong_item", "late", "other"],
-             "probabilities": [<4 floats summing to 1.0>]},
-  "_meta": {"backend": "stub", "generated_tokens": 0, "n_questions": 1}
-}
-```
-
-### path C: full v9 on GPU (downloads ~5 GB backbone + 17 MB LoRA)
+### path B: full v9 on GPU (downloads ~5 GB backbone + 17 MB LoRA)
 
 this is the real thing. needs CUDA. ~5 GB backbone + 17 MB LoRA + 86 KB heads downloaded from HuggingFace on first run.
 
@@ -139,9 +111,9 @@ out = decide(
 print(out)
 ```
 
-expected: same shape as path B, with real probabilities from the v9 model. first call: ~60 s load + ~150 ms per call. subsequent calls: ~150 ms each.
+expected: same shape, with real probabilities from the v9 model. first call: ~60 s load + ~150 ms per call. subsequent calls: ~150 ms each.
 
-> **caveat:** the library in this repo is v0/v1 (slot-position). the v9 weights use span-pooled scoring (`OptionScorerHead`), which the library's `HFBackend` supports via the `sem_ckpt=` argument, but the full v9 noul/score pipeline lives in `jevbench_eval/adapter/smalljev_semantic_adapter.py`, not in the public `smalljev/` library. for JevBench scoring use the harness (path D below), not `decide()` directly.
+> **caveat:** the library in this repo is v0/v1 (slot-position). the v9 weights use span-pooled scoring (`OptionScorerHead`), which the library's `HFBackend` supports via the `sem_ckpt=` argument, but the full v9 noul/score pipeline lives in `jevbench_eval/adapter/smalljev_semantic_adapter.py`, not in the public `smalljev/` library. for JevBench scoring use the harness (path C below), not `decide()` directly.
 
 ## what it actually does — three primitives
 
@@ -192,7 +164,7 @@ heads (option scorer, yes/no, ordinal) are ~200 lines in `smalljev/heads.py`. th
 
 ---
 
-## reproduce the JevBench score (path D)
+## reproduce the JevBench score (path C)
 
 this is the v9 → JevBench harness. CUDA GPU required. downloads ~5 GB backbone + 17 MB LoRA + 86 KB heads on first run. ~70 s on a 4060 Ti for all 231 public items.
 
