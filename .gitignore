@@ -65,6 +65,13 @@ runs/*/ledger.jsonl
 # Local-only dev tooling (not part of the public repo)
 jevbench_eval/
 
+# Private dev materials (kept locally, not pushed to GitHub)
+assets/
+docs/
+evals/
+weights/
+smalljev.egg-info/
+
 # Local data
 data/
 hf_cache/

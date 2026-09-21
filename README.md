@@ -2,6 +2,8 @@
 
 **smalljev semantic-v9** — the open TypeSafe Jev that runs on your mama's phone. 2.5B params, one forward pass, zero generated tokens.
 
+[![🤗 Hugging Face](https://img.shields.io/badge/HuggingFace-model-yellow)](https://huggingface.co/isHeSatoshi/smalljev-semantic-v9)
+
 ---
 
 ## install
@@ -128,7 +130,7 @@ MASSIVE en/de in nimble13 is disjoint-split same-source, not zero-shot. the +0.1
 
 cost is estimated at $0.04/m-input × measured tokens, same basis the leaderboard uses for self-hosted rows. self-hosting doesn't have a tariff; we don't invent one.
 
-full per-tier write-up: docs/PUBLIC_BENCHMARK.md (also links the v9 weights, the harness scripts live outside this repo on the v9 development branch).
+full per-tier write-up lives outside this repo (the public repo only ships what's needed to run smalljev itself; per-tier eval + score reproducibility are private).
 
 **license** apache-2.0. backbone is apache-2.0. nothing proprietary in here.
 
@@ -149,9 +151,6 @@ full per-tier write-up: docs/PUBLIC_BENCHMARK.md (also links the v9 weights, the
 ```
 smalljev/                 # the library (~700 LOC)
 tests/                    # unit tests, ~30 s on cpu
-weights/                  # local cache for the base model + smalljev LoRA
-docs/                     # PUBLIC_BENCHMARK.md + CHANGELOG.md
-assets/                   # leaderboard + axes + progression PNGs
 ```
 
 **submitting to benchmark heaven** in the queue. the maintainer needs this repo, the weights (HF Hub: `isHeSatoshi/smalljev-semantic-v9`), and the run command in *what it actually does*. file an issue at https://github.com/fstandhartinger/jevbench/issues or ping https://benchmarkheaven.com.
