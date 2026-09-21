@@ -9,19 +9,19 @@
 the repo is not on PyPI. you install it from source.
 
 ```bash
-# step 1: clone + install the library + test extras
+# step 1: clone + install the library
 git clone https://github.com/isHeSatoshi/smalljev
 cd smalljev
-pip install -e ".[bench,test]"
+pip install -e .
 
-# step 2: download the v9 model weights + LoRA from HuggingFace
-huggingface-cli download isHeSatoshi/smalljev-semantic-v9 \
-    --local-dir ./weights/semantic-v9
+# step 2: download the base model + the smalljev LoRA adapter from HuggingFace
+huggingface-cli download openbmb/MiniCPM5-2B-Base   --local-dir ./weights/base
+huggingface-cli download isHeSatoshi/smalljev-semantic-v9 --local-dir ./weights/semantic-v9
 ```
 
-`pip install -e ".[bench,test]"` pulls the library itself + pytest + the bench extras (datasets, matplotlib, scikit-learn) needed for the JevBench harness scripts.
+two downloads: one for the base model (`openbmb/MiniCPM5-2B-Base`, ~5 GB, Apache-2.0), one for the smalljev LoRA adapter + heads (~17 MB, Apache-2.0). both live on HuggingFace Hub.
 
-the backbone (`openbmb/MiniCPM5-2B-Base`, ~5 GB) auto-downloads from HF on first call. `huggingface-cli download` step pulls the smalljev LoRA adapter + heads into `./weights/semantic-v9/`.
+if you want the JevBench harness scripts too (`jevbench_eval/scripts/run_v12.py`, etc.), also run `pip install -e ".[bench]"` for matplotlib/seaborn/datasets.
 
 verified environment: python 3.11, torch 2.8.0, transformers 4.57.6, peft 0.15.2.
 
@@ -68,9 +68,9 @@ from smalljev import decide
 from smalljev.model import HFBackend
 
 backend = HFBackend(
-    model_id="openbmb/MiniCPM5-2B-Base",
-    adapter_id="isHeSatoshi/smalljev-semantic-v9",
-    sem_ckpt="isHeSatoshi/smalljev-semantic-v9",
+    model_id="./weights/base",
+    adapter_id="./weights/semantic-v9/semantic-v9-lora",
+    sem_ckpt="./weights/semantic-v9/semantic-v9-scorer.pt",
 )
 
 out = decide(
