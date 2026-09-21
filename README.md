@@ -2,7 +2,7 @@
 
 **smalljev semantic-v9** — the open TypeSafe Jev that runs on your mama's phone. 2.5B params, one forward pass, zero generated tokens.
 
-[![🤗 Hugging Face](https://img.shields.io/badge/HuggingFace-model-yellow)](https://huggingface.co/isHeSatoshi/smalljev-semantic-v9)
+[![🤗 HF](https://img.shields.io/badge/%F0%9F%A4%97%20HuggingFace-isHeSatoshi%2Fsmalljev--semantic--v9-yellow)](https://huggingface.co/isHeSatoshi/smalljev-semantic-v9)
 
 ---
 
@@ -153,4 +153,4 @@ smalljev/                 # the library (~700 LOC)
 tests/                    # unit tests, ~30 s on cpu
 ```
 
-**submitting to benchmark heaven** in the queue. the maintainer needs this repo, the weights (HF Hub: `isHeSatoshi/smalljev-semantic-v9`), and the run command in *what it actually does*. file an issue at https://github.com/fstandhartinger/jevbench/issues or ping https://benchmarkheaven.com.
+**benchmark** the JevBench submission lives at https://github.com/fstandhartinger/jevbench/issues/11. weights live on HuggingFace: [`isHeSatoshi/smalljev-semantic-v9`](https://huggingface.co/isHeSatoshi/smalljev-semantic-v9).
