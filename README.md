@@ -4,9 +4,11 @@
 
 ---
 
-## 📊 JevBench v1.2.1 — public result
+## 📊 JevBench — public result
 
-**Rank 6 of 21 non-partial systems · Score: 68.50 / 100 · on a 16 GB consumer GPU**
+**Rank 6 of 12+ non-partial systems · Score: 68.50 / 100 (measured on v1.2.1 public) · on a 16 GB consumer GPU**
+
+measured on **JevBench v1.2.1** (231 of 534 public items; held-out 303 aren't in the public repo). re-run on **v1.2.7** (534 items, current public benchmark) is queued for the Benchmark Heaven submission.
 
 | rank | system | JevBench |
 |---|---|---|
@@ -23,11 +25,11 @@
 | 11 | open-jev-deberta-v3-large | 64.40 |
 | 12 | Bespoke Nimble 9B | 63.50 |
 
-submission to https://benchmarkheaven.com/jev-models is in the queue.
-
 smalljev is the smallest model in the ranked set, the only one whose inference fits in ~5 GB VRAM, and the only one whose probability origin is span-pooled softmax rather than letter-position softmax. everyone above row 6 is on beefier hardware with a bigger backbone.
 
-**caveats** — 231 / 534 public items (held-out 303 aren't in the public repo). cost is estimated against OpenRouter Qwen2.5-3B-Instruct $0.04/M-input. no benchmark-specific calibration was fit. live workspace was not modified during measurement.
+submission to https://benchmarkheaven.com/jev-models is in the queue — see "Submitting to Benchmark Heaven" below.
+
+**caveats** — v1.2.1 measurement was 231 / 534 public items; v1.2.7 is 534 / 534 (held-out still isn't exposed publicly). cost is estimated against OpenRouter Qwen2.5-3B-Instruct $0.04/M-input. no benchmark-specific calibration was fit. live workspace was not modified during measurement.
 
 ---
 
@@ -220,3 +222,30 @@ apache-2.0. the backbone is apache-2.0. there's no proprietary code in here. we 
 **thanks**
 
 to TypeSafe for the Jev idea and the public JevBench spec. to the other people who shipped open Jev reimplementations in days — SemIf, OpenJev, open-alternative-jev, system-one-open, Bespoke Nimble — without their public work this would have been a much harder project. to OpenBMB for the MiniCPM5 backbone. and to the RTX 4060 Ti that ran this thing for two days straight while i slept.
+
+## submitting to benchmark heaven
+
+the Benchmark Heaven team reruns every system on their infrastructure. to add smalljev semantic-v9 to the leaderboard the maintainer needs:
+
+- **this repo:** https://github.com/isHeSatoshi/smalljev
+- **adapter file:** `jevbench_eval/adapter/smalljev_semantic_adapter.py`
+- **weights:** https://huggingface.co/zeusAdi/smalljev-semantic-v9
+  - `semantic-v9-lora/adapter_config.json` + `adapter_model.safetensors`
+  - `semantic-v9-scorer.pt`
+  - `semantic-v9-noulscore.pt`
+- **backbone:** `openbmb/MiniCPM5-2B-Base` (Apache-2.0, HF Hub)
+- **run command:**
+  ```bash
+  python jevbench_eval/scripts/run_semantic_variant.py \
+      --variant-label  smalljev_semantic_v9 \
+      --adapter-dir    semantic-v9-lora \
+      --scorer-ckpt    semantic-v9-scorer.pt \
+      --noulscore-ckpt semantic-v9-noulscore.pt \
+      --run-dir        runs/2026-09-21_semantic_v9 \
+      --tasks          public_easy
+  # ...repeat for public_standard, public_hard
+  python jevbench_eval/scripts/summarize_run.py --run-dir runs/2026-09-21_semantic_v9 ...
+  ```
+- **score on v1.2.1:** 68.50 (231 / 534 public items). v1.2.7 rerun is queued — the JevBench repo needs a pull of the current datasets for the judge + easy-heldout + standard-heldout tiers.
+
+file an issue at https://github.com/fstandhartinger/jevbench/issues or ping Benchmark Heaven via https://benchmarkheaven.com with the above and smalljev is on the board.
