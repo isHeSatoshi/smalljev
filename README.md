@@ -164,7 +164,7 @@ python jevbench_eval/scripts/summarize_run.py \
 if you want to start from the weight files instead of training, grab them from the HF model repo:
 
 ```
-isHeSatoshi/smalljev-semantic-v9
+zeusAdi/smalljev-semantic-v9
   semantic-v9-lora/adapter_config.json + adapter_model.safetensors
   semantic-v9-scorer.pt
   semantic-v9-noulscore.pt
