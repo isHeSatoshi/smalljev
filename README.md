@@ -30,6 +30,8 @@ smalljev is the same idea with an open backbone. same shape of outputs, same sco
 
 smallest model in the ranked set. everyone above row 6 has more parameters and a bigger GPU bill.
 
+(this is our own private JevBench score. we haven't been published to the official leaderboard yet. the submission is in the queue at https://github.com/fstandhartinger/jevbench/issues/11, the Benchmark Heaven team hasn't rerun us on their infrastructure.)
+
 four axes (geometric mean, 231 public items):
 - **intelligence 62.19** (easy 97.92, standard 69.44, hard 38.74)
 - **calibration 63.19**
