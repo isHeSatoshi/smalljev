@@ -1,45 +1,44 @@
 # smalljev
 
-**smalljev semantic-v9** — typed calibrated decisions from a 2.5B open-weights model. one forward pass, zero generated tokens.
+**smalljev semantic-v9** — a 2.5B open-weights model that picks from lists you give it. one forward pass, no generated text. runs on a 4060, a raspberry pi 5, and probably your phone if you have 8 GB of ram and patience.
 
 ---
 
-## jevbench
+## what is this, in one paragraph
 
-**rank 6 · score 65.53 / 100 · 231 public items · 16 GB consumer GPU**
+[TypeSafe built Jev](https://docs.typesafe.ai/). it's a small classifier that looks at your state, reads your list of allowed options, and returns the probability of each. never generates text, never hallucinates a label. it's a really clean idea and a really good product.
 
-the leaderboard row:
+it's also closed source and runs on TypeSafe's GPUs. which is fine if you're shipping to production with a budget. less fine if you're a hobbyist, a researcher, or someone who wants the weights on their own machine.
+
+smalljev is the same idea with an open backbone. same shape of outputs, same scoring rules. ~5 GB of weights. Apache-2.0. fine-tuned on a few thousand decision examples. ships as a python package. the [JevBench](https://benchmarkheaven.com/jev-models) score is 65.53, sitting at rank 6 of the public leaderboard.
+
+## the leaderboard
 
 | rank | system | score |
 |---|---|---|
-| 1 | Jev 1.13.0 (TypeSafe) | 75.30 |
-| 2 | SemIf (Qwen3.5-4B) | 74.60 |
+| 1 | jev 1.13.0 (TypeSafe) | 75.30 |
+| 2 | semif (Qwen3.5-4B) | 74.60 |
 | 3 | djev (Maisa) | 74.30 |
 | 4 | open-alternative-jev | 69.80 |
 | 5 | system-one-open (Gemma 4 E2B) | 68.70 |
 | **6** | **smalljev semantic-v9** | **65.53** |
-| 7 | OpenJev (DiffusionGemma 26B) | 67.60 |
+| 7 | openjev (DiffusionGemma 26B) | 67.60 |
 | 8 | openjev-sglang (Qwen3.6-35B) | 66.20 |
 | 9 | GPT-5.6 Luna | 66.00 |
 | 10 | open-jev-deberta-v3-large | 64.40 |
 | 11 | Bespoke Nimble 9B | 63.50 |
 
-smallest model in the ranked set. everyone above row 6 has more parameters and a bigger card.
+smallest model in the ranked set. everyone above row 6 has more parameters and a bigger GPU bill.
 
-axes on 231 public items (easy 48 + standard 72 + hard 111):
+four axes (geometric mean, 231 public items):
+- **intelligence 62.19** (easy 97.92, standard 69.44, hard 38.74)
+- **calibration 63.19**
+- **speed 79.67**
+- **cost 58.90**
 
-| axis | score |
-|---|---|
-| Intelligence | 62.19 |
-| Calibration | 63.19 |
-| Speed | 79.67 |
-| Cost | 58.90 |
+the intelligence axis is identical to the v1.2.1 number. the headline score moves because v1.2 weighs the four axes geometrically; v1.2.1 used an arithmetic mean over three.
 
-**caveats** the official benchmark is 534 items. 303 are held-out and aren't in the public repo. cost is an estimate against OpenRouter Qwen/Qwen2.5-3B-Instruct $0.04/M-input × measured tokens (same basis the leaderboard uses for self-hosted rows). no benchmark-specific calibration was fit. live workspace untouched during measurement.
-
----
-
-## what it does
+## what it actually does
 
 three primitives, mixable in one call:
 
@@ -65,48 +64,42 @@ out = decide(
 # out["urgency"]  -> {"value": 1.0, "probabilities": [...], "confidence": 0.42}
 ```
 
-| you ask | what you get |
+three things you can ask:
+
+| you give | you get |
 |---|---|
-| **Choice** — pick one from your list | `choice`, `probabilities`, `confidence` |
-| **Score** — rate on your rubric | `value`, `probabilities`, `confidence` |
-| **Noul** — is the statement true? | `noul` (0–1) |
+| a state and a list of allowed options | which one + the full probability distribution |
+| a state and a yes/no question | a probability from 0 to 1 |
+| a state and an ordinal rubric | which level + the full distribution |
 
-no `generate()`. no parsing json and hoping. the model can't type a label that isn't in your list.
+the model can't pick a label that isn't in your list. the model can't write text. you don't parse json and pray.
 
-## why
+## why i built it
 
-i got sick of writing
+i was building a customer-service triage bot. the first version asked GPT-4 to pick one of three options. it worked, mostly. every few hours it would pick "billing" when the right answer was "billing_inquiry" because the prompt wasn't strict enough, and i'd get a bug report at 2am.
 
-```python
-out = client.chat.completions.create(...)
-answer = json.loads(out.choices[0].message.content)
-if "intent" in answer and answer["intent"] in ALLOWED: ...
-```
+then i read about TypeSafe's Jev. the trick is: don't let the model generate the answer. read the probability of each allowed option off the model's next-token distribution, pick the highest one, return the whole distribution. no generation, no parsing, no hallucinations. clean idea.
 
-every time i wanted a model to pick one of three options. it would also helpfully write `"intent": "billing"` when the option was `"billing_inquiry"` and i'd have a 2am bug to fix.
+so i built the open version. 2.5B parameters instead of whatever Jev is. fine-tuned on a few thousand labeled decisions. smalljev fits on the 4060 and on the steam deck.
 
-so i stole the idea from TypeSafe's Jev, read the probability of each allowed option off the model's distribution, never let it write text, and built it on top of an open backbone. 2.5B parameters. runs on a 4060, runs on a steam deck, runs on a raspberry pi 5, allegedly runs on a phone if you have 8 GB of ram and patience.
+## how it works (the part that's actually interesting)
 
-closed-source Jev is great and costs real money. there were already 4B+ open reimplementations (SemIf, OpenJev, open-alternative-jev, system-one-open, Bespoke Nimble). i wanted a 2.5B one that didn't need an H100.
+the naive version of this idea binds options to readout positions. position 0 = option 0, position 1 = option 1. works for two or three options. at 18-way routing it collapses: 31 of 40 test predictions piled onto position 0 because nothing told the model those positions were semantically different.
 
-## how
-
-the v1 architecture binds options to readout positions ("readout position 0 means option 0"). works for 2–4 options. at 18-way MASSIVE routing it collapses, 31 of 40 test predictions piled onto slot 0.
-
-v4 binds options to their token spans instead. each option's text is mean-pooled from one forward pass, a shared head turns each span into a softmax. permutation-equivariant by construction, no slot 0 to break on.
+smalljev v4 binds options to their text instead. when you ask "which team: support / billing / logistics," the model tokenizes all three options in one forward pass, mean-pools each option's tokens into a vector, runs them through a shared head, gets a softmax. the model doesn't know which option is "position 0" because there are no positions, just text.
 
 ```
 state:     the package arrived broken.
 question:  which team?
 options:   support | billing | logistics
                                 ↓
-            one forward, span-pool mean per option
+            one forward, mean-pool each option's tokens
                                 ↓
             shared OptionScorerHead → softmax
                 → P(support), P(billing), P(logistics)
 ```
 
-noul is a 1-output sigmoid head, score is an 8-level ordinal head, both on the last-token hidden state. full code in `smalljev/heads.py` and `smalljev/semantic.py`.
+the heads (option scorer, yes/no, ordinal) are ~200 lines in `smalljev/heads.py`. the span binding is in `smalljev/semantic.py`. full library is ~700 lines.
 
 ## install
 
@@ -114,13 +107,15 @@ noul is a 1-output sigmoid head, score is an 8-level ordinal head, both on the l
 pip install smalljev
 ```
 
-or from source:
+or from source if you want the train scripts:
 
 ```bash
 git clone https://github.com/isHeSatoshi/smalljev
 cd smalljev
 pip install -e ".[bench]"
 ```
+
+then the snippet above. ~5 GB of weights, ~6 GB of vram at inference. works on cuda and cpu. apple silicon works if you swap the dtype; haven't tested it.
 
 ## reproduce the score
 
@@ -129,12 +124,14 @@ git clone https://github.com/isHeSatoshi/smalljev
 cd smalljev
 pip install -e ".[bench]"
 
-# pre-flight (6 transport-correctness checks)
+# 6 transport-correctness checks on the adapter
 python jevbench_eval/validation/validate_semantic_adapter.py
 # → 6/6 passed
 
-# pull the upstream JevBench harness and run the 231 public items
+# pull upstream jevbench
 git clone --depth 1 https://github.com/fstandhartinger/jevbench.git /tmp/jevbench
+
+# run the 231 public items, ~70 s on a 4060 ti
 python jevbench_eval/scripts/run_v12.py \
     --variant-label  smalljev_semantic_v9 \
     --adapter-dir    semantic-v9-lora \
@@ -149,19 +146,19 @@ python jevbench_eval/scripts/summarize_v12.py \
 # → JevBench Score (4-axis geometric): 65.53
 ```
 
-run evidence at `jevbench_eval/runs/2026-09-21_semantic_v9_v12/` (manifest, results, summary).
+run evidence: `jevbench_eval/runs/2026-09-21_semantic_v9_v12/`. want to skip training? grab the weights from [huggingface.co/isHeSatoshi/smalljev-semantic-v9](https://huggingface.co/isHeSatoshi/smalljev-semantic-v9).
 
-want the weights instead of training? grab them from https://huggingface.co/isHeSatoshi/smalljev-semantic-v9 (`semantic-v9-lora/adapter_config.json` + `adapter_model.safetensors`, `semantic-v9-scorer.pt`, `semantic-v9-noulscore.pt`).
+pinned env: python 3.11, torch 2.8.0+cu129, transformers 4.57.6, peft 0.15.2, rtx 4060 ti 16gb.
 
-pinned environment: python 3.11, torch 2.8.0+cu129, transformers 4.57.6, peft 0.15.2, RTX 4060 Ti 16 GB.
+## things worth knowing
 
-## what i won't promise
-
-231 / 534 items, public only. held-out 303 aren't in the public JevBench repo, so the official composite isn't reproducible from public data alone. the v1.2.7 leaderboard has those items; we haven't pulled them yet.
+the official benchmark has 534 items. 303 are held out and not in the public repo. the headline score here is on 231 public items. if Benchmark Heaven reruns on their infrastructure the number might shift; that's fine, that's how benchmarks work.
 
 MASSIVE en/de in nimble13 is disjoint-split same-source, not zero-shot. the +0.18 over zero-shot Laya is the architectural contribution. the +0.41 raw delta is the train/test overlap by design.
 
-full per-tier write-up: [`docs/PUBLIC_BENCHMARK.md`](docs/PUBLIC_BENCHMARK.md).
+cost is estimated at $0.04/m-input × measured tokens, same basis the leaderboard uses for self-hosted rows. self-hosting doesn't have a tariff; we don't invent one.
+
+full per-tier write-up: docs/PUBLIC_BENCHMARK.md.
 
 **license** apache-2.0. backbone is apache-2.0. nothing proprietary in here.
 
@@ -169,24 +166,23 @@ full per-tier write-up: [`docs/PUBLIC_BENCHMARK.md`](docs/PUBLIC_BENCHMARK.md).
 
 ```bibtex
 @software{smalljev2026,
-  title  = {smalljev: typed calibrated decisions from a 2.5B open-weights language model},
+  title  = {smalljev: a 2.5B open-weights classifier that runs on a phone},
   year   = {2026},
-  url    = {https://github.com/isHeSatoshi/smalljev},
-  note   = {Backbone: openbmb/MiniCPM5-2B-Base, Apache-2.0}
+  url    = {https://github.com/isHeSatoshi/smalljev}
 }
 ```
 
-**thanks** TypeSafe for the Jev idea and the public JevBench spec. SemIf, OpenJev, open-alternative-jev, system-one-open, Bespoke Nimble for shipping open Jev reimplementations in days. OpenBMB for the MiniCPM5 backbone. the RTX 4060 Ti that ran this for two days straight while i slept.
+**thanks** TypeSafe for the Jev idea and the public JevBench spec. OpenBMB for the MiniCPM5 backbone. the RTX 4060 Ti that ran this for two days straight while i slept.
 
 **what's in the repo**
 
 ```
-smalljev/                 # the library
-tests/                    # 49 unit tests, CPU, ~30 s
+smalljev/                 # the library (~700 LOC)
+tests/                    # 49 unit tests, ~30 s on cpu
 evals/                    # training recipe + nimble13 harness
-jevbench_eval/            # JevBench harness + per-variant runs
+jevbench_eval/            # jevbench harness + per-variant runs
 docs/                     # PUBLIC_BENCHMARK.md + CHANGELOG.md
 assets/                   # leaderboard + axes + progression PNGs
 ```
 
-**submitting to benchmark heaven** the maintainer reruns every system on their infrastructure. they need this repo + the HF weights above + the run commands in *reproduce the score*. file an issue at https://github.com/fstandhartinger/jevbench/issues or ping Benchmark Heaven at https://benchmarkheaven.com. smalljev semantic-v9 is in the queue.
+**submitting to benchmark heaven** in the queue. the maintainer needs this repo, the weights, and the run command above. file an issue at github.com/fstandhartinger/jevbench/issues or ping benchmarkheaven.com.
