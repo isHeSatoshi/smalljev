@@ -1,6 +1,6 @@
 # smalljev
 
-**smalljev semantic-v9** — a 2.5B open-weights model that picks from lists you give it. one forward pass, no generated text. runs on a 4060, a raspberry pi 5, and probably your phone if you have 8 GB of ram and patience.
+**smalljev semantic-v9** — the open TypeSafe Jev that runs on your mama's phone. 2.5B params, one forward pass, zero generated tokens.
 
 ---
 
