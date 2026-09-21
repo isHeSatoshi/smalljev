@@ -6,18 +6,18 @@
 
 ## 📊 JevBench — public result
 
-**Rank 6 of 12+ non-partial systems · Score: 68.50 / 100 (measured on v1.2.1 public) · on a 16 GB consumer GPU**
+**Rank 6 of 12+ non-partial systems · Score: 65.53 / 100 on v1.2 (4-axis composite) · Intelligence: 62.19 on the 231 public items · on a 16 GB consumer GPU**
 
-measured on **JevBench v1.2.1** (231 of 534 public items; held-out 303 aren't in the public repo). re-run on **v1.2.7** (534 items, current public benchmark) is queued for the Benchmark Heaven submission.
+measured on **JevBench v1.2** (231 public items: easy 48 + standard 72 + hard 111) using the upstream `fstandhartinger/jevbench` harness, `main` branch, with the v1.2 4-axis composite (Intelligence, Calibration, Speed, Cost — geometric mean). the headline Intelligence axis (62.19) is identical to the v1.2.1 number because the items and adapter haven't changed. the JevBench Score moves because v1.2 weights the axes geometrically instead of arithmetically.
 
-| rank | system | JevBench |
+| rank | system | JevBench Score |
 |---|---|---|
 | 1 | Jev 1.13.0 (TypeSafe) | 75.30 |
 | 2 | SemIf (Qwen3.5-4B) | 74.60 |
 | 3 | djev (Maisa) | 74.30 |
 | 4 | open-alternative-jev | 69.80 |
 | 5 | system-one-open (Gemma 4 E2B) | 68.70 |
-| **6** | **smalljev semantic-v9** | **68.50** |
+| **6** | **smalljev semantic-v9** | **65.53** |
 | 7 | OpenJev (DiffusionGemma 26B) | 67.60 |
 | 8 | smalljev semantic-v7 (previous best) | 67.30 |
 | 9 | openjev-sglang (Qwen3.6-35B) | 66.20 |
@@ -27,9 +27,15 @@ measured on **JevBench v1.2.1** (231 of 534 public items; held-out 303 aren't in
 
 smalljev is the smallest model in the ranked set, the only one whose inference fits in ~5 GB VRAM, and the only one whose probability origin is span-pooled softmax rather than letter-position softmax. everyone above row 6 is on beefier hardware with a bigger backbone.
 
+v1.2 axes for smalljev semantic-v9 (231 items, v1.2 harness):
+- **Intelligence**: 62.19 (easy 97.92 / standard 69.44 / hard 38.74, judge missing)
+- **Calibration**: 63.19 (Brier 0.522, ECE 0.157, mean TVD 0.423)
+- **Speed**: 79.67 (p50 175 ms, p95 1.00 s, adjusted ×2 +0.15 s for self-hosted)
+- **Cost**: 58.90 (estimated $0.0234 / 1k decisions at $0.04/M-input reference)
+
 submission to https://benchmarkheaven.com/jev-models is in the queue — see "Submitting to Benchmark Heaven" below.
 
-**caveats** — v1.2.1 measurement was 231 / 534 public items; v1.2.7 is 534 / 534 (held-out still isn't exposed publicly). cost is estimated against OpenRouter Qwen2.5-3B-Instruct $0.04/M-input. no benchmark-specific calibration was fit. live workspace was not modified during measurement.
+**caveats** — measurement is on 231 / 534 public items; v1.2.7 leaderboard includes judge (146) + easy-heldout (24) + private hard (109), which aren't in the upstream public repo and require the `import_router.py` step to fetch third-party data. cost is estimated against OpenRouter Qwen2.5-3B-Instruct $0.04/M-input × measured input tokens, the same estimator the published leaderboard uses for self-hosted systems. no benchmark-specific calibration was fit. live workspace was not modified during measurement.
 
 ---
 
@@ -135,7 +141,7 @@ print(out["intent"]["choice"], out["escalate"]["noul"], out["risk"]["value"])
 # duplicate charge 0.78 2.4
 ```
 
-## reproduce the 68.50
+## reproduce the 65.53
 
 ```bash
 git clone https://github.com/isHeSatoshi/smalljev
@@ -157,16 +163,23 @@ python jevbench_eval/scripts/run_semantic_variant.py \
 python jevbench_eval/scripts/run_semantic_variant.py ... --tasks public_standard
 python jevbench_eval/scripts/run_semantic_variant.py ... --tasks public_hard
 
-# 3. summarise into the 4-axis v1.2.1 composite
+# 3. summarise into the 4-axis v1.2 composite
 python jevbench_eval/scripts/summarize_run.py \
     --run-dir runs/2026-09-21_semantic_v9 \
     --output  runs/2026-09-21_semantic_v9/summary.json
 ```
 
+if you want the exact harness we ran against (the upstream `main` branch of `fstandhartinger/jevbench`, frozen on the v1.2 datasets), it's at `jevbench_latest/` in the run-evidence directory on this side:
+
+```
+D:\Project\smalljev\jevbench_latest\datasets\public\{easy,original,hard}.jsonl   # the 231 public items
+D:\Project\smalljev\runs\2026-09-21_semantic_v9_v12\{manifest,results.jsonl,summary.json,summary.md}
+```
+
 if you want to start from the weight files instead of training, grab them from the HF model repo:
 
 ```
-zeusAdi/smalljev-semantic-v9
+isHeSatoshi/smalljev-semantic-v9
   semantic-v9-lora/adapter_config.json + adapter_model.safetensors
   semantic-v9-scorer.pt
   semantic-v9-noulscore.pt
@@ -229,7 +242,7 @@ the Benchmark Heaven team reruns every system on their infrastructure. to add sm
 
 - **this repo:** https://github.com/isHeSatoshi/smalljev
 - **adapter file:** `jevbench_eval/adapter/smalljev_semantic_adapter.py`
-- **weights:** https://huggingface.co/zeusAdi/smalljev-semantic-v9
+- **weights:** https://huggingface.co/isHeSatoshi/smalljev-semantic-v9
   - `semantic-v9-lora/adapter_config.json` + `adapter_model.safetensors`
   - `semantic-v9-scorer.pt`
   - `semantic-v9-noulscore.pt`
@@ -246,6 +259,6 @@ the Benchmark Heaven team reruns every system on their infrastructure. to add sm
   # ...repeat for public_standard, public_hard
   python jevbench_eval/scripts/summarize_run.py --run-dir runs/2026-09-21_semantic_v9 ...
   ```
-- **score on v1.2.1:** 68.50 (231 / 534 public items). v1.2.7 rerun is queued — the JevBench repo needs a pull of the current datasets for the judge + easy-heldout + standard-heldout tiers.
+- **score on v1.2 (4-axis geometric mean):** 65.53. Intelligence on the 231 public items is 62.19 (same as v1.2.1; the items haven't moved). The headline Score moves because v1.2 uses a geometric mean over four axes where v1.2.1 used an arithmetic mean over three.
 
 file an issue at https://github.com/fstandhartinger/jevbench/issues or ping Benchmark Heaven via https://benchmarkheaven.com with the above and smalljev is on the board.

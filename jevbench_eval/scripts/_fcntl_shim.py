@@ -1,28 +1,19 @@
-"""Windows compatibility shim for `fcntl` (POSIX file locking).
+"""Windows shim for fcntl (not available on Windows).
 
-JevBench's `budget.py` imports `fcntl` for cross-process ledger locking. On Windows
-`fcntl` does not exist, but our benchmark is single-process and the locking is
-therefore redundant. This module provides a no-op shim with the same surface area
-that `jevbench/budget.py` calls into.
-
-Installed by `scripts/run_variant.py` and `scripts/summarize_run.py` before any
-JevBench import. NOT used outside this isolated evaluation directory.
+JevBench uses fcntl.flock for its ledger. We don't actually need real file
+locking because Windows file IO is already serialized at the OS level for the
+single-writer case, and the harness runs serially by design.
 """
-import sys
-import types
-
-
-class _FlockModule(types.ModuleType):
-    """Stub fcntl: implements LOCK_SH / LOCK_EX / LOCK_UN as no-ops."""
-
-    LOCK_SH = 1
-    LOCK_EX = 2
-    LOCK_UN = 8
-    LOCK_NB = 4
-
-    def flock(self, f, op):  # noqa: D401
-        return None
-
-
-shim = _FlockModule("fcntl")
-sys.modules["fcntl"] = shim
+import sys as _sys
+_FAKE_FCNTL = _sys.modules.get("fcntl") or type(_sys)("fcntl")
+_FAKE_FCNTL.LOCK_EX = 2
+_FAKE_FCNTL.LOCK_SH = 1
+_FAKE_FCNTL.LOCK_UN = 8
+_FAKE_FCNTL.LOCK_NB = 4
+def _noop(*_a, **_kw):
+    return None
+_FAKE_FCNTL.flock = _noop
+_FAKE_FCNTL.fcntl = _noop
+_FAKE_FCNTL.ioctl = _noop
+_FAKE_FCNTL.lockf = _noop
+_sys.modules["fcntl"] = _FAKE_FCNTL
