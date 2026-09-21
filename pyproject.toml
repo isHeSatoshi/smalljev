@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "smalljev"
 version = "0.4.0"
-description = "Typed calibrated decisions from a 2.5B open-weights language model, in one forward pass, zero generated tokens"
+description = "The open TypeSafe Jev that runs on your mama's phone. 2.5B params, one forward pass, zero generated tokens."
 readme = "README.md"
 license = { text = "Apache-2.0" }
 authors = [
