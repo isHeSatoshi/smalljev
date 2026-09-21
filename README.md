@@ -1,12 +1,12 @@
 # smalljev
 
-**<span style="font-size:1.4em">smalljev semantic-v7</span>** — typed calibrated decisions from a 2.5B open-weights language model, in one forward pass, zero generated tokens.
+**<span style="font-size:1.4em">smalljev semantic-v9</span>** — typed calibrated decisions from a 2.5B open-weights language model, in one forward pass, zero generated tokens.
 
 ---
 
 ## 📊 JevBench v1.2.1 — public result
 
-**Rank 7 of 21 non-partial systems · Score: 67.30 / 100 · on a 16 GB consumer GPU**
+**Rank 6 of 21 non-partial systems · Score: 68.50 / 100 · on a 16 GB consumer GPU**
 
 | rank | system | JevBench |
 |---|---|---|
@@ -15,16 +15,17 @@
 | 3 | djev (Maisa) | 74.30 |
 | 4 | open-alternative-jev | 69.80 |
 | 5 | system-one-open (Gemma 4 E2B) | 68.70 |
-| 6 | OpenJev (DiffusionGemma 26B) | 67.60 |
-| **7** | **smalljev semantic-v7** | **67.30** |
-| 8 | openjev-sglang (Qwen3.6-35B) | 66.20 |
-| 9 | GPT-5.6 Luna | 66.00 |
-| 10 | open-jev-deberta-v3-large | 64.40 |
-| 11 | Bespoke Nimble 9B | 63.50 |
+| **6** | **smalljev semantic-v9** | **68.50** |
+| 7 | OpenJev (DiffusionGemma 26B) | 67.60 |
+| 8 | smalljev semantic-v7 (previous best) | 67.30 |
+| 9 | openjev-sglang (Qwen3.6-35B) | 66.20 |
+| 10 | GPT-5.6 Luna | 66.00 |
+| 11 | open-jev-deberta-v3-large | 64.40 |
+| 12 | Bespoke Nimble 9B | 63.50 |
 
 submission to https://benchmarkheaven.com/jev-models is in the queue.
 
-smalljev is the smallest model in the ranked set, the only one whose inference fits in ~5 GB VRAM, and the only one whose probability origin is span-pooled softmax rather than letter-position softmax. everyone above row 7 is on beefier hardware with a bigger backbone.
+smalljev is the smallest model in the ranked set, the only one whose inference fits in ~5 GB VRAM, and the only one whose probability origin is span-pooled softmax rather than letter-position softmax. everyone above row 6 is on beefier hardware with a bigger backbone.
 
 **caveats** — 231 / 534 public items (held-out 303 aren't in the public repo). cost is estimated against OpenRouter Qwen2.5-3B-Instruct $0.04/M-input. no benchmark-specific calibration was fit. live workspace was not modified during measurement.
 
@@ -116,8 +117,8 @@ from smalljev import decide
 from smalljev.model import HFBackend
 
 backend = HFBackend("openbmb/MiniCPM5-2B-Base",
-                   adapter_id="adapters/semantic-v7-lora",
-                   heads_ckpt="adapters/semantic-v7")
+                   adapter_id="adapters/semantic-v9-lora",
+                   heads_ckpt="adapters/semantic-v9")
 
 out = decide(
     "Customer was charged twice for the same order.",
@@ -132,29 +133,42 @@ print(out["intent"]["choice"], out["escalate"]["noul"], out["risk"]["value"])
 # duplicate charge 0.78 2.4
 ```
 
-## reproduce the 67.30
+## reproduce the 68.50
 
 ```bash
 git clone https://github.com/isHeSatoshi/smalljev
 cd smalljev
 pip install -e ".[bench]"
 
+# 1. pre-flight (6 transport-correctness checks on the adapter)
 python jevbench_eval/validation/validate_semantic_adapter.py
 # → Validation result: 6/6 passed
 
+# 2. run the 231 public JevBench items
 python jevbench_eval/scripts/run_semantic_variant.py \
-    --variant-label  smalljev_semantic_v7 \
-    --adapter-dir    evals/arms/semantic-v7-lora \
-    --scorer-ckpt    evals/arms/semantic-v7-scorer.pt \
-    --noulscore-ckpt evals/arms/semantic-v7-noulscore.pt \
-    --run-dir        runs/2026-09-20_semantic_v7 \
+    --variant-label  smalljev_semantic_v9 \
+    --adapter-dir    evals/arms/semantic-v9-lora \
+    --scorer-ckpt    evals/arms/semantic-v9-scorer.pt \
+    --noulscore-ckpt evals/arms/semantic-v9-noulscore.pt \
+    --run-dir        runs/2026-09-21_semantic_v9 \
     --tasks          public_easy
 python jevbench_eval/scripts/run_semantic_variant.py ... --tasks public_standard
 python jevbench_eval/scripts/run_semantic_variant.py ... --tasks public_hard
 
+# 3. summarise into the 4-axis v1.2.1 composite
 python jevbench_eval/scripts/summarize_run.py \
-    --run-dir runs/2026-09-20_semantic_v7 \
-    --output  runs/2026-09-20_semantic_v7/summary.json
+    --run-dir runs/2026-09-21_semantic_v9 \
+    --output  runs/2026-09-21_semantic_v9/summary.json
+```
+
+if you want to start from the weight files instead of training, grab them from the HF model repo:
+
+```
+isHeSatoshi/smalljev-semantic-v9
+  semantic-v9-lora/adapter_config.json + adapter_model.safetensors
+  semantic-v9-scorer.pt
+  semantic-v9-noulscore.pt
+  semantic-v9-train.json
 ```
 
 **pinned environment the score was measured on:**
@@ -167,7 +181,7 @@ peft 0.15.2
 gpu   RTX 4060 Ti 16GB
 ```
 
-**caveats the previous agent will make me write**
+## caveats the previous agent will make me write
 
 - 231 / 534 items, public only. held-out 303 aren't in the public JevBench repo. the official composite isn't reproducible from public data alone.
 - MASSIVE en/de in nimble13 is trained on the disjoint train split of the same dataset, same prompt wording. "disjoint-split, not zero-shot." the +0.18 vs zero-shot Laya is the architectural contribution. the +0.41 raw delta is mostly the train/test overlap by design.
@@ -177,7 +191,7 @@ gpu   RTX 4060 Ti 16GB
 
 full per-tier write-up: [`docs/PUBLIC_BENCHMARK.md`](docs/PUBLIC_BENCHMARK.md).
 
-**what's in the repo**
+## what's in the repo
 
 ```
 smalljev/                 # the library (~700 LOC)

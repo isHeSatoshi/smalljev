@@ -68,3 +68,8 @@ hf_cache/
 
 # Generated figs (regenerated from make_*_figs.py)
 evals/figs/*.png
+
+# Big reference datasets (download separately — see evals/nimble13.py)
+# GitHub rejects files > 100 MB; these are 200+ MB each
+evals/nimble13_raw/*.zip
+evals/nimble13_raw/*.tar.gz

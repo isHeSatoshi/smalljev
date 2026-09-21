@@ -1,0 +1,1112 @@
+{
+  "v4_bundle": {
+    "easy": {
+      "n_wrong": 2,
+      "n_total": 48,
+      "examples": [
+        {
+          "id": "easy-fact-04",
+          "family": "fact",
+          "qtype": "noul",
+          "state_first_200": "Guest profile: Maria Lopez. Allergies: peanuts. Diet: vegetarian.",
+          "instructions": "Is the guest allergic to peanuts? Answer strictly from the facts stated in the text.",
+          "labels": [
+            "no",
+            "yes"
+          ],
+          "expected": "yes",
+          "predicted": "no",
+          "probs": {
+            "yes": 0.13011810183525085,
+            "no": 0.8698818981647491
+          },
+          "confidence": 0.8698818981647491,
+          "latency_s": 0.24817690000054426
+        },
+        {
+          "id": "easy-fact-06",
+          "family": "fact",
+          "qtype": "noul",
+          "state_first_200": "Meeting room B: booked from 14:00 to 15:00 by the sales team.",
+          "instructions": "Is meeting room B booked from 14:00 to 15:00? Answer strictly from the facts stated in the text.",
+          "labels": [
+            "no",
+            "yes"
+          ],
+          "expected": "yes",
+          "predicted": "no",
+          "probs": {
+            "yes": 0.257402241230011,
+            "no": 0.742597758769989
+          },
+          "confidence": 0.742597758769989,
+          "latency_s": 0.2235352000061539
+        }
+      ]
+    },
+    "standard": {
+      "n_wrong": 20,
+      "n_total": 72,
+      "examples": [
+        {
+          "id": "original-policy-02-0",
+          "family": "policy",
+          "qtype": "noul",
+          "state_first_200": "Policy: trial users may export CSV; PDF needs a paid plan. Trial user asks for CSV.",
+          "instructions": "Under the stated policy, is the requested action permitted? Treat unproved required conditions as not satisfied.",
+          "labels": [
+            "no",
+            "yes"
+          ],
+          "expected": "yes",
+          "predicted": "no",
+          "probs": {
+            "yes": 0.008241579867899418,
+            "no": 0.9917584201321006
+          },
+          "confidence": 0.9917584201321006,
+          "latency_s": 0.08310299999720883
+        },
+        {
+          "id": "original-policy-02-1",
+          "family": "policy",
+          "qtype": "noul",
+          "state_first_200": "A trial account requests CSV export. Rules allow trial CSV, but reserve PDF for paid accounts.",
+          "instructions": "Under the stated policy, is the requested action permitted? Treat unproved required conditions as not satisfied.",
+          "labels": [
+            "no",
+            "yes"
+          ],
+          "expected": "yes",
+          "predicted": "no",
+          "probs": {
+            "yes": 0.008105399087071419,
+            "no": 0.9918946009129286
+          },
+          "confidence": 0.9918946009129286,
+          "latency_s": 0.07860000000073342
+        },
+        {
+          "id": "original-policy-03-0",
+          "family": "policy",
+          "qtype": "noul",
+          "state_first_200": "Policy: visitors need an escort unless they are registered contractors. A registered contractor arrives alone. Admit them.",
+          "instructions": "Under the stated policy, is the requested action permitted? Treat unproved required conditions as not satisfied.",
+          "labels": [
+            "no",
+            "yes"
+          ],
+          "expected": "yes",
+          "predicted": "no",
+          "probs": {
+            "yes": 0.01818961650133133,
+            "no": 0.9818103834986687
+          },
+          "confidence": 0.9818103834986687,
+          "latency_s": 0.06885970000439556
+        },
+        {
+          "id": "original-policy-03-1",
+          "family": "policy",
+          "qtype": "noul",
+          "state_first_200": "Escort rule exempts registered contractors. This visitor is a registered contractor without an escort. Can they enter?",
+          "instructions": "Under the stated policy, is the requested action permitted? Treat unproved required conditions as not satisfied.",
+          "labels": [
+            "no",
+            "yes"
+          ],
+          "expected": "yes",
+          "predicted": "no",
+          "probs": {
+            "yes": 0.011771589517593384,
+            "no": 0.9882284104824066
+          },
+          "confidence": 0.9882284104824066,
+          "latency_s": 0.059810899998410605
+        },
+        {
+          "id": "original-policy-06-0",
+          "family": "policy",
+          "qtype": "noul",
+          "state_first_200": "Policy: bookings can be cancelled free until 24 hours before departure, including exactly 24 hours. Departure is 24 hours away. Cancel free.",
+          "instructions": "Under the stated policy, is the requested action permitted? Treat unproved required conditions as not satisfied.",
+          "labels": [
+            "no",
+            "yes"
+          ],
+          "expected": "yes",
+          "predicted": "no",
+          "probs": {
+            "yes": 0.02460588328540325,
+            "no": 0.9753941167145967
+          },
+          "confidence": 0.9753941167145967,
+          "latency_s": 0.07030759999906877
+        }
+      ]
+    },
+    "hard": {
+      "n_wrong": 78,
+      "n_total": 111,
+      "examples": [
+        {
+          "id": "hard-opus-a-long_policy-01",
+          "family": "long_policy",
+          "qtype": "choice",
+          "state_first_200": "HARBORLINE MUTUAL INSURANCE COMPANY\nHOMEOWNERS POLICY FORM HM-3 (EDITION 04/2023) — EXCERPTS, ENDORSEMENTS AND CLAIM FILE HX-2026-118804\nPrepared for coverage review. Page numbers omitted. Bracketed n",
+          "instructions": "Acting as the coverage reviewer, decide how the building water-damage portion of claim HX-2026-118804 must be settled under the policy form and the en",
+          "labels": [
+            "deny_vacancy_exclusion",
+            "deny_repeated_seepage",
+            "pay_subject_to_10000_sublimit",
+            "pay_subject_to_15000_sublimit",
+            "pay_full_estimate_less_deductible"
+          ],
+          "expected": "pay_subject_to_15000_sublimit",
+          "predicted": "deny_vacancy_exclusion",
+          "probs": {
+            "deny_vacancy_exclusion": 0.973818302154541,
+            "deny_repeated_seepage": 0.0005942207062616944,
+            "pay_subject_to_10000_sublimit": 0.0005250389804132283,
+            "pay_subject_to_15000_sublimit": 0.024997787550091743,
+            "pay_full_estimate_less_deductible": 6.465015758294612e-05
+          },
+          "confidence": 0.973818302154541,
+          "latency_s": 2.048842899996089
+        },
+        {
+          "id": "hard-opus-a-long_policy-04",
+          "family": "long_policy",
+          "qtype": "choice",
+          "state_first_200": "CASTELLAN FOODS GMBH — GROUP PROCUREMENT POLICY GP-01 (VERSION 7, EFFECTIVE 1 MARCH 2025)\nEXTRACT FOR APPROVAL ROUTING, WITH AMENDMENT GP-01/A3 AND PURCHASE REQUEST PR-2026-4471\n\nPART I — POLICY EXTRA",
+          "instructions": "Determine the required approval level for purchase request PR-2026-4471 under policy GP-01 as amended.",
+          "labels": [
+            "budget_holder",
+            "department_head",
+            "vp_and_finance_director",
+            "cfo",
+            "executive_committee"
+          ],
+          "expected": "cfo",
+          "predicted": "budget_holder",
+          "probs": {
+            "budget_holder": 0.9863472580909729,
+            "department_head": 0.005173173733055592,
+            "vp_and_finance_director": 0.00046510965330526233,
+            "cfo": 0.008012390695512295,
+            "executive_committee": 2.0397260414029006e-06
+          },
+          "confidence": 0.9863472580909729,
+          "latency_s": 0.9235396000003675
+        },
+        {
+          "id": "hard-opus-a-long_policy-08",
+          "family": "long_policy",
+          "qtype": "choice",
+          "state_first_200": "BREVANO ESPRESSO SYSTEMS — CONSUMER SERVICE CENTRE\nWARRANTY DETERMINATION PACKET, SERVICE ORDER SO-26-118374\n\nDOCUMENT 1 — LIMITED WARRANTY FOR HOME MACHINES, FORM WB-HOME-22 (APPLIES TO PURCHASES FRO",
+          "instructions": "Determine the warranty outcome for the pump failure in service order SO-26-118374 under WB-HOME-22 and the service bulletins.",
+          "labels": [
+            "full_repair_no_charge",
+            "parts_covered_labour_charged",
+            "pro_rata_replacement_credit",
+            "not_covered"
+          ],
+          "expected": "parts_covered_labour_charged",
+          "predicted": "full_repair_no_charge",
+          "probs": {
+            "full_repair_no_charge": 0.8172293901443481,
+            "parts_covered_labour_charged": 0.16847103834152222,
+            "pro_rata_replacement_credit": 7.824024214642122e-05,
+            "not_covered": 0.014221388846635818
+          },
+          "confidence": 0.8172293901443481,
+          "latency_s": 0.8126159000021289
+        },
+        {
+          "id": "hard-opus-a-long_policy-09",
+          "family": "long_policy",
+          "qtype": "choice",
+          "state_first_200": "VELANT OPTICS GROUP — TRADE COMPLIANCE OFFICE\nEXPORT DETERMINATION WORKSHEET, ORDER SO-MR-26-0931 (fictional regulatory regime used for internal training and live screening)\n\nPART 1 — NORTHERN UNION S",
+          "instructions": "As the trade compliance reviewer, determine the correct export determination for order SO-MR-26-0931 under the SGR as in force on the requested ship d",
+          "labels": [
+            "no_license_required",
+            "license_exception_lvs",
+            "license_required",
+            "shipment_prohibited"
+          ],
+          "expected": "license_required",
+          "predicted": "no_license_required",
+          "probs": {
+            "no_license_required": 0.998960018157959,
+            "license_exception_lvs": 7.944368553580716e-05,
+            "license_required": 1.2369369869702496e-05,
+            "shipment_prohibited": 0.0009481814340688288
+          },
+          "confidence": 0.998960018157959,
+          "latency_s": 0.853194600000279
+        },
+        {
+          "id": "hard-opus-a-long_policy-11",
+          "family": "long_policy",
+          "qtype": "noul",
+          "state_first_200": "MERIDIAN CARD SERVICES — DISPUTES OPERATIONS\nCASE REVIEW PACKET: DISPUTE DP-26-0703318 (PAXNET CREDIT CARD)\n\n=== EXCERPT 1: PAXNET DISPUTE RULES FOR ISSUERS (EDITION APRIL 2026), CHAPTER 9 ===\n\n9.0 Ge",
+          "instructions": "At the representment review stage, should dispute DP-26-0703318 be decided in the cardholder's favour under the Paxnet rules?",
+          "labels": [
+            "no",
+            "yes"
+          ],
+          "expected": "yes",
+          "predicted": "no",
+          "probs": {
+            "yes": 0.05450095236301422,
+            "no": 0.9454990476369858
+          },
+          "confidence": 0.9454990476369858,
+          "latency_s": 0.7343193000051542
+        }
+      ]
+    }
+  },
+  "v5_holdout": {
+    "easy": {
+      "n_wrong": 2,
+      "n_total": 48,
+      "examples": [
+        {
+          "id": "easy-fact-04",
+          "family": "fact",
+          "qtype": "noul",
+          "state_first_200": "Guest profile: Maria Lopez. Allergies: peanuts. Diet: vegetarian.",
+          "instructions": "Is the guest allergic to peanuts? Answer strictly from the facts stated in the text.",
+          "labels": [
+            "no",
+            "yes"
+          ],
+          "expected": "yes",
+          "predicted": "no",
+          "probs": {
+            "yes": 0.02675597369670868,
+            "no": 0.9732440263032913
+          },
+          "confidence": 0.9732440263032913,
+          "latency_s": 0.13583230000222102
+        },
+        {
+          "id": "easy-fact-06",
+          "family": "fact",
+          "qtype": "noul",
+          "state_first_200": "Meeting room B: booked from 14:00 to 15:00 by the sales team.",
+          "instructions": "Is meeting room B booked from 14:00 to 15:00? Answer strictly from the facts stated in the text.",
+          "labels": [
+            "no",
+            "yes"
+          ],
+          "expected": "yes",
+          "predicted": "no",
+          "probs": {
+            "yes": 0.030956458300352097,
+            "no": 0.9690435416996479
+          },
+          "confidence": 0.9690435416996479,
+          "latency_s": 0.1368984000000637
+        }
+      ]
+    },
+    "standard": {
+      "n_wrong": 33,
+      "n_total": 72,
+      "examples": [
+        {
+          "id": "original-policy-02-0",
+          "family": "policy",
+          "qtype": "noul",
+          "state_first_200": "Policy: trial users may export CSV; PDF needs a paid plan. Trial user asks for CSV.",
+          "instructions": "Under the stated policy, is the requested action permitted? Treat unproved required conditions as not satisfied.",
+          "labels": [
+            "no",
+            "yes"
+          ],
+          "expected": "yes",
+          "predicted": "no",
+          "probs": {
+            "yes": 0.013806592673063278,
+            "no": 0.9861934073269367
+          },
+          "confidence": 0.9861934073269367,
+          "latency_s": 0.13719249999849126
+        },
+        {
+          "id": "original-policy-02-1",
+          "family": "policy",
+          "qtype": "noul",
+          "state_first_200": "A trial account requests CSV export. Rules allow trial CSV, but reserve PDF for paid accounts.",
+          "instructions": "Under the stated policy, is the requested action permitted? Treat unproved required conditions as not satisfied.",
+          "labels": [
+            "no",
+            "yes"
+          ],
+          "expected": "yes",
+          "predicted": "no",
+          "probs": {
+            "yes": 0.016467921435832977,
+            "no": 0.983532078564167
+          },
+          "confidence": 0.983532078564167,
+          "latency_s": 0.1408926000003703
+        },
+        {
+          "id": "original-policy-03-0",
+          "family": "policy",
+          "qtype": "noul",
+          "state_first_200": "Policy: visitors need an escort unless they are registered contractors. A registered contractor arrives alone. Admit them.",
+          "instructions": "Under the stated policy, is the requested action permitted? Treat unproved required conditions as not satisfied.",
+          "labels": [
+            "no",
+            "yes"
+          ],
+          "expected": "yes",
+          "predicted": "no",
+          "probs": {
+            "yes": 0.07264444231987,
+            "no": 0.92735555768013
+          },
+          "confidence": 0.92735555768013,
+          "latency_s": 0.13668800000596093
+        },
+        {
+          "id": "original-policy-03-1",
+          "family": "policy",
+          "qtype": "noul",
+          "state_first_200": "Escort rule exempts registered contractors. This visitor is a registered contractor without an escort. Can they enter?",
+          "instructions": "Under the stated policy, is the requested action permitted? Treat unproved required conditions as not satisfied.",
+          "labels": [
+            "no",
+            "yes"
+          ],
+          "expected": "yes",
+          "predicted": "no",
+          "probs": {
+            "yes": 0.02125454694032669,
+            "no": 0.9787454530596733
+          },
+          "confidence": 0.9787454530596733,
+          "latency_s": 0.13594429999648128
+        },
+        {
+          "id": "original-policy-06-0",
+          "family": "policy",
+          "qtype": "noul",
+          "state_first_200": "Policy: bookings can be cancelled free until 24 hours before departure, including exactly 24 hours. Departure is 24 hours away. Cancel free.",
+          "instructions": "Under the stated policy, is the requested action permitted? Treat unproved required conditions as not satisfied.",
+          "labels": [
+            "no",
+            "yes"
+          ],
+          "expected": "yes",
+          "predicted": "no",
+          "probs": {
+            "yes": 0.1932719200849533,
+            "no": 0.8067280799150467
+          },
+          "confidence": 0.8067280799150467,
+          "latency_s": 0.1337786000003689
+        }
+      ]
+    },
+    "hard": {
+      "n_wrong": 61,
+      "n_total": 111,
+      "examples": [
+        {
+          "id": "hard-opus-a-long_policy-01",
+          "family": "long_policy",
+          "qtype": "choice",
+          "state_first_200": "HARBORLINE MUTUAL INSURANCE COMPANY\nHOMEOWNERS POLICY FORM HM-3 (EDITION 04/2023) — EXCERPTS, ENDORSEMENTS AND CLAIM FILE HX-2026-118804\nPrepared for coverage review. Page numbers omitted. Bracketed n",
+          "instructions": "Acting as the coverage reviewer, decide how the building water-damage portion of claim HX-2026-118804 must be settled under the policy form and the en",
+          "labels": [
+            "deny_vacancy_exclusion",
+            "deny_repeated_seepage",
+            "pay_subject_to_10000_sublimit",
+            "pay_subject_to_15000_sublimit",
+            "pay_full_estimate_less_deductible"
+          ],
+          "expected": "pay_subject_to_15000_sublimit",
+          "predicted": "pay_full_estimate_less_deductible",
+          "probs": {
+            "deny_vacancy_exclusion": 0.0034855164121836424,
+            "deny_repeated_seepage": 0.009672456420958042,
+            "pay_subject_to_10000_sublimit": 0.07235997170209885,
+            "pay_subject_to_15000_sublimit": 0.3386792242527008,
+            "pay_full_estimate_less_deductible": 0.5758028626441956
+          },
+          "confidence": 0.5758028626441956,
+          "latency_s": 10.191046100000676
+        },
+        {
+          "id": "hard-opus-a-long_policy-04",
+          "family": "long_policy",
+          "qtype": "choice",
+          "state_first_200": "CASTELLAN FOODS GMBH — GROUP PROCUREMENT POLICY GP-01 (VERSION 7, EFFECTIVE 1 MARCH 2025)\nEXTRACT FOR APPROVAL ROUTING, WITH AMENDMENT GP-01/A3 AND PURCHASE REQUEST PR-2026-4471\n\nPART I — POLICY EXTRA",
+          "instructions": "Determine the required approval level for purchase request PR-2026-4471 under policy GP-01 as amended.",
+          "labels": [
+            "budget_holder",
+            "department_head",
+            "vp_and_finance_director",
+            "cfo",
+            "executive_committee"
+          ],
+          "expected": "cfo",
+          "predicted": "vp_and_finance_director",
+          "probs": {
+            "budget_holder": 0.15312854945659637,
+            "department_head": 0.23896978795528412,
+            "vp_and_finance_director": 0.333564430475235,
+            "cfo": 0.14152055978775024,
+            "executive_committee": 0.13281665742397308
+          },
+          "confidence": 0.333564430475235,
+          "latency_s": 0.9270919999980833
+        },
+        {
+          "id": "hard-opus-a-long_policy-09",
+          "family": "long_policy",
+          "qtype": "choice",
+          "state_first_200": "VELANT OPTICS GROUP — TRADE COMPLIANCE OFFICE\nEXPORT DETERMINATION WORKSHEET, ORDER SO-MR-26-0931 (fictional regulatory regime used for internal training and live screening)\n\nPART 1 — NORTHERN UNION S",
+          "instructions": "As the trade compliance reviewer, determine the correct export determination for order SO-MR-26-0931 under the SGR as in force on the requested ship d",
+          "labels": [
+            "no_license_required",
+            "license_exception_lvs",
+            "license_required",
+            "shipment_prohibited"
+          ],
+          "expected": "license_required",
+          "predicted": "no_license_required",
+          "probs": {
+            "no_license_required": 0.49033254384994507,
+            "license_exception_lvs": 0.2124280333518982,
+            "license_required": 0.23016631603240967,
+            "shipment_prohibited": 0.06707307696342468
+          },
+          "confidence": 0.49033254384994507,
+          "latency_s": 3.2749288999984856
+        },
+        {
+          "id": "hard-opus-a-long_policy-13",
+          "family": "long_policy",
+          "qtype": "noul",
+          "state_first_200": "WAYFARER ASSURANCE LTD — SINGLE TRIP TRAVEL INSURANCE\nPOLICY WORDING WT-2025 (EXTRACT), ENDORSEMENT WT-E7, AND CLAIM FILE TC-2026-58114\n\nPART 1 — POLICY WORDING WT-2025 (EXTRACT)\n\nSECTION 1 — DEFINITI",
+          "instructions": "Is claim TC-2026-58114 covered under Section 2 (Trip Cancellation) of the policy as endorsed, i.e. should the forfeited trip cost be reimbursed?",
+          "labels": [
+            "no",
+            "yes"
+          ],
+          "expected": "yes",
+          "predicted": "no",
+          "probs": {
+            "yes": 0.013224470429122448,
+            "no": 0.9867755295708776
+          },
+          "confidence": 0.9867755295708776,
+          "latency_s": 3.485845600000175
+        },
+        {
+          "id": "hard-opus-a-probability-04",
+          "family": "probability",
+          "qtype": "choice",
+          "state_first_200": "OSTERLAND GARDEN SUPPLY — INBOUND LOGISTICS: DELIVERY FORECAST FOR SHIPMENT SH-2026-3391\n\nShipment SH-2026-3391: Brisa Freight, service Express, pickup week 39/2026, route Porto → Hanover.\nOutcome cat",
+          "instructions": "What will the delivery outcome of shipment SH-2026-3391 be? Give probabilities that reflect the evidence in the state.",
+          "labels": [
+            "early",
+            "on_time",
+            "late"
+          ],
+          "expected": "on_time",
+          "predicted": "late",
+          "probs": {
+            "early": 0.000657332013361156,
+            "on_time": 0.0025834590196609497,
+            "late": 0.9967592358589172
+          },
+          "confidence": 0.9967592358589172,
+          "latency_s": 0.2194071000049007
+        }
+      ]
+    }
+  },
+  "crown": {
+    "easy": {
+      "n_wrong": 0,
+      "n_total": 48,
+      "examples": []
+    },
+    "standard": {
+      "n_wrong": 20,
+      "n_total": 72,
+      "examples": [
+        {
+          "id": "original-policy-02-0",
+          "family": "policy",
+          "qtype": "noul",
+          "state_first_200": "Policy: trial users may export CSV; PDF needs a paid plan. Trial user asks for CSV.",
+          "instructions": "Under the stated policy, is the requested action permitted? Treat unproved required conditions as not satisfied.",
+          "labels": [
+            "no",
+            "yes"
+          ],
+          "expected": "yes",
+          "predicted": "no",
+          "probs": {
+            "yes": 0.0034471109975129366,
+            "no": 0.9965528890024871
+          },
+          "confidence": 0.9965528890024871,
+          "latency_s": 0.13860510000085924
+        },
+        {
+          "id": "original-policy-02-1",
+          "family": "policy",
+          "qtype": "noul",
+          "state_first_200": "A trial account requests CSV export. Rules allow trial CSV, but reserve PDF for paid accounts.",
+          "instructions": "Under the stated policy, is the requested action permitted? Treat unproved required conditions as not satisfied.",
+          "labels": [
+            "no",
+            "yes"
+          ],
+          "expected": "yes",
+          "predicted": "no",
+          "probs": {
+            "yes": 0.002917553996667266,
+            "no": 0.9970824460033327
+          },
+          "confidence": 0.9970824460033327,
+          "latency_s": 0.13870009999664035
+        },
+        {
+          "id": "original-policy-03-0",
+          "family": "policy",
+          "qtype": "noul",
+          "state_first_200": "Policy: visitors need an escort unless they are registered contractors. A registered contractor arrives alone. Admit them.",
+          "instructions": "Under the stated policy, is the requested action permitted? Treat unproved required conditions as not satisfied.",
+          "labels": [
+            "no",
+            "yes"
+          ],
+          "expected": "yes",
+          "predicted": "no",
+          "probs": {
+            "yes": 0.003562299069017172,
+            "no": 0.9964377009309828
+          },
+          "confidence": 0.9964377009309828,
+          "latency_s": 0.13056869999854825
+        },
+        {
+          "id": "original-policy-03-1",
+          "family": "policy",
+          "qtype": "noul",
+          "state_first_200": "Escort rule exempts registered contractors. This visitor is a registered contractor without an escort. Can they enter?",
+          "instructions": "Under the stated policy, is the requested action permitted? Treat unproved required conditions as not satisfied.",
+          "labels": [
+            "no",
+            "yes"
+          ],
+          "expected": "yes",
+          "predicted": "no",
+          "probs": {
+            "yes": 0.005617327056825161,
+            "no": 0.9943826729431748
+          },
+          "confidence": 0.9943826729431748,
+          "latency_s": 0.13165789999766275
+        },
+        {
+          "id": "original-policy-06-0",
+          "family": "policy",
+          "qtype": "noul",
+          "state_first_200": "Policy: bookings can be cancelled free until 24 hours before departure, including exactly 24 hours. Departure is 24 hours away. Cancel free.",
+          "instructions": "Under the stated policy, is the requested action permitted? Treat unproved required conditions as not satisfied.",
+          "labels": [
+            "no",
+            "yes"
+          ],
+          "expected": "yes",
+          "predicted": "no",
+          "probs": {
+            "yes": 0.0861642062664032,
+            "no": 0.9138357937335968
+          },
+          "confidence": 0.9138357937335968,
+          "latency_s": 0.13028990000020713
+        }
+      ]
+    },
+    "hard": {
+      "n_wrong": 74,
+      "n_total": 111,
+      "examples": [
+        {
+          "id": "hard-opus-a-long_policy-01",
+          "family": "long_policy",
+          "qtype": "choice",
+          "state_first_200": "HARBORLINE MUTUAL INSURANCE COMPANY\nHOMEOWNERS POLICY FORM HM-3 (EDITION 04/2023) — EXCERPTS, ENDORSEMENTS AND CLAIM FILE HX-2026-118804\nPrepared for coverage review. Page numbers omitted. Bracketed n",
+          "instructions": "Acting as the coverage reviewer, decide how the building water-damage portion of claim HX-2026-118804 must be settled under the policy form and the en",
+          "labels": [
+            "deny_vacancy_exclusion",
+            "deny_repeated_seepage",
+            "pay_subject_to_10000_sublimit",
+            "pay_subject_to_15000_sublimit",
+            "pay_full_estimate_less_deductible"
+          ],
+          "expected": "pay_subject_to_15000_sublimit",
+          "predicted": "deny_vacancy_exclusion",
+          "probs": {
+            "deny_vacancy_exclusion": 0.9010734558105469,
+            "deny_repeated_seepage": 0.005455782637000084,
+            "pay_subject_to_10000_sublimit": 0.07250800728797913,
+            "pay_subject_to_15000_sublimit": 0.013666930608451366,
+            "pay_full_estimate_less_deductible": 0.007295865099877119
+          },
+          "confidence": 0.9010734558105469,
+          "latency_s": 6.956061800003226
+        },
+        {
+          "id": "hard-opus-a-long_policy-04",
+          "family": "long_policy",
+          "qtype": "choice",
+          "state_first_200": "CASTELLAN FOODS GMBH — GROUP PROCUREMENT POLICY GP-01 (VERSION 7, EFFECTIVE 1 MARCH 2025)\nEXTRACT FOR APPROVAL ROUTING, WITH AMENDMENT GP-01/A3 AND PURCHASE REQUEST PR-2026-4471\n\nPART I — POLICY EXTRA",
+          "instructions": "Determine the required approval level for purchase request PR-2026-4471 under policy GP-01 as amended.",
+          "labels": [
+            "budget_holder",
+            "department_head",
+            "vp_and_finance_director",
+            "cfo",
+            "executive_committee"
+          ],
+          "expected": "cfo",
+          "predicted": "budget_holder",
+          "probs": {
+            "budget_holder": 0.6526997089385986,
+            "department_head": 0.052199892699718475,
+            "vp_and_finance_director": 0.20865210890769958,
+            "cfo": 0.0791986882686615,
+            "executive_committee": 0.007249628659337759
+          },
+          "confidence": 0.6526997089385986,
+          "latency_s": 3.415814499996486
+        },
+        {
+          "id": "hard-opus-a-long_policy-09",
+          "family": "long_policy",
+          "qtype": "choice",
+          "state_first_200": "VELANT OPTICS GROUP — TRADE COMPLIANCE OFFICE\nEXPORT DETERMINATION WORKSHEET, ORDER SO-MR-26-0931 (fictional regulatory regime used for internal training and live screening)\n\nPART 1 — NORTHERN UNION S",
+          "instructions": "As the trade compliance reviewer, determine the correct export determination for order SO-MR-26-0931 under the SGR as in force on the requested ship d",
+          "labels": [
+            "no_license_required",
+            "license_exception_lvs",
+            "license_required",
+            "shipment_prohibited"
+          ],
+          "expected": "license_required",
+          "predicted": "no_license_required",
+          "probs": {
+            "no_license_required": 0.9702263474464417,
+            "license_exception_lvs": 0.009043943136930466,
+            "license_required": 0.016926316544413567,
+            "shipment_prohibited": 0.0038035050965845585
+          },
+          "confidence": 0.9702263474464417,
+          "latency_s": 0.8745309000005363
+        },
+        {
+          "id": "hard-opus-a-long_policy-11",
+          "family": "long_policy",
+          "qtype": "noul",
+          "state_first_200": "MERIDIAN CARD SERVICES — DISPUTES OPERATIONS\nCASE REVIEW PACKET: DISPUTE DP-26-0703318 (PAXNET CREDIT CARD)\n\n=== EXCERPT 1: PAXNET DISPUTE RULES FOR ISSUERS (EDITION APRIL 2026), CHAPTER 9 ===\n\n9.0 Ge",
+          "instructions": "At the representment review stage, should dispute DP-26-0703318 be decided in the cardholder's favour under the Paxnet rules?",
+          "labels": [
+            "no",
+            "yes"
+          ],
+          "expected": "yes",
+          "predicted": "no",
+          "probs": {
+            "yes": 0.23202967643737793,
+            "no": 0.7679703235626221
+          },
+          "confidence": 0.7679703235626221,
+          "latency_s": 3.186586999996507
+        },
+        {
+          "id": "hard-opus-a-long_policy-13",
+          "family": "long_policy",
+          "qtype": "noul",
+          "state_first_200": "WAYFARER ASSURANCE LTD — SINGLE TRIP TRAVEL INSURANCE\nPOLICY WORDING WT-2025 (EXTRACT), ENDORSEMENT WT-E7, AND CLAIM FILE TC-2026-58114\n\nPART 1 — POLICY WORDING WT-2025 (EXTRACT)\n\nSECTION 1 — DEFINITI",
+          "instructions": "Is claim TC-2026-58114 covered under Section 2 (Trip Cancellation) of the policy as endorsed, i.e. should the forfeited trip cost be reimbursed?",
+          "labels": [
+            "no",
+            "yes"
+          ],
+          "expected": "yes",
+          "predicted": "no",
+          "probs": {
+            "yes": 0.10509295761585236,
+            "no": 0.8949070423841476
+          },
+          "confidence": 0.8949070423841476,
+          "latency_s": 3.269189300001017
+        }
+      ]
+    }
+  },
+  "lettered": {
+    "easy": {
+      "n_wrong": 29,
+      "n_total": 48,
+      "examples": [
+        {
+          "id": "easy-intent-00",
+          "family": "intent",
+          "qtype": "choice",
+          "state_first_200": "Where is my package? I ordered it last week and it still hasn't arrived.",
+          "instructions": "Which intent does the user's message express?",
+          "labels": [
+            "track_order",
+            "cancel_order",
+            "change_address",
+            "report_damage",
+            "billing_question"
+          ],
+          "expected": "track_order",
+          "predicted": "change_address",
+          "probs": {
+            "track_order": 0.0031621481757611036,
+            "cancel_order": 3.7451853131642565e-05,
+            "change_address": 0.9629496932029724,
+            "report_damage": 5.335433525033295e-05,
+            "billing_question": 0.03379732742905617
+          },
+          "confidence": 0.9629496932029724,
+          "latency_s": 0.4454297999982373
+        },
+        {
+          "id": "easy-intent-01",
+          "family": "intent",
+          "qtype": "choice",
+          "state_first_200": "Please cancel my order #4471, I don't need it anymore.",
+          "instructions": "Which intent does the user's message express?",
+          "labels": [
+            "track_order",
+            "cancel_order",
+            "change_address",
+            "report_damage",
+            "billing_question"
+          ],
+          "expected": "cancel_order",
+          "predicted": "change_address",
+          "probs": {
+            "track_order": 0.0009511715034022927,
+            "cancel_order": 0.0005316967144608498,
+            "change_address": 0.8511663675308228,
+            "report_damage": 2.52491699939128e-05,
+            "billing_question": 0.14732545614242554
+          },
+          "confidence": 0.8511663675308228,
+          "latency_s": 0.13383910000266042
+        },
+        {
+          "id": "easy-intent-03",
+          "family": "intent",
+          "qtype": "choice",
+          "state_first_200": "The mug I received arrived smashed into pieces.",
+          "instructions": "Which intent does the user's message express?",
+          "labels": [
+            "track_order",
+            "cancel_order",
+            "change_address",
+            "report_damage",
+            "billing_question"
+          ],
+          "expected": "report_damage",
+          "predicted": "change_address",
+          "probs": {
+            "track_order": 0.00035611356724984944,
+            "cancel_order": 1.3917659089202061e-05,
+            "change_address": 0.7277098298072815,
+            "report_damage": 0.005522450432181358,
+            "billing_question": 0.26639774441719055
+          },
+          "confidence": 0.7277098298072815,
+          "latency_s": 0.14046619999862742
+        },
+        {
+          "id": "easy-intent-04",
+          "family": "intent",
+          "qtype": "choice",
+          "state_first_200": "Why was I charged twice on my credit card statement for one order?",
+          "instructions": "Which intent does the user's message express?",
+          "labels": [
+            "track_order",
+            "cancel_order",
+            "change_address",
+            "report_damage",
+            "billing_question"
+          ],
+          "expected": "billing_question",
+          "predicted": "change_address",
+          "probs": {
+            "track_order": 0.0003343234129715711,
+            "cancel_order": 2.290925658599008e-05,
+            "change_address": 0.8082237243652344,
+            "report_damage": 5.031476030126214e-05,
+            "billing_question": 0.19136877357959747
+          },
+          "confidence": 0.8082237243652344,
+          "latency_s": 0.1415354999990086
+        },
+        {
+          "id": "easy-intent-05",
+          "family": "intent",
+          "qtype": "choice",
+          "state_first_200": "When will my order be delivered? The tracking page shows nothing.",
+          "instructions": "Which intent does the user's message express?",
+          "labels": [
+            "track_order",
+            "cancel_order",
+            "change_address",
+            "report_damage",
+            "billing_question"
+          ],
+          "expected": "track_order",
+          "predicted": "change_address",
+          "probs": {
+            "track_order": 0.0015428168699145317,
+            "cancel_order": 3.211254079360515e-05,
+            "change_address": 0.9376865029335022,
+            "report_damage": 6.697406206512824e-05,
+            "billing_question": 0.06067163497209549
+          },
+          "confidence": 0.9376865029335022,
+          "latency_s": 0.13546900000073947
+        }
+      ]
+    },
+    "standard": {
+      "n_wrong": 50,
+      "n_total": 72,
+      "examples": [
+        {
+          "id": "original-policy-02-0",
+          "family": "policy",
+          "qtype": "noul",
+          "state_first_200": "Policy: trial users may export CSV; PDF needs a paid plan. Trial user asks for CSV.",
+          "instructions": "Under the stated policy, is the requested action permitted? Treat unproved required conditions as not satisfied.",
+          "labels": [
+            "no",
+            "yes"
+          ],
+          "expected": "yes",
+          "predicted": "no",
+          "probs": {
+            "yes": 0.11934098601341248,
+            "no": 0.8806590139865875
+          },
+          "confidence": 0.8806590139865875,
+          "latency_s": 0.14161930000409484
+        },
+        {
+          "id": "original-policy-02-1",
+          "family": "policy",
+          "qtype": "noul",
+          "state_first_200": "A trial account requests CSV export. Rules allow trial CSV, but reserve PDF for paid accounts.",
+          "instructions": "Under the stated policy, is the requested action permitted? Treat unproved required conditions as not satisfied.",
+          "labels": [
+            "no",
+            "yes"
+          ],
+          "expected": "yes",
+          "predicted": "no",
+          "probs": {
+            "yes": 0.08118432760238647,
+            "no": 0.9188156723976135
+          },
+          "confidence": 0.9188156723976135,
+          "latency_s": 0.14359179999883054
+        },
+        {
+          "id": "original-policy-03-0",
+          "family": "policy",
+          "qtype": "noul",
+          "state_first_200": "Policy: visitors need an escort unless they are registered contractors. A registered contractor arrives alone. Admit them.",
+          "instructions": "Under the stated policy, is the requested action permitted? Treat unproved required conditions as not satisfied.",
+          "labels": [
+            "no",
+            "yes"
+          ],
+          "expected": "yes",
+          "predicted": "no",
+          "probs": {
+            "yes": 0.07169222086668015,
+            "no": 0.9283077791333199
+          },
+          "confidence": 0.9283077791333199,
+          "latency_s": 0.13707309999881545
+        },
+        {
+          "id": "original-policy-03-1",
+          "family": "policy",
+          "qtype": "noul",
+          "state_first_200": "Escort rule exempts registered contractors. This visitor is a registered contractor without an escort. Can they enter?",
+          "instructions": "Under the stated policy, is the requested action permitted? Treat unproved required conditions as not satisfied.",
+          "labels": [
+            "no",
+            "yes"
+          ],
+          "expected": "yes",
+          "predicted": "no",
+          "probs": {
+            "yes": 0.05377088487148285,
+            "no": 0.9462291151285172
+          },
+          "confidence": 0.9462291151285172,
+          "latency_s": 0.14073060000373516
+        },
+        {
+          "id": "original-policy-06-0",
+          "family": "policy",
+          "qtype": "noul",
+          "state_first_200": "Policy: bookings can be cancelled free until 24 hours before departure, including exactly 24 hours. Departure is 24 hours away. Cancel free.",
+          "instructions": "Under the stated policy, is the requested action permitted? Treat unproved required conditions as not satisfied.",
+          "labels": [
+            "no",
+            "yes"
+          ],
+          "expected": "yes",
+          "predicted": "no",
+          "probs": {
+            "yes": 0.1057627722620964,
+            "no": 0.8942372277379036
+          },
+          "confidence": 0.8942372277379036,
+          "latency_s": 0.13488130000041565
+        }
+      ]
+    },
+    "hard": {
+      "n_wrong": 78,
+      "n_total": 111,
+      "examples": [
+        {
+          "id": "hard-opus-a-long_policy-01",
+          "family": "long_policy",
+          "qtype": "choice",
+          "state_first_200": "HARBORLINE MUTUAL INSURANCE COMPANY\nHOMEOWNERS POLICY FORM HM-3 (EDITION 04/2023) — EXCERPTS, ENDORSEMENTS AND CLAIM FILE HX-2026-118804\nPrepared for coverage review. Page numbers omitted. Bracketed n",
+          "instructions": "Acting as the coverage reviewer, decide how the building water-damage portion of claim HX-2026-118804 must be settled under the policy form and the en",
+          "labels": [
+            "deny_vacancy_exclusion",
+            "deny_repeated_seepage",
+            "pay_subject_to_10000_sublimit",
+            "pay_subject_to_15000_sublimit",
+            "pay_full_estimate_less_deductible"
+          ],
+          "expected": "pay_subject_to_15000_sublimit",
+          "predicted": "pay_full_estimate_less_deductible",
+          "probs": {
+            "deny_vacancy_exclusion": 6.547736575157614e-08,
+            "deny_repeated_seepage": 1.410367502785448e-07,
+            "pay_subject_to_10000_sublimit": 0.007615894544869661,
+            "pay_subject_to_15000_sublimit": 1.4269551229517674e-06,
+            "pay_full_estimate_less_deductible": 0.9923824667930603
+          },
+          "confidence": 0.9923824667930603,
+          "latency_s": 12.373324000000139
+        },
+        {
+          "id": "hard-opus-a-long_policy-04",
+          "family": "long_policy",
+          "qtype": "choice",
+          "state_first_200": "CASTELLAN FOODS GMBH — GROUP PROCUREMENT POLICY GP-01 (VERSION 7, EFFECTIVE 1 MARCH 2025)\nEXTRACT FOR APPROVAL ROUTING, WITH AMENDMENT GP-01/A3 AND PURCHASE REQUEST PR-2026-4471\n\nPART I — POLICY EXTRA",
+          "instructions": "Determine the required approval level for purchase request PR-2026-4471 under policy GP-01 as amended.",
+          "labels": [
+            "budget_holder",
+            "department_head",
+            "vp_and_finance_director",
+            "cfo",
+            "executive_committee"
+          ],
+          "expected": "cfo",
+          "predicted": "executive_committee",
+          "probs": {
+            "budget_holder": 2.588270717751584e-06,
+            "department_head": 1.543673988635419e-06,
+            "vp_and_finance_director": 0.023599402979016304,
+            "cfo": 2.4868829768820433e-06,
+            "executive_committee": 0.97639399766922
+          },
+          "confidence": 0.97639399766922,
+          "latency_s": 2.8902177999989362
+        },
+        {
+          "id": "hard-opus-a-long_policy-08",
+          "family": "long_policy",
+          "qtype": "choice",
+          "state_first_200": "BREVANO ESPRESSO SYSTEMS — CONSUMER SERVICE CENTRE\nWARRANTY DETERMINATION PACKET, SERVICE ORDER SO-26-118374\n\nDOCUMENT 1 — LIMITED WARRANTY FOR HOME MACHINES, FORM WB-HOME-22 (APPLIES TO PURCHASES FRO",
+          "instructions": "Determine the warranty outcome for the pump failure in service order SO-26-118374 under WB-HOME-22 and the service bulletins.",
+          "labels": [
+            "full_repair_no_charge",
+            "parts_covered_labour_charged",
+            "pro_rata_replacement_credit",
+            "not_covered"
+          ],
+          "expected": "parts_covered_labour_charged",
+          "predicted": "pro_rata_replacement_credit",
+          "probs": {
+            "full_repair_no_charge": 1.1212019671802409e-05,
+            "parts_covered_labour_charged": 1.595588582858909e-05,
+            "pro_rata_replacement_credit": 0.9987554550170898,
+            "not_covered": 0.0012174027506262064
+          },
+          "confidence": 0.9987554550170898,
+          "latency_s": 1.0591962000034982
+        },
+        {
+          "id": "hard-opus-a-long_policy-11",
+          "family": "long_policy",
+          "qtype": "noul",
+          "state_first_200": "MERIDIAN CARD SERVICES — DISPUTES OPERATIONS\nCASE REVIEW PACKET: DISPUTE DP-26-0703318 (PAXNET CREDIT CARD)\n\n=== EXCERPT 1: PAXNET DISPUTE RULES FOR ISSUERS (EDITION APRIL 2026), CHAPTER 9 ===\n\n9.0 Ge",
+          "instructions": "At the representment review stage, should dispute DP-26-0703318 be decided in the cardholder's favour under the Paxnet rules?",
+          "labels": [
+            "no",
+            "yes"
+          ],
+          "expected": "yes",
+          "predicted": "no",
+          "probs": {
+            "yes": 0.11639367789030075,
+            "no": 0.8836063221096992
+          },
+          "confidence": 0.8836063221096992,
+          "latency_s": 2.5110069000002113
+        },
+        {
+          "id": "hard-opus-a-long_policy-13",
+          "family": "long_policy",
+          "qtype": "noul",
+          "state_first_200": "WAYFARER ASSURANCE LTD — SINGLE TRIP TRAVEL INSURANCE\nPOLICY WORDING WT-2025 (EXTRACT), ENDORSEMENT WT-E7, AND CLAIM FILE TC-2026-58114\n\nPART 1 — POLICY WORDING WT-2025 (EXTRACT)\n\nSECTION 1 — DEFINITI",
+          "instructions": "Is claim TC-2026-58114 covered under Section 2 (Trip Cancellation) of the policy as endorsed, i.e. should the forfeited trip cost be reimbursed?",
+          "labels": [
+            "no",
+            "yes"
+          ],
+          "expected": "yes",
+          "predicted": "no",
+          "probs": {
+            "yes": 0.016450267285108566,
+            "no": 0.9835497327148914
+          },
+          "confidence": 0.9835497327148914,
+          "latency_s": 2.6288404000006267
+        }
+      ]
+    }
+  }
+}

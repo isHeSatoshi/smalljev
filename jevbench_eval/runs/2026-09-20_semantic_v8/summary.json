@@ -1,0 +1,6367 @@
+{
+  "axes": {
+    "calibration": 65.76994273242151,
+    "cost": 61.20127628006495,
+    "intelligence": 59.98029279279279,
+    "speed": 77.99181638159254
+  },
+  "cost_basis": "local_gpu_no_provider_tariff",
+  "endpoint_adjustment": "x2 + 0.15 s",
+  "endpoint_kind": "gpu",
+  "estimate_basis": "ESTIMATE: hosted-provider price, OpenRouter Qwen/Qwen2.5-3B-Instruct $0.04/M in, $0/M out (a 2-3B dense model of the same size class; smalljev never generates) x measured input tokens.",
+  "estimate_usd_per_1000": 0.019646753246753246,
+  "jevbench_score": 65.87359869734453,
+  "latency": {
+    "all_items_raw": {
+      "max_s": 2.036892300006002,
+      "mean_s": 0.2975730510827686,
+      "min_s": 0.06434840000292752,
+      "n": 231,
+      "p50_s": 0.16091350000351667,
+      "p95_s": 1.0928179499896942
+    },
+    "hard_items_raw": {
+      "max_s": 2.036892300006002,
+      "mean_s": 0.420850172072155,
+      "min_s": 0.06434840000292752,
+      "n": 111,
+      "p50_s": 0.17982930000289343,
+      "p95_s": 1.154189499997301
+    },
+    "note": "Standard+judge is 242 items (held-out + imported) in the v1.1.2 protocol. Only 72 standard items are public; reported latency here is for the 72-item public standard subset (not the 242-item full set).",
+    "speed_score": 77.99181638159254,
+    "standard_items_raw": {
+      "max_s": 0.8633334000041941,
+      "mean_s": 0.17069312083428181,
+      "min_s": 0.1375185000069905,
+      "n": 72,
+      "p50_s": 0.1521679000070435,
+      "p95_s": 0.2624705050038756
+    },
+    "standard_p50_adjusted": 0.454335800014087,
+    "standard_p95_adjusted": 0.6749410100077512
+  },
+  "measured_usd_per_1000": null,
+  "overall": {
+    "accuracy": 0.5844155844155844,
+    "brier_mean": 0.5372587812114442,
+    "complete": true,
+    "ece": {
+      "bins": [
+        {
+          "accuracy": null,
+          "hi": 0.1,
+          "lo": 0.0,
+          "mean_confidence": null,
+          "n": 0
+        },
+        {
+          "accuracy": null,
+          "hi": 0.2,
+          "lo": 0.1,
+          "mean_confidence": null,
+          "n": 0
+        },
+        {
+          "accuracy": 0.16666666666666666,
+          "hi": 0.3,
+          "lo": 0.2,
+          "mean_confidence": 0.26537321011225384,
+          "n": 6
+        },
+        {
+          "accuracy": 0.1875,
+          "hi": 0.4,
+          "lo": 0.3,
+          "mean_confidence": 0.3604038115590811,
+          "n": 16
+        },
+        {
+          "accuracy": 0.3157894736842105,
+          "hi": 0.5,
+          "lo": 0.4,
+          "mean_confidence": 0.45401878576529653,
+          "n": 19
+        },
+        {
+          "accuracy": 0.40625,
+          "hi": 0.6,
+          "lo": 0.5,
+          "mean_confidence": 0.549120859374943,
+          "n": 32
+        },
+        {
+          "accuracy": 0.5,
+          "hi": 0.7,
+          "lo": 0.6,
+          "mean_confidence": 0.6449315249110755,
+          "n": 22
+        },
+        {
+          "accuracy": 0.5333333333333333,
+          "hi": 0.8,
+          "lo": 0.7,
+          "mean_confidence": 0.7502735464782103,
+          "n": 15
+        },
+        {
+          "accuracy": 0.5416666666666666,
+          "hi": 0.9,
+          "lo": 0.8,
+          "mean_confidence": 0.8517134095841509,
+          "n": 24
+        },
+        {
+          "accuracy": 0.8247422680412371,
+          "hi": 1.0,
+          "lo": 0.9,
+          "mean_confidence": 0.9803615762232895,
+          "n": 97
+        }
+      ],
+      "ece": 0.17115028633789245,
+      "n": 231
+    },
+    "macro_accuracy": 0.5648004815961474,
+    "model_identities": [
+      "smalljev_semantic_v8"
+    ],
+    "n_attempted": 231,
+    "n_correct": 135,
+    "n_planned": 231,
+    "n_renormalized": 0,
+    "n_scorable": 231,
+    "n_valid": 231,
+    "operational_success": 1.0,
+    "ordinal_mae": 0.5482358533562446,
+    "paraphrase_consistency": {
+      "agree": 23,
+      "agreement": 0.6388888888888888,
+      "both_correct_rate_all_pairs": 0.5,
+      "both_valid": 36,
+      "pairs": 36
+    },
+    "probability_sources": [
+      "native"
+    ],
+    "schema_validity": 1.0,
+    "schema_validity_strict": 1.0
+  },
+  "per_family_hard": {
+    "adversarial": {
+      "accuracy": 0.6666666666666666,
+      "brier_mean": 0.42823544774110517,
+      "calibration_n": 6,
+      "complete": true,
+      "cost_basis": [
+        "local_gpu_no_provider_tariff"
+      ],
+      "coverage": 1.0,
+      "ece": {
+        "bins": [
+          {
+            "accuracy": null,
+            "hi": 0.1,
+            "lo": 0.0,
+            "mean_confidence": null,
+            "n": 0
+          },
+          {
+            "accuracy": null,
+            "hi": 0.2,
+            "lo": 0.1,
+            "mean_confidence": null,
+            "n": 0
+          },
+          {
+            "accuracy": null,
+            "hi": 0.3,
+            "lo": 0.2,
+            "mean_confidence": null,
+            "n": 0
+          },
+          {
+            "accuracy": null,
+            "hi": 0.4,
+            "lo": 0.3,
+            "mean_confidence": null,
+            "n": 0
+          },
+          {
+            "accuracy": null,
+            "hi": 0.5,
+            "lo": 0.4,
+            "mean_confidence": null,
+            "n": 0
+          },
+          {
+            "accuracy": null,
+            "hi": 0.6,
+            "lo": 0.5,
+            "mean_confidence": null,
+            "n": 0
+          },
+          {
+            "accuracy": 0.5,
+            "hi": 0.7,
+            "lo": 0.6,
+            "mean_confidence": 0.6399597227573395,
+            "n": 2
+          },
+          {
+            "accuracy": 1.0,
+            "hi": 0.8,
+            "lo": 0.7,
+            "mean_confidence": 0.7817163467407227,
+            "n": 1
+          },
+          {
+            "accuracy": 0.5,
+            "hi": 0.9,
+            "lo": 0.8,
+            "mean_confidence": 0.835027867166272,
+            "n": 2
+          },
+          {
+            "accuracy": 1.0,
+            "hi": 1.0,
+            "lo": 0.9,
+            "mean_confidence": 0.9483141899108887,
+            "n": 1
+          }
+        ],
+        "ece": 0.20332410719926858,
+        "n": 6
+      },
+      "latency": {
+        "n": 6,
+        "p50_s": 0.1715540000004694,
+        "p95_s": 0.26627105000807205
+      },
+      "latency_failures": {
+        "n": 0,
+        "p50_s": null,
+        "p95_s": null
+      },
+      "ledger_charged_usd": null,
+      "macro_accuracy": 0.6666666666666666,
+      "model_identities": [
+        "smalljev_semantic_v8"
+      ],
+      "n_attempted": 6,
+      "n_correct": 4,
+      "n_planned": 6,
+      "n_renormalized": 0,
+      "n_scorable": 6,
+      "n_valid": 6,
+      "operational_success": 1.0,
+      "ordinal_mae": 0.5606680698692799,
+      "paraphrase_consistency": {
+        "agree": 0,
+        "agreement": null,
+        "both_correct_rate_all_pairs": null,
+        "both_valid": 0,
+        "pairs": 0
+      },
+      "per_family": {
+        "adversarial": {
+          "accuracy": 0.6666666666666666,
+          "brier_mean": 0.42823544774110517,
+          "calibration_n": 6,
+          "cost_basis": [
+            "local_gpu_no_provider_tariff"
+          ],
+          "coverage": 1.0,
+          "ece": {
+            "bins": [
+              {
+                "accuracy": null,
+                "hi": 0.1,
+                "lo": 0.0,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.2,
+                "lo": 0.1,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.3,
+                "lo": 0.2,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.4,
+                "lo": 0.3,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.5,
+                "lo": 0.4,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.6,
+                "lo": 0.5,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": 0.5,
+                "hi": 0.7,
+                "lo": 0.6,
+                "mean_confidence": 0.6399597227573395,
+                "n": 2
+              },
+              {
+                "accuracy": 1.0,
+                "hi": 0.8,
+                "lo": 0.7,
+                "mean_confidence": 0.7817163467407227,
+                "n": 1
+              },
+              {
+                "accuracy": 0.5,
+                "hi": 0.9,
+                "lo": 0.8,
+                "mean_confidence": 0.835027867166272,
+                "n": 2
+              },
+              {
+                "accuracy": 1.0,
+                "hi": 1.0,
+                "lo": 0.9,
+                "mean_confidence": 0.9483141899108887,
+                "n": 1
+              }
+            ],
+            "ece": 0.20332410719926858,
+            "n": 6
+          },
+          "latency": {
+            "n": 6,
+            "p50_s": 0.1715540000004694,
+            "p95_s": 0.26627105000807205
+          },
+          "latency_failures": {
+            "n": 0,
+            "p50_s": null,
+            "p95_s": null
+          },
+          "n_attempted": 6,
+          "n_correct": 4,
+          "n_planned": 6,
+          "n_renormalized": 0,
+          "n_scorable": 6,
+          "n_valid": 6,
+          "operational_success": 1.0,
+          "ordinal_mae": 0.5606680698692799,
+          "price_per_1000_decisions_usd": null,
+          "schema_validity": 1.0,
+          "schema_validity_strict": 1.0
+        }
+      },
+      "price_per_1000_decisions_usd": null,
+      "probability_sources": [
+        "native"
+      ],
+      "schema_validity": 1.0,
+      "schema_validity_strict": 1.0,
+      "splits": {
+        "public": {
+          "accuracy": 0.6666666666666666,
+          "brier_mean": 0.42823544774110517,
+          "calibration_n": 6,
+          "cost_basis": [
+            "local_gpu_no_provider_tariff"
+          ],
+          "coverage": 1.0,
+          "ece": {
+            "bins": [
+              {
+                "accuracy": null,
+                "hi": 0.1,
+                "lo": 0.0,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.2,
+                "lo": 0.1,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.3,
+                "lo": 0.2,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.4,
+                "lo": 0.3,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.5,
+                "lo": 0.4,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.6,
+                "lo": 0.5,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": 0.5,
+                "hi": 0.7,
+                "lo": 0.6,
+                "mean_confidence": 0.6399597227573395,
+                "n": 2
+              },
+              {
+                "accuracy": 1.0,
+                "hi": 0.8,
+                "lo": 0.7,
+                "mean_confidence": 0.7817163467407227,
+                "n": 1
+              },
+              {
+                "accuracy": 0.5,
+                "hi": 0.9,
+                "lo": 0.8,
+                "mean_confidence": 0.835027867166272,
+                "n": 2
+              },
+              {
+                "accuracy": 1.0,
+                "hi": 1.0,
+                "lo": 0.9,
+                "mean_confidence": 0.9483141899108887,
+                "n": 1
+              }
+            ],
+            "ece": 0.20332410719926858,
+            "n": 6
+          },
+          "latency": {
+            "n": 6,
+            "p50_s": 0.1715540000004694,
+            "p95_s": 0.26627105000807205
+          },
+          "latency_failures": {
+            "n": 0,
+            "p50_s": null,
+            "p95_s": null
+          },
+          "n_attempted": 6,
+          "n_correct": 4,
+          "n_planned": 6,
+          "n_renormalized": 0,
+          "n_scorable": 6,
+          "n_valid": 6,
+          "operational_success": 1.0,
+          "ordinal_mae": 0.5606680698692799,
+          "price_per_1000_decisions_usd": null,
+          "schema_validity": 1.0,
+          "schema_validity_strict": 1.0
+        }
+      },
+      "version": "jevbench-v1"
+    },
+    "ambiguous": {
+      "accuracy": 0.0,
+      "brier_mean": 1.39116765359354,
+      "calibration_n": 7,
+      "complete": true,
+      "cost_basis": [
+        "local_gpu_no_provider_tariff"
+      ],
+      "coverage": 1.0,
+      "ece": {
+        "bins": [
+          {
+            "accuracy": null,
+            "hi": 0.1,
+            "lo": 0.0,
+            "mean_confidence": null,
+            "n": 0
+          },
+          {
+            "accuracy": null,
+            "hi": 0.2,
+            "lo": 0.1,
+            "mean_confidence": null,
+            "n": 0
+          },
+          {
+            "accuracy": null,
+            "hi": 0.3,
+            "lo": 0.2,
+            "mean_confidence": null,
+            "n": 0
+          },
+          {
+            "accuracy": null,
+            "hi": 0.4,
+            "lo": 0.3,
+            "mean_confidence": null,
+            "n": 0
+          },
+          {
+            "accuracy": 0.0,
+            "hi": 0.5,
+            "lo": 0.4,
+            "mean_confidence": 0.4209023416042328,
+            "n": 1
+          },
+          {
+            "accuracy": 0.0,
+            "hi": 0.6,
+            "lo": 0.5,
+            "mean_confidence": 0.5706472992897034,
+            "n": 1
+          },
+          {
+            "accuracy": 0.0,
+            "hi": 0.7,
+            "lo": 0.6,
+            "mean_confidence": 0.6240741610527039,
+            "n": 1
+          },
+          {
+            "accuracy": 0.0,
+            "hi": 0.8,
+            "lo": 0.7,
+            "mean_confidence": 0.7764925360679626,
+            "n": 1
+          },
+          {
+            "accuracy": null,
+            "hi": 0.9,
+            "lo": 0.8,
+            "mean_confidence": null,
+            "n": 0
+          },
+          {
+            "accuracy": 0.0,
+            "hi": 1.0,
+            "lo": 0.9,
+            "mean_confidence": 0.9366603295008341,
+            "n": 3
+          }
+        ],
+        "ece": 0.743156760931015,
+        "n": 7
+      },
+      "latency": {
+        "n": 7,
+        "p50_s": 0.17982930000289343,
+        "p95_s": 0.32290339999017303
+      },
+      "latency_failures": {
+        "n": 0,
+        "p50_s": null,
+        "p95_s": null
+      },
+      "ledger_charged_usd": null,
+      "macro_accuracy": 0.0,
+      "model_identities": [
+        "smalljev_semantic_v8"
+      ],
+      "n_attempted": 7,
+      "n_correct": 0,
+      "n_planned": 7,
+      "n_renormalized": 0,
+      "n_scorable": 7,
+      "n_valid": 7,
+      "operational_success": 1.0,
+      "ordinal_mae": null,
+      "paraphrase_consistency": {
+        "agree": 0,
+        "agreement": null,
+        "both_correct_rate_all_pairs": null,
+        "both_valid": 0,
+        "pairs": 0
+      },
+      "per_family": {
+        "ambiguous": {
+          "accuracy": 0.0,
+          "brier_mean": 1.39116765359354,
+          "calibration_n": 7,
+          "cost_basis": [
+            "local_gpu_no_provider_tariff"
+          ],
+          "coverage": 1.0,
+          "ece": {
+            "bins": [
+              {
+                "accuracy": null,
+                "hi": 0.1,
+                "lo": 0.0,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.2,
+                "lo": 0.1,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.3,
+                "lo": 0.2,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.4,
+                "lo": 0.3,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 0.5,
+                "lo": 0.4,
+                "mean_confidence": 0.4209023416042328,
+                "n": 1
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 0.6,
+                "lo": 0.5,
+                "mean_confidence": 0.5706472992897034,
+                "n": 1
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 0.7,
+                "lo": 0.6,
+                "mean_confidence": 0.6240741610527039,
+                "n": 1
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 0.8,
+                "lo": 0.7,
+                "mean_confidence": 0.7764925360679626,
+                "n": 1
+              },
+              {
+                "accuracy": null,
+                "hi": 0.9,
+                "lo": 0.8,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 1.0,
+                "lo": 0.9,
+                "mean_confidence": 0.9366603295008341,
+                "n": 3
+              }
+            ],
+            "ece": 0.743156760931015,
+            "n": 7
+          },
+          "latency": {
+            "n": 7,
+            "p50_s": 0.17982930000289343,
+            "p95_s": 0.32290339999017303
+          },
+          "latency_failures": {
+            "n": 0,
+            "p50_s": null,
+            "p95_s": null
+          },
+          "n_attempted": 7,
+          "n_correct": 0,
+          "n_planned": 7,
+          "n_renormalized": 0,
+          "n_scorable": 7,
+          "n_valid": 7,
+          "operational_success": 1.0,
+          "ordinal_mae": null,
+          "price_per_1000_decisions_usd": null,
+          "schema_validity": 1.0,
+          "schema_validity_strict": 1.0
+        }
+      },
+      "price_per_1000_decisions_usd": null,
+      "probability_sources": [
+        "native"
+      ],
+      "schema_validity": 1.0,
+      "schema_validity_strict": 1.0,
+      "splits": {
+        "public": {
+          "accuracy": 0.0,
+          "brier_mean": 1.39116765359354,
+          "calibration_n": 7,
+          "cost_basis": [
+            "local_gpu_no_provider_tariff"
+          ],
+          "coverage": 1.0,
+          "ece": {
+            "bins": [
+              {
+                "accuracy": null,
+                "hi": 0.1,
+                "lo": 0.0,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.2,
+                "lo": 0.1,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.3,
+                "lo": 0.2,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.4,
+                "lo": 0.3,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 0.5,
+                "lo": 0.4,
+                "mean_confidence": 0.4209023416042328,
+                "n": 1
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 0.6,
+                "lo": 0.5,
+                "mean_confidence": 0.5706472992897034,
+                "n": 1
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 0.7,
+                "lo": 0.6,
+                "mean_confidence": 0.6240741610527039,
+                "n": 1
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 0.8,
+                "lo": 0.7,
+                "mean_confidence": 0.7764925360679626,
+                "n": 1
+              },
+              {
+                "accuracy": null,
+                "hi": 0.9,
+                "lo": 0.8,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 1.0,
+                "lo": 0.9,
+                "mean_confidence": 0.9366603295008341,
+                "n": 3
+              }
+            ],
+            "ece": 0.743156760931015,
+            "n": 7
+          },
+          "latency": {
+            "n": 7,
+            "p50_s": 0.17982930000289343,
+            "p95_s": 0.32290339999017303
+          },
+          "latency_failures": {
+            "n": 0,
+            "p50_s": null,
+            "p95_s": null
+          },
+          "n_attempted": 7,
+          "n_correct": 0,
+          "n_planned": 7,
+          "n_renormalized": 0,
+          "n_scorable": 7,
+          "n_valid": 7,
+          "operational_success": 1.0,
+          "ordinal_mae": null,
+          "price_per_1000_decisions_usd": null,
+          "schema_validity": 1.0,
+          "schema_validity_strict": 1.0
+        }
+      },
+      "version": "jevbench-v1"
+    },
+    "judge_hard": {
+      "accuracy": 0.7058823529411765,
+      "brier_mean": 0.4442234261707019,
+      "calibration_n": 17,
+      "complete": true,
+      "cost_basis": [
+        "local_gpu_no_provider_tariff"
+      ],
+      "coverage": 1.0,
+      "ece": {
+        "bins": [
+          {
+            "accuracy": null,
+            "hi": 0.1,
+            "lo": 0.0,
+            "mean_confidence": null,
+            "n": 0
+          },
+          {
+            "accuracy": null,
+            "hi": 0.2,
+            "lo": 0.1,
+            "mean_confidence": null,
+            "n": 0
+          },
+          {
+            "accuracy": null,
+            "hi": 0.3,
+            "lo": 0.2,
+            "mean_confidence": null,
+            "n": 0
+          },
+          {
+            "accuracy": null,
+            "hi": 0.4,
+            "lo": 0.3,
+            "mean_confidence": null,
+            "n": 0
+          },
+          {
+            "accuracy": null,
+            "hi": 0.5,
+            "lo": 0.4,
+            "mean_confidence": null,
+            "n": 0
+          },
+          {
+            "accuracy": 0.8333333333333334,
+            "hi": 0.6,
+            "lo": 0.5,
+            "mean_confidence": 0.5564482027905915,
+            "n": 6
+          },
+          {
+            "accuracy": 0.0,
+            "hi": 0.7,
+            "lo": 0.6,
+            "mean_confidence": 0.6145675182342529,
+            "n": 1
+          },
+          {
+            "accuracy": 0.6,
+            "hi": 0.8,
+            "lo": 0.7,
+            "mean_confidence": 0.7383445315240206,
+            "n": 5
+          },
+          {
+            "accuracy": 0.75,
+            "hi": 0.9,
+            "lo": 0.8,
+            "mean_confidence": 0.8439590648483863,
+            "n": 4
+          },
+          {
+            "accuracy": 1.0,
+            "hi": 1.0,
+            "lo": 0.9,
+            "mean_confidence": 0.9001041919024048,
+            "n": 1
+          }
+        ],
+        "ece": 0.20254900156482047,
+        "n": 17
+      },
+      "latency": {
+        "n": 17,
+        "p50_s": 0.06904890001169406,
+        "p95_s": 0.08272061999305151
+      },
+      "latency_failures": {
+        "n": 0,
+        "p50_s": null,
+        "p95_s": null
+      },
+      "ledger_charged_usd": null,
+      "macro_accuracy": 0.7058823529411765,
+      "model_identities": [
+        "smalljev_semantic_v8"
+      ],
+      "n_attempted": 17,
+      "n_correct": 12,
+      "n_planned": 17,
+      "n_renormalized": 0,
+      "n_scorable": 17,
+      "n_valid": 17,
+      "operational_success": 1.0,
+      "ordinal_mae": null,
+      "paraphrase_consistency": {
+        "agree": 0,
+        "agreement": null,
+        "both_correct_rate_all_pairs": null,
+        "both_valid": 0,
+        "pairs": 0
+      },
+      "per_family": {
+        "judge_hard": {
+          "accuracy": 0.7058823529411765,
+          "brier_mean": 0.4442234261707019,
+          "calibration_n": 17,
+          "cost_basis": [
+            "local_gpu_no_provider_tariff"
+          ],
+          "coverage": 1.0,
+          "ece": {
+            "bins": [
+              {
+                "accuracy": null,
+                "hi": 0.1,
+                "lo": 0.0,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.2,
+                "lo": 0.1,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.3,
+                "lo": 0.2,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.4,
+                "lo": 0.3,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.5,
+                "lo": 0.4,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": 0.8333333333333334,
+                "hi": 0.6,
+                "lo": 0.5,
+                "mean_confidence": 0.5564482027905915,
+                "n": 6
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 0.7,
+                "lo": 0.6,
+                "mean_confidence": 0.6145675182342529,
+                "n": 1
+              },
+              {
+                "accuracy": 0.6,
+                "hi": 0.8,
+                "lo": 0.7,
+                "mean_confidence": 0.7383445315240206,
+                "n": 5
+              },
+              {
+                "accuracy": 0.75,
+                "hi": 0.9,
+                "lo": 0.8,
+                "mean_confidence": 0.8439590648483863,
+                "n": 4
+              },
+              {
+                "accuracy": 1.0,
+                "hi": 1.0,
+                "lo": 0.9,
+                "mean_confidence": 0.9001041919024048,
+                "n": 1
+              }
+            ],
+            "ece": 0.20254900156482047,
+            "n": 17
+          },
+          "latency": {
+            "n": 17,
+            "p50_s": 0.06904890001169406,
+            "p95_s": 0.08272061999305151
+          },
+          "latency_failures": {
+            "n": 0,
+            "p50_s": null,
+            "p95_s": null
+          },
+          "n_attempted": 17,
+          "n_correct": 12,
+          "n_planned": 17,
+          "n_renormalized": 0,
+          "n_scorable": 17,
+          "n_valid": 17,
+          "operational_success": 1.0,
+          "ordinal_mae": null,
+          "price_per_1000_decisions_usd": null,
+          "schema_validity": 1.0,
+          "schema_validity_strict": 1.0
+        }
+      },
+      "price_per_1000_decisions_usd": null,
+      "probability_sources": [
+        "native"
+      ],
+      "schema_validity": 1.0,
+      "schema_validity_strict": 1.0,
+      "splits": {
+        "public": {
+          "accuracy": 0.7058823529411765,
+          "brier_mean": 0.4442234261707019,
+          "calibration_n": 17,
+          "cost_basis": [
+            "local_gpu_no_provider_tariff"
+          ],
+          "coverage": 1.0,
+          "ece": {
+            "bins": [
+              {
+                "accuracy": null,
+                "hi": 0.1,
+                "lo": 0.0,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.2,
+                "lo": 0.1,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.3,
+                "lo": 0.2,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.4,
+                "lo": 0.3,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.5,
+                "lo": 0.4,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": 0.8333333333333334,
+                "hi": 0.6,
+                "lo": 0.5,
+                "mean_confidence": 0.5564482027905915,
+                "n": 6
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 0.7,
+                "lo": 0.6,
+                "mean_confidence": 0.6145675182342529,
+                "n": 1
+              },
+              {
+                "accuracy": 0.6,
+                "hi": 0.8,
+                "lo": 0.7,
+                "mean_confidence": 0.7383445315240206,
+                "n": 5
+              },
+              {
+                "accuracy": 0.75,
+                "hi": 0.9,
+                "lo": 0.8,
+                "mean_confidence": 0.8439590648483863,
+                "n": 4
+              },
+              {
+                "accuracy": 1.0,
+                "hi": 1.0,
+                "lo": 0.9,
+                "mean_confidence": 0.9001041919024048,
+                "n": 1
+              }
+            ],
+            "ece": 0.20254900156482047,
+            "n": 17
+          },
+          "latency": {
+            "n": 17,
+            "p50_s": 0.06904890001169406,
+            "p95_s": 0.08272061999305151
+          },
+          "latency_failures": {
+            "n": 0,
+            "p50_s": null,
+            "p95_s": null
+          },
+          "n_attempted": 17,
+          "n_correct": 12,
+          "n_planned": 17,
+          "n_renormalized": 0,
+          "n_scorable": 17,
+          "n_valid": 17,
+          "operational_success": 1.0,
+          "ordinal_mae": null,
+          "price_per_1000_decisions_usd": null,
+          "schema_validity": 1.0,
+          "schema_validity_strict": 1.0
+        }
+      },
+      "version": "jevbench-v1"
+    },
+    "long_policy": {
+      "accuracy": 0.21052631578947367,
+      "brier_mean": 0.9187029176352374,
+      "calibration_n": 19,
+      "complete": true,
+      "cost_basis": [
+        "local_gpu_no_provider_tariff"
+      ],
+      "coverage": 1.0,
+      "ece": {
+        "bins": [
+          {
+            "accuracy": null,
+            "hi": 0.1,
+            "lo": 0.0,
+            "mean_confidence": null,
+            "n": 0
+          },
+          {
+            "accuracy": null,
+            "hi": 0.2,
+            "lo": 0.1,
+            "mean_confidence": null,
+            "n": 0
+          },
+          {
+            "accuracy": 0.0,
+            "hi": 0.3,
+            "lo": 0.2,
+            "mean_confidence": 0.26717233657836914,
+            "n": 1
+          },
+          {
+            "accuracy": 0.0,
+            "hi": 0.4,
+            "lo": 0.3,
+            "mean_confidence": 0.33294805884361267,
+            "n": 1
+          },
+          {
+            "accuracy": 0.2857142857142857,
+            "hi": 0.5,
+            "lo": 0.4,
+            "mean_confidence": 0.45626006381852285,
+            "n": 7
+          },
+          {
+            "accuracy": 0.4,
+            "hi": 0.6,
+            "lo": 0.5,
+            "mean_confidence": 0.5529071414476051,
+            "n": 5
+          },
+          {
+            "accuracy": 0.0,
+            "hi": 0.7,
+            "lo": 0.6,
+            "mean_confidence": 0.6248951554298401,
+            "n": 1
+          },
+          {
+            "accuracy": 0.0,
+            "hi": 0.8,
+            "lo": 0.7,
+            "mean_confidence": 0.7415656072367909,
+            "n": 1
+          },
+          {
+            "accuracy": 0.0,
+            "hi": 0.9,
+            "lo": 0.8,
+            "mean_confidence": 0.814272313986107,
+            "n": 2
+          },
+          {
+            "accuracy": 0.0,
+            "hi": 1.0,
+            "lo": 0.9,
+            "mean_confidence": 0.9024283684247352,
+            "n": 1
+          }
+        ],
+        "ece": 0.3397847530764867,
+        "n": 19
+      },
+      "latency": {
+        "n": 19,
+        "p50_s": 1.0785288999904878,
+        "p95_s": 1.2678127800027124
+      },
+      "latency_failures": {
+        "n": 0,
+        "p50_s": null,
+        "p95_s": null
+      },
+      "ledger_charged_usd": null,
+      "macro_accuracy": 0.21052631578947367,
+      "model_identities": [
+        "smalljev_semantic_v8"
+      ],
+      "n_attempted": 19,
+      "n_correct": 4,
+      "n_planned": 19,
+      "n_renormalized": 0,
+      "n_scorable": 19,
+      "n_valid": 19,
+      "operational_success": 1.0,
+      "ordinal_mae": 0.6916134972125292,
+      "paraphrase_consistency": {
+        "agree": 0,
+        "agreement": null,
+        "both_correct_rate_all_pairs": null,
+        "both_valid": 0,
+        "pairs": 0
+      },
+      "per_family": {
+        "long_policy": {
+          "accuracy": 0.21052631578947367,
+          "brier_mean": 0.9187029176352374,
+          "calibration_n": 19,
+          "cost_basis": [
+            "local_gpu_no_provider_tariff"
+          ],
+          "coverage": 1.0,
+          "ece": {
+            "bins": [
+              {
+                "accuracy": null,
+                "hi": 0.1,
+                "lo": 0.0,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.2,
+                "lo": 0.1,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 0.3,
+                "lo": 0.2,
+                "mean_confidence": 0.26717233657836914,
+                "n": 1
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 0.4,
+                "lo": 0.3,
+                "mean_confidence": 0.33294805884361267,
+                "n": 1
+              },
+              {
+                "accuracy": 0.2857142857142857,
+                "hi": 0.5,
+                "lo": 0.4,
+                "mean_confidence": 0.45626006381852285,
+                "n": 7
+              },
+              {
+                "accuracy": 0.4,
+                "hi": 0.6,
+                "lo": 0.5,
+                "mean_confidence": 0.5529071414476051,
+                "n": 5
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 0.7,
+                "lo": 0.6,
+                "mean_confidence": 0.6248951554298401,
+                "n": 1
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 0.8,
+                "lo": 0.7,
+                "mean_confidence": 0.7415656072367909,
+                "n": 1
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 0.9,
+                "lo": 0.8,
+                "mean_confidence": 0.814272313986107,
+                "n": 2
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 1.0,
+                "lo": 0.9,
+                "mean_confidence": 0.9024283684247352,
+                "n": 1
+              }
+            ],
+            "ece": 0.3397847530764867,
+            "n": 19
+          },
+          "latency": {
+            "n": 19,
+            "p50_s": 1.0785288999904878,
+            "p95_s": 1.2678127800027124
+          },
+          "latency_failures": {
+            "n": 0,
+            "p50_s": null,
+            "p95_s": null
+          },
+          "n_attempted": 19,
+          "n_correct": 4,
+          "n_planned": 19,
+          "n_renormalized": 0,
+          "n_scorable": 19,
+          "n_valid": 19,
+          "operational_success": 1.0,
+          "ordinal_mae": 0.6916134972125292,
+          "price_per_1000_decisions_usd": null,
+          "schema_validity": 1.0,
+          "schema_validity_strict": 1.0
+        }
+      },
+      "price_per_1000_decisions_usd": null,
+      "probability_sources": [
+        "native"
+      ],
+      "schema_validity": 1.0,
+      "schema_validity_strict": 1.0,
+      "splits": {
+        "public": {
+          "accuracy": 0.21052631578947367,
+          "brier_mean": 0.9187029176352374,
+          "calibration_n": 19,
+          "cost_basis": [
+            "local_gpu_no_provider_tariff"
+          ],
+          "coverage": 1.0,
+          "ece": {
+            "bins": [
+              {
+                "accuracy": null,
+                "hi": 0.1,
+                "lo": 0.0,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.2,
+                "lo": 0.1,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 0.3,
+                "lo": 0.2,
+                "mean_confidence": 0.26717233657836914,
+                "n": 1
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 0.4,
+                "lo": 0.3,
+                "mean_confidence": 0.33294805884361267,
+                "n": 1
+              },
+              {
+                "accuracy": 0.2857142857142857,
+                "hi": 0.5,
+                "lo": 0.4,
+                "mean_confidence": 0.45626006381852285,
+                "n": 7
+              },
+              {
+                "accuracy": 0.4,
+                "hi": 0.6,
+                "lo": 0.5,
+                "mean_confidence": 0.5529071414476051,
+                "n": 5
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 0.7,
+                "lo": 0.6,
+                "mean_confidence": 0.6248951554298401,
+                "n": 1
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 0.8,
+                "lo": 0.7,
+                "mean_confidence": 0.7415656072367909,
+                "n": 1
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 0.9,
+                "lo": 0.8,
+                "mean_confidence": 0.814272313986107,
+                "n": 2
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 1.0,
+                "lo": 0.9,
+                "mean_confidence": 0.9024283684247352,
+                "n": 1
+              }
+            ],
+            "ece": 0.3397847530764867,
+            "n": 19
+          },
+          "latency": {
+            "n": 19,
+            "p50_s": 1.0785288999904878,
+            "p95_s": 1.2678127800027124
+          },
+          "latency_failures": {
+            "n": 0,
+            "p50_s": null,
+            "p95_s": null
+          },
+          "n_attempted": 19,
+          "n_correct": 4,
+          "n_planned": 19,
+          "n_renormalized": 0,
+          "n_scorable": 19,
+          "n_valid": 19,
+          "operational_success": 1.0,
+          "ordinal_mae": 0.6916134972125292,
+          "price_per_1000_decisions_usd": null,
+          "schema_validity": 1.0,
+          "schema_validity_strict": 1.0
+        }
+      },
+      "version": "jevbench-v1"
+    },
+    "multi_hop": {
+      "accuracy": 0.16666666666666666,
+      "brier_mean": 0.8786030677698062,
+      "calibration_n": 18,
+      "complete": true,
+      "cost_basis": [
+        "local_gpu_no_provider_tariff"
+      ],
+      "coverage": 1.0,
+      "ece": {
+        "bins": [
+          {
+            "accuracy": null,
+            "hi": 0.1,
+            "lo": 0.0,
+            "mean_confidence": null,
+            "n": 0
+          },
+          {
+            "accuracy": null,
+            "hi": 0.2,
+            "lo": 0.1,
+            "mean_confidence": null,
+            "n": 0
+          },
+          {
+            "accuracy": 0.0,
+            "hi": 0.3,
+            "lo": 0.2,
+            "mean_confidence": 0.2606129050254822,
+            "n": 2
+          },
+          {
+            "accuracy": 0.16666666666666666,
+            "hi": 0.4,
+            "lo": 0.3,
+            "mean_confidence": 0.36996180812517804,
+            "n": 6
+          },
+          {
+            "accuracy": 0.6666666666666666,
+            "hi": 0.5,
+            "lo": 0.4,
+            "mean_confidence": 0.4761277635892232,
+            "n": 3
+          },
+          {
+            "accuracy": 0.0,
+            "hi": 0.6,
+            "lo": 0.5,
+            "mean_confidence": 0.5536131709814072,
+            "n": 4
+          },
+          {
+            "accuracy": null,
+            "hi": 0.7,
+            "lo": 0.6,
+            "mean_confidence": null,
+            "n": 0
+          },
+          {
+            "accuracy": 0.0,
+            "hi": 0.8,
+            "lo": 0.7,
+            "mean_confidence": 0.7511502380139433,
+            "n": 3
+          },
+          {
+            "accuracy": null,
+            "hi": 0.9,
+            "lo": 0.8,
+            "mean_confidence": null,
+            "n": 0
+          },
+          {
+            "accuracy": null,
+            "hi": 1.0,
+            "lo": 0.9,
+            "mean_confidence": null,
+            "n": 0
+          }
+        ],
+        "ece": 0.37669537588899005,
+        "n": 18
+      },
+      "latency": {
+        "n": 18,
+        "p50_s": 0.8544771999950171,
+        "p95_s": 1.151166204993933
+      },
+      "latency_failures": {
+        "n": 0,
+        "p50_s": null,
+        "p95_s": null
+      },
+      "ledger_charged_usd": null,
+      "macro_accuracy": 0.16666666666666666,
+      "model_identities": [
+        "smalljev_semantic_v8"
+      ],
+      "n_attempted": 18,
+      "n_correct": 3,
+      "n_planned": 18,
+      "n_renormalized": 0,
+      "n_scorable": 18,
+      "n_valid": 18,
+      "operational_success": 1.0,
+      "ordinal_mae": 0.34343792498111725,
+      "paraphrase_consistency": {
+        "agree": 0,
+        "agreement": null,
+        "both_correct_rate_all_pairs": null,
+        "both_valid": 0,
+        "pairs": 0
+      },
+      "per_family": {
+        "multi_hop": {
+          "accuracy": 0.16666666666666666,
+          "brier_mean": 0.8786030677698062,
+          "calibration_n": 18,
+          "cost_basis": [
+            "local_gpu_no_provider_tariff"
+          ],
+          "coverage": 1.0,
+          "ece": {
+            "bins": [
+              {
+                "accuracy": null,
+                "hi": 0.1,
+                "lo": 0.0,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.2,
+                "lo": 0.1,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 0.3,
+                "lo": 0.2,
+                "mean_confidence": 0.2606129050254822,
+                "n": 2
+              },
+              {
+                "accuracy": 0.16666666666666666,
+                "hi": 0.4,
+                "lo": 0.3,
+                "mean_confidence": 0.36996180812517804,
+                "n": 6
+              },
+              {
+                "accuracy": 0.6666666666666666,
+                "hi": 0.5,
+                "lo": 0.4,
+                "mean_confidence": 0.4761277635892232,
+                "n": 3
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 0.6,
+                "lo": 0.5,
+                "mean_confidence": 0.5536131709814072,
+                "n": 4
+              },
+              {
+                "accuracy": null,
+                "hi": 0.7,
+                "lo": 0.6,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 0.8,
+                "lo": 0.7,
+                "mean_confidence": 0.7511502380139433,
+                "n": 3
+              },
+              {
+                "accuracy": null,
+                "hi": 0.9,
+                "lo": 0.8,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 1.0,
+                "lo": 0.9,
+                "mean_confidence": null,
+                "n": 0
+              }
+            ],
+            "ece": 0.37669537588899005,
+            "n": 18
+          },
+          "latency": {
+            "n": 18,
+            "p50_s": 0.8544771999950171,
+            "p95_s": 1.151166204993933
+          },
+          "latency_failures": {
+            "n": 0,
+            "p50_s": null,
+            "p95_s": null
+          },
+          "n_attempted": 18,
+          "n_correct": 3,
+          "n_planned": 18,
+          "n_renormalized": 0,
+          "n_scorable": 18,
+          "n_valid": 18,
+          "operational_success": 1.0,
+          "ordinal_mae": 0.34343792498111725,
+          "price_per_1000_decisions_usd": null,
+          "schema_validity": 1.0,
+          "schema_validity_strict": 1.0
+        }
+      },
+      "price_per_1000_decisions_usd": null,
+      "probability_sources": [
+        "native"
+      ],
+      "schema_validity": 1.0,
+      "schema_validity_strict": 1.0,
+      "splits": {
+        "public": {
+          "accuracy": 0.16666666666666666,
+          "brier_mean": 0.8786030677698062,
+          "calibration_n": 18,
+          "cost_basis": [
+            "local_gpu_no_provider_tariff"
+          ],
+          "coverage": 1.0,
+          "ece": {
+            "bins": [
+              {
+                "accuracy": null,
+                "hi": 0.1,
+                "lo": 0.0,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.2,
+                "lo": 0.1,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 0.3,
+                "lo": 0.2,
+                "mean_confidence": 0.2606129050254822,
+                "n": 2
+              },
+              {
+                "accuracy": 0.16666666666666666,
+                "hi": 0.4,
+                "lo": 0.3,
+                "mean_confidence": 0.36996180812517804,
+                "n": 6
+              },
+              {
+                "accuracy": 0.6666666666666666,
+                "hi": 0.5,
+                "lo": 0.4,
+                "mean_confidence": 0.4761277635892232,
+                "n": 3
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 0.6,
+                "lo": 0.5,
+                "mean_confidence": 0.5536131709814072,
+                "n": 4
+              },
+              {
+                "accuracy": null,
+                "hi": 0.7,
+                "lo": 0.6,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 0.8,
+                "lo": 0.7,
+                "mean_confidence": 0.7511502380139433,
+                "n": 3
+              },
+              {
+                "accuracy": null,
+                "hi": 0.9,
+                "lo": 0.8,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 1.0,
+                "lo": 0.9,
+                "mean_confidence": null,
+                "n": 0
+              }
+            ],
+            "ece": 0.37669537588899005,
+            "n": 18
+          },
+          "latency": {
+            "n": 18,
+            "p50_s": 0.8544771999950171,
+            "p95_s": 1.151166204993933
+          },
+          "latency_failures": {
+            "n": 0,
+            "p50_s": null,
+            "p95_s": null
+          },
+          "n_attempted": 18,
+          "n_correct": 3,
+          "n_planned": 18,
+          "n_renormalized": 0,
+          "n_scorable": 18,
+          "n_valid": 18,
+          "operational_success": 1.0,
+          "ordinal_mae": 0.34343792498111725,
+          "price_per_1000_decisions_usd": null,
+          "schema_validity": 1.0,
+          "schema_validity_strict": 1.0
+        }
+      },
+      "version": "jevbench-v1"
+    },
+    "probability": {
+      "accuracy": 0.3,
+      "brier_mean": 1.0340900095961794,
+      "calibration_n": 10,
+      "complete": true,
+      "cost_basis": [
+        "local_gpu_no_provider_tariff"
+      ],
+      "coverage": 1.0,
+      "ece": {
+        "bins": [
+          {
+            "accuracy": null,
+            "hi": 0.1,
+            "lo": 0.0,
+            "mean_confidence": null,
+            "n": 0
+          },
+          {
+            "accuracy": null,
+            "hi": 0.2,
+            "lo": 0.1,
+            "mean_confidence": null,
+            "n": 0
+          },
+          {
+            "accuracy": null,
+            "hi": 0.3,
+            "lo": 0.2,
+            "mean_confidence": null,
+            "n": 0
+          },
+          {
+            "accuracy": 0.0,
+            "hi": 0.4,
+            "lo": 0.3,
+            "mean_confidence": 0.3763521909713745,
+            "n": 1
+          },
+          {
+            "accuracy": 0.0,
+            "hi": 0.5,
+            "lo": 0.4,
+            "mean_confidence": 0.4416843056678772,
+            "n": 1
+          },
+          {
+            "accuracy": 1.0,
+            "hi": 0.6,
+            "lo": 0.5,
+            "mean_confidence": 0.5162807106971741,
+            "n": 1
+          },
+          {
+            "accuracy": 0.5,
+            "hi": 0.7,
+            "lo": 0.6,
+            "mean_confidence": 0.6142675876617432,
+            "n": 2
+          },
+          {
+            "accuracy": null,
+            "hi": 0.8,
+            "lo": 0.7,
+            "mean_confidence": null,
+            "n": 0
+          },
+          {
+            "accuracy": 0.0,
+            "hi": 0.9,
+            "lo": 0.8,
+            "mean_confidence": 0.870553195476532,
+            "n": 1
+          },
+          {
+            "accuracy": 0.25,
+            "hi": 1.0,
+            "lo": 0.9,
+            "mean_confidence": 0.9688419802327517,
+            "n": 4
+          }
+        ],
+        "ece": 0.5276212077673103,
+        "n": 10
+      },
+      "latency": {
+        "n": 10,
+        "p50_s": 0.20555419999436708,
+        "p95_s": 0.38612019000138365
+      },
+      "latency_failures": {
+        "n": 0,
+        "p50_s": null,
+        "p95_s": null
+      },
+      "ledger_charged_usd": null,
+      "macro_accuracy": 0.3,
+      "model_identities": [
+        "smalljev_semantic_v8"
+      ],
+      "n_attempted": 10,
+      "n_correct": 3,
+      "n_planned": 10,
+      "n_renormalized": 0,
+      "n_scorable": 10,
+      "n_valid": 10,
+      "operational_success": 1.0,
+      "ordinal_mae": null,
+      "paraphrase_consistency": {
+        "agree": 0,
+        "agreement": null,
+        "both_correct_rate_all_pairs": null,
+        "both_valid": 0,
+        "pairs": 0
+      },
+      "per_family": {
+        "probability": {
+          "accuracy": 0.3,
+          "brier_mean": 1.0340900095961794,
+          "calibration_n": 10,
+          "cost_basis": [
+            "local_gpu_no_provider_tariff"
+          ],
+          "coverage": 1.0,
+          "ece": {
+            "bins": [
+              {
+                "accuracy": null,
+                "hi": 0.1,
+                "lo": 0.0,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.2,
+                "lo": 0.1,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.3,
+                "lo": 0.2,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 0.4,
+                "lo": 0.3,
+                "mean_confidence": 0.3763521909713745,
+                "n": 1
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 0.5,
+                "lo": 0.4,
+                "mean_confidence": 0.4416843056678772,
+                "n": 1
+              },
+              {
+                "accuracy": 1.0,
+                "hi": 0.6,
+                "lo": 0.5,
+                "mean_confidence": 0.5162807106971741,
+                "n": 1
+              },
+              {
+                "accuracy": 0.5,
+                "hi": 0.7,
+                "lo": 0.6,
+                "mean_confidence": 0.6142675876617432,
+                "n": 2
+              },
+              {
+                "accuracy": null,
+                "hi": 0.8,
+                "lo": 0.7,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 0.9,
+                "lo": 0.8,
+                "mean_confidence": 0.870553195476532,
+                "n": 1
+              },
+              {
+                "accuracy": 0.25,
+                "hi": 1.0,
+                "lo": 0.9,
+                "mean_confidence": 0.9688419802327517,
+                "n": 4
+              }
+            ],
+            "ece": 0.5276212077673103,
+            "n": 10
+          },
+          "latency": {
+            "n": 10,
+            "p50_s": 0.20555419999436708,
+            "p95_s": 0.38612019000138365
+          },
+          "latency_failures": {
+            "n": 0,
+            "p50_s": null,
+            "p95_s": null
+          },
+          "n_attempted": 10,
+          "n_correct": 3,
+          "n_planned": 10,
+          "n_renormalized": 0,
+          "n_scorable": 10,
+          "n_valid": 10,
+          "operational_success": 1.0,
+          "ordinal_mae": null,
+          "price_per_1000_decisions_usd": null,
+          "schema_validity": 1.0,
+          "schema_validity_strict": 1.0
+        }
+      },
+      "price_per_1000_decisions_usd": null,
+      "probability_sources": [
+        "native"
+      ],
+      "schema_validity": 1.0,
+      "schema_validity_strict": 1.0,
+      "splits": {
+        "public": {
+          "accuracy": 0.3,
+          "brier_mean": 1.0340900095961794,
+          "calibration_n": 10,
+          "cost_basis": [
+            "local_gpu_no_provider_tariff"
+          ],
+          "coverage": 1.0,
+          "ece": {
+            "bins": [
+              {
+                "accuracy": null,
+                "hi": 0.1,
+                "lo": 0.0,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.2,
+                "lo": 0.1,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.3,
+                "lo": 0.2,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 0.4,
+                "lo": 0.3,
+                "mean_confidence": 0.3763521909713745,
+                "n": 1
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 0.5,
+                "lo": 0.4,
+                "mean_confidence": 0.4416843056678772,
+                "n": 1
+              },
+              {
+                "accuracy": 1.0,
+                "hi": 0.6,
+                "lo": 0.5,
+                "mean_confidence": 0.5162807106971741,
+                "n": 1
+              },
+              {
+                "accuracy": 0.5,
+                "hi": 0.7,
+                "lo": 0.6,
+                "mean_confidence": 0.6142675876617432,
+                "n": 2
+              },
+              {
+                "accuracy": null,
+                "hi": 0.8,
+                "lo": 0.7,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 0.9,
+                "lo": 0.8,
+                "mean_confidence": 0.870553195476532,
+                "n": 1
+              },
+              {
+                "accuracy": 0.25,
+                "hi": 1.0,
+                "lo": 0.9,
+                "mean_confidence": 0.9688419802327517,
+                "n": 4
+              }
+            ],
+            "ece": 0.5276212077673103,
+            "n": 10
+          },
+          "latency": {
+            "n": 10,
+            "p50_s": 0.20555419999436708,
+            "p95_s": 0.38612019000138365
+          },
+          "latency_failures": {
+            "n": 0,
+            "p50_s": null,
+            "p95_s": null
+          },
+          "n_attempted": 10,
+          "n_correct": 3,
+          "n_planned": 10,
+          "n_renormalized": 0,
+          "n_scorable": 10,
+          "n_valid": 10,
+          "operational_success": 1.0,
+          "ordinal_mae": null,
+          "price_per_1000_decisions_usd": null,
+          "schema_validity": 1.0,
+          "schema_validity_strict": 1.0
+        }
+      },
+      "version": "jevbench-v1"
+    },
+    "routing_hard": {
+      "accuracy": 0.2,
+      "brier_mean": 0.7105165367523045,
+      "calibration_n": 5,
+      "complete": true,
+      "cost_basis": [
+        "local_gpu_no_provider_tariff"
+      ],
+      "coverage": 1.0,
+      "ece": {
+        "bins": [
+          {
+            "accuracy": null,
+            "hi": 0.1,
+            "lo": 0.0,
+            "mean_confidence": null,
+            "n": 0
+          },
+          {
+            "accuracy": null,
+            "hi": 0.2,
+            "lo": 0.1,
+            "mean_confidence": null,
+            "n": 0
+          },
+          {
+            "accuracy": null,
+            "hi": 0.3,
+            "lo": 0.2,
+            "mean_confidence": null,
+            "n": 0
+          },
+          {
+            "accuracy": 0.0,
+            "hi": 0.4,
+            "lo": 0.3,
+            "mean_confidence": 0.35713572800159454,
+            "n": 2
+          },
+          {
+            "accuracy": null,
+            "hi": 0.5,
+            "lo": 0.4,
+            "mean_confidence": null,
+            "n": 0
+          },
+          {
+            "accuracy": 0.0,
+            "hi": 0.6,
+            "lo": 0.5,
+            "mean_confidence": 0.5386330485343933,
+            "n": 1
+          },
+          {
+            "accuracy": 0.0,
+            "hi": 0.7,
+            "lo": 0.6,
+            "mean_confidence": 0.6666093468666077,
+            "n": 1
+          },
+          {
+            "accuracy": null,
+            "hi": 0.8,
+            "lo": 0.7,
+            "mean_confidence": null,
+            "n": 0
+          },
+          {
+            "accuracy": null,
+            "hi": 0.9,
+            "lo": 0.8,
+            "mean_confidence": null,
+            "n": 0
+          },
+          {
+            "accuracy": 1.0,
+            "hi": 1.0,
+            "lo": 0.9,
+            "mean_confidence": 0.9585995674133301,
+            "n": 1
+          }
+        ],
+        "ece": 0.39218285679817205,
+        "n": 5
+      },
+      "latency": {
+        "n": 5,
+        "p50_s": 0.07165499999246094,
+        "p95_s": 0.24901268000248816
+      },
+      "latency_failures": {
+        "n": 0,
+        "p50_s": null,
+        "p95_s": null
+      },
+      "ledger_charged_usd": null,
+      "macro_accuracy": 0.2,
+      "model_identities": [
+        "smalljev_semantic_v8"
+      ],
+      "n_attempted": 5,
+      "n_correct": 1,
+      "n_planned": 5,
+      "n_renormalized": 0,
+      "n_scorable": 5,
+      "n_valid": 5,
+      "operational_success": 1.0,
+      "ordinal_mae": null,
+      "paraphrase_consistency": {
+        "agree": 0,
+        "agreement": null,
+        "both_correct_rate_all_pairs": null,
+        "both_valid": 0,
+        "pairs": 0
+      },
+      "per_family": {
+        "routing_hard": {
+          "accuracy": 0.2,
+          "brier_mean": 0.7105165367523045,
+          "calibration_n": 5,
+          "cost_basis": [
+            "local_gpu_no_provider_tariff"
+          ],
+          "coverage": 1.0,
+          "ece": {
+            "bins": [
+              {
+                "accuracy": null,
+                "hi": 0.1,
+                "lo": 0.0,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.2,
+                "lo": 0.1,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.3,
+                "lo": 0.2,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 0.4,
+                "lo": 0.3,
+                "mean_confidence": 0.35713572800159454,
+                "n": 2
+              },
+              {
+                "accuracy": null,
+                "hi": 0.5,
+                "lo": 0.4,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 0.6,
+                "lo": 0.5,
+                "mean_confidence": 0.5386330485343933,
+                "n": 1
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 0.7,
+                "lo": 0.6,
+                "mean_confidence": 0.6666093468666077,
+                "n": 1
+              },
+              {
+                "accuracy": null,
+                "hi": 0.8,
+                "lo": 0.7,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.9,
+                "lo": 0.8,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": 1.0,
+                "hi": 1.0,
+                "lo": 0.9,
+                "mean_confidence": 0.9585995674133301,
+                "n": 1
+              }
+            ],
+            "ece": 0.39218285679817205,
+            "n": 5
+          },
+          "latency": {
+            "n": 5,
+            "p50_s": 0.07165499999246094,
+            "p95_s": 0.24901268000248816
+          },
+          "latency_failures": {
+            "n": 0,
+            "p50_s": null,
+            "p95_s": null
+          },
+          "n_attempted": 5,
+          "n_correct": 1,
+          "n_planned": 5,
+          "n_renormalized": 0,
+          "n_scorable": 5,
+          "n_valid": 5,
+          "operational_success": 1.0,
+          "ordinal_mae": null,
+          "price_per_1000_decisions_usd": null,
+          "schema_validity": 1.0,
+          "schema_validity_strict": 1.0
+        }
+      },
+      "price_per_1000_decisions_usd": null,
+      "probability_sources": [
+        "native"
+      ],
+      "schema_validity": 1.0,
+      "schema_validity_strict": 1.0,
+      "splits": {
+        "public": {
+          "accuracy": 0.2,
+          "brier_mean": 0.7105165367523045,
+          "calibration_n": 5,
+          "cost_basis": [
+            "local_gpu_no_provider_tariff"
+          ],
+          "coverage": 1.0,
+          "ece": {
+            "bins": [
+              {
+                "accuracy": null,
+                "hi": 0.1,
+                "lo": 0.0,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.2,
+                "lo": 0.1,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.3,
+                "lo": 0.2,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 0.4,
+                "lo": 0.3,
+                "mean_confidence": 0.35713572800159454,
+                "n": 2
+              },
+              {
+                "accuracy": null,
+                "hi": 0.5,
+                "lo": 0.4,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 0.6,
+                "lo": 0.5,
+                "mean_confidence": 0.5386330485343933,
+                "n": 1
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 0.7,
+                "lo": 0.6,
+                "mean_confidence": 0.6666093468666077,
+                "n": 1
+              },
+              {
+                "accuracy": null,
+                "hi": 0.8,
+                "lo": 0.7,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.9,
+                "lo": 0.8,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": 1.0,
+                "hi": 1.0,
+                "lo": 0.9,
+                "mean_confidence": 0.9585995674133301,
+                "n": 1
+              }
+            ],
+            "ece": 0.39218285679817205,
+            "n": 5
+          },
+          "latency": {
+            "n": 5,
+            "p50_s": 0.07165499999246094,
+            "p95_s": 0.24901268000248816
+          },
+          "latency_failures": {
+            "n": 0,
+            "p50_s": null,
+            "p95_s": null
+          },
+          "n_attempted": 5,
+          "n_correct": 1,
+          "n_planned": 5,
+          "n_renormalized": 0,
+          "n_scorable": 5,
+          "n_valid": 5,
+          "operational_success": 1.0,
+          "ordinal_mae": null,
+          "price_per_1000_decisions_usd": null,
+          "schema_validity": 1.0,
+          "schema_validity_strict": 1.0
+        }
+      },
+      "version": "jevbench-v1"
+    },
+    "temporal_numeric": {
+      "accuracy": 0.3333333333333333,
+      "brier_mean": 0.8166410223721641,
+      "calibration_n": 15,
+      "complete": true,
+      "cost_basis": [
+        "local_gpu_no_provider_tariff"
+      ],
+      "coverage": 1.0,
+      "ece": {
+        "bins": [
+          {
+            "accuracy": null,
+            "hi": 0.1,
+            "lo": 0.0,
+            "mean_confidence": null,
+            "n": 0
+          },
+          {
+            "accuracy": null,
+            "hi": 0.2,
+            "lo": 0.1,
+            "mean_confidence": null,
+            "n": 0
+          },
+          {
+            "accuracy": 0.3333333333333333,
+            "hi": 0.3,
+            "lo": 0.2,
+            "mean_confidence": 0.2679470380147298,
+            "n": 3
+          },
+          {
+            "accuracy": 0.2,
+            "hi": 0.4,
+            "lo": 0.3,
+            "mean_confidence": 0.3538120985031128,
+            "n": 5
+          },
+          {
+            "accuracy": 0.0,
+            "hi": 0.5,
+            "lo": 0.4,
+            "mean_confidence": 0.447569876909256,
+            "n": 1
+          },
+          {
+            "accuracy": 1.0,
+            "hi": 0.6,
+            "lo": 0.5,
+            "mean_confidence": 0.5592037868737045,
+            "n": 1
+          },
+          {
+            "accuracy": 0.6666666666666666,
+            "hi": 0.7,
+            "lo": 0.6,
+            "mean_confidence": 0.6726720135254275,
+            "n": 3
+          },
+          {
+            "accuracy": null,
+            "hi": 0.8,
+            "lo": 0.7,
+            "mean_confidence": null,
+            "n": 0
+          },
+          {
+            "accuracy": 0.0,
+            "hi": 0.9,
+            "lo": 0.8,
+            "mean_confidence": 0.8310954038961734,
+            "n": 2
+          },
+          {
+            "accuracy": null,
+            "hi": 1.0,
+            "lo": 0.9,
+            "mean_confidence": null,
+            "n": 0
+          }
+        ],
+        "ece": 0.23558615445837033,
+        "n": 15
+      },
+      "latency": {
+        "n": 15,
+        "p50_s": 0.16498980000324082,
+        "p95_s": 0.2535154400073224
+      },
+      "latency_failures": {
+        "n": 0,
+        "p50_s": null,
+        "p95_s": null
+      },
+      "ledger_charged_usd": null,
+      "macro_accuracy": 0.3333333333333333,
+      "model_identities": [
+        "smalljev_semantic_v8"
+      ],
+      "n_attempted": 15,
+      "n_correct": 5,
+      "n_planned": 15,
+      "n_renormalized": 0,
+      "n_scorable": 15,
+      "n_valid": 15,
+      "operational_success": 1.0,
+      "ordinal_mae": 1.7296066097915173,
+      "paraphrase_consistency": {
+        "agree": 0,
+        "agreement": null,
+        "both_correct_rate_all_pairs": null,
+        "both_valid": 0,
+        "pairs": 0
+      },
+      "per_family": {
+        "temporal_numeric": {
+          "accuracy": 0.3333333333333333,
+          "brier_mean": 0.8166410223721641,
+          "calibration_n": 15,
+          "cost_basis": [
+            "local_gpu_no_provider_tariff"
+          ],
+          "coverage": 1.0,
+          "ece": {
+            "bins": [
+              {
+                "accuracy": null,
+                "hi": 0.1,
+                "lo": 0.0,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.2,
+                "lo": 0.1,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": 0.3333333333333333,
+                "hi": 0.3,
+                "lo": 0.2,
+                "mean_confidence": 0.2679470380147298,
+                "n": 3
+              },
+              {
+                "accuracy": 0.2,
+                "hi": 0.4,
+                "lo": 0.3,
+                "mean_confidence": 0.3538120985031128,
+                "n": 5
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 0.5,
+                "lo": 0.4,
+                "mean_confidence": 0.447569876909256,
+                "n": 1
+              },
+              {
+                "accuracy": 1.0,
+                "hi": 0.6,
+                "lo": 0.5,
+                "mean_confidence": 0.5592037868737045,
+                "n": 1
+              },
+              {
+                "accuracy": 0.6666666666666666,
+                "hi": 0.7,
+                "lo": 0.6,
+                "mean_confidence": 0.6726720135254275,
+                "n": 3
+              },
+              {
+                "accuracy": null,
+                "hi": 0.8,
+                "lo": 0.7,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 0.9,
+                "lo": 0.8,
+                "mean_confidence": 0.8310954038961734,
+                "n": 2
+              },
+              {
+                "accuracy": null,
+                "hi": 1.0,
+                "lo": 0.9,
+                "mean_confidence": null,
+                "n": 0
+              }
+            ],
+            "ece": 0.23558615445837033,
+            "n": 15
+          },
+          "latency": {
+            "n": 15,
+            "p50_s": 0.16498980000324082,
+            "p95_s": 0.2535154400073224
+          },
+          "latency_failures": {
+            "n": 0,
+            "p50_s": null,
+            "p95_s": null
+          },
+          "n_attempted": 15,
+          "n_correct": 5,
+          "n_planned": 15,
+          "n_renormalized": 0,
+          "n_scorable": 15,
+          "n_valid": 15,
+          "operational_success": 1.0,
+          "ordinal_mae": 1.7296066097915173,
+          "price_per_1000_decisions_usd": null,
+          "schema_validity": 1.0,
+          "schema_validity_strict": 1.0
+        }
+      },
+      "price_per_1000_decisions_usd": null,
+      "probability_sources": [
+        "native"
+      ],
+      "schema_validity": 1.0,
+      "schema_validity_strict": 1.0,
+      "splits": {
+        "public": {
+          "accuracy": 0.3333333333333333,
+          "brier_mean": 0.8166410223721641,
+          "calibration_n": 15,
+          "cost_basis": [
+            "local_gpu_no_provider_tariff"
+          ],
+          "coverage": 1.0,
+          "ece": {
+            "bins": [
+              {
+                "accuracy": null,
+                "hi": 0.1,
+                "lo": 0.0,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.2,
+                "lo": 0.1,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": 0.3333333333333333,
+                "hi": 0.3,
+                "lo": 0.2,
+                "mean_confidence": 0.2679470380147298,
+                "n": 3
+              },
+              {
+                "accuracy": 0.2,
+                "hi": 0.4,
+                "lo": 0.3,
+                "mean_confidence": 0.3538120985031128,
+                "n": 5
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 0.5,
+                "lo": 0.4,
+                "mean_confidence": 0.447569876909256,
+                "n": 1
+              },
+              {
+                "accuracy": 1.0,
+                "hi": 0.6,
+                "lo": 0.5,
+                "mean_confidence": 0.5592037868737045,
+                "n": 1
+              },
+              {
+                "accuracy": 0.6666666666666666,
+                "hi": 0.7,
+                "lo": 0.6,
+                "mean_confidence": 0.6726720135254275,
+                "n": 3
+              },
+              {
+                "accuracy": null,
+                "hi": 0.8,
+                "lo": 0.7,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 0.9,
+                "lo": 0.8,
+                "mean_confidence": 0.8310954038961734,
+                "n": 2
+              },
+              {
+                "accuracy": null,
+                "hi": 1.0,
+                "lo": 0.9,
+                "mean_confidence": null,
+                "n": 0
+              }
+            ],
+            "ece": 0.23558615445837033,
+            "n": 15
+          },
+          "latency": {
+            "n": 15,
+            "p50_s": 0.16498980000324082,
+            "p95_s": 0.2535154400073224
+          },
+          "latency_failures": {
+            "n": 0,
+            "p50_s": null,
+            "p95_s": null
+          },
+          "n_attempted": 15,
+          "n_correct": 5,
+          "n_planned": 15,
+          "n_renormalized": 0,
+          "n_scorable": 15,
+          "n_valid": 15,
+          "operational_success": 1.0,
+          "ordinal_mae": 1.7296066097915173,
+          "price_per_1000_decisions_usd": null,
+          "schema_validity": 1.0,
+          "schema_validity_strict": 1.0
+        }
+      },
+      "version": "jevbench-v1"
+    },
+    "tradeoff": {
+      "accuracy": 0.3333333333333333,
+      "brier_mean": 0.9462128748846865,
+      "calibration_n": 6,
+      "complete": true,
+      "cost_basis": [
+        "local_gpu_no_provider_tariff"
+      ],
+      "coverage": 1.0,
+      "ece": {
+        "bins": [
+          {
+            "accuracy": null,
+            "hi": 0.1,
+            "lo": 0.0,
+            "mean_confidence": null,
+            "n": 0
+          },
+          {
+            "accuracy": null,
+            "hi": 0.2,
+            "lo": 0.1,
+            "mean_confidence": null,
+            "n": 0
+          },
+          {
+            "accuracy": null,
+            "hi": 0.3,
+            "lo": 0.2,
+            "mean_confidence": null,
+            "n": 0
+          },
+          {
+            "accuracy": 1.0,
+            "hi": 0.4,
+            "lo": 0.3,
+            "mean_confidence": 0.3540579378604889,
+            "n": 1
+          },
+          {
+            "accuracy": 0.0,
+            "hi": 0.5,
+            "lo": 0.4,
+            "mean_confidence": 0.45970526337623596,
+            "n": 2
+          },
+          {
+            "accuracy": null,
+            "hi": 0.6,
+            "lo": 0.5,
+            "mean_confidence": null,
+            "n": 0
+          },
+          {
+            "accuracy": 1.0,
+            "hi": 0.7,
+            "lo": 0.6,
+            "mean_confidence": 0.6289592385292053,
+            "n": 1
+          },
+          {
+            "accuracy": null,
+            "hi": 0.8,
+            "lo": 0.7,
+            "mean_confidence": null,
+            "n": 0
+          },
+          {
+            "accuracy": 0.0,
+            "hi": 0.9,
+            "lo": 0.8,
+            "mean_confidence": 0.861590730226178,
+            "n": 1
+          },
+          {
+            "accuracy": 0.0,
+            "hi": 1.0,
+            "lo": 0.9,
+            "mean_confidence": 0.9171100122167168,
+            "n": 1
+          }
+        ],
+        "ece": 0.6191823488009454,
+        "n": 6
+      },
+      "latency": {
+        "n": 6,
+        "p50_s": 0.16310879999946337,
+        "p95_s": 0.18543435000174213
+      },
+      "latency_failures": {
+        "n": 0,
+        "p50_s": null,
+        "p95_s": null
+      },
+      "ledger_charged_usd": null,
+      "macro_accuracy": 0.3333333333333333,
+      "model_identities": [
+        "smalljev_semantic_v8"
+      ],
+      "n_attempted": 6,
+      "n_correct": 2,
+      "n_planned": 6,
+      "n_renormalized": 0,
+      "n_scorable": 6,
+      "n_valid": 6,
+      "operational_success": 1.0,
+      "ordinal_mae": null,
+      "paraphrase_consistency": {
+        "agree": 0,
+        "agreement": null,
+        "both_correct_rate_all_pairs": null,
+        "both_valid": 0,
+        "pairs": 0
+      },
+      "per_family": {
+        "tradeoff": {
+          "accuracy": 0.3333333333333333,
+          "brier_mean": 0.9462128748846865,
+          "calibration_n": 6,
+          "cost_basis": [
+            "local_gpu_no_provider_tariff"
+          ],
+          "coverage": 1.0,
+          "ece": {
+            "bins": [
+              {
+                "accuracy": null,
+                "hi": 0.1,
+                "lo": 0.0,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.2,
+                "lo": 0.1,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.3,
+                "lo": 0.2,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": 1.0,
+                "hi": 0.4,
+                "lo": 0.3,
+                "mean_confidence": 0.3540579378604889,
+                "n": 1
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 0.5,
+                "lo": 0.4,
+                "mean_confidence": 0.45970526337623596,
+                "n": 2
+              },
+              {
+                "accuracy": null,
+                "hi": 0.6,
+                "lo": 0.5,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": 1.0,
+                "hi": 0.7,
+                "lo": 0.6,
+                "mean_confidence": 0.6289592385292053,
+                "n": 1
+              },
+              {
+                "accuracy": null,
+                "hi": 0.8,
+                "lo": 0.7,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 0.9,
+                "lo": 0.8,
+                "mean_confidence": 0.861590730226178,
+                "n": 1
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 1.0,
+                "lo": 0.9,
+                "mean_confidence": 0.9171100122167168,
+                "n": 1
+              }
+            ],
+            "ece": 0.6191823488009454,
+            "n": 6
+          },
+          "latency": {
+            "n": 6,
+            "p50_s": 0.16310879999946337,
+            "p95_s": 0.18543435000174213
+          },
+          "latency_failures": {
+            "n": 0,
+            "p50_s": null,
+            "p95_s": null
+          },
+          "n_attempted": 6,
+          "n_correct": 2,
+          "n_planned": 6,
+          "n_renormalized": 0,
+          "n_scorable": 6,
+          "n_valid": 6,
+          "operational_success": 1.0,
+          "ordinal_mae": null,
+          "price_per_1000_decisions_usd": null,
+          "schema_validity": 1.0,
+          "schema_validity_strict": 1.0
+        }
+      },
+      "price_per_1000_decisions_usd": null,
+      "probability_sources": [
+        "native"
+      ],
+      "schema_validity": 1.0,
+      "schema_validity_strict": 1.0,
+      "splits": {
+        "public": {
+          "accuracy": 0.3333333333333333,
+          "brier_mean": 0.9462128748846865,
+          "calibration_n": 6,
+          "cost_basis": [
+            "local_gpu_no_provider_tariff"
+          ],
+          "coverage": 1.0,
+          "ece": {
+            "bins": [
+              {
+                "accuracy": null,
+                "hi": 0.1,
+                "lo": 0.0,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.2,
+                "lo": 0.1,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.3,
+                "lo": 0.2,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": 1.0,
+                "hi": 0.4,
+                "lo": 0.3,
+                "mean_confidence": 0.3540579378604889,
+                "n": 1
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 0.5,
+                "lo": 0.4,
+                "mean_confidence": 0.45970526337623596,
+                "n": 2
+              },
+              {
+                "accuracy": null,
+                "hi": 0.6,
+                "lo": 0.5,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": 1.0,
+                "hi": 0.7,
+                "lo": 0.6,
+                "mean_confidence": 0.6289592385292053,
+                "n": 1
+              },
+              {
+                "accuracy": null,
+                "hi": 0.8,
+                "lo": 0.7,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 0.9,
+                "lo": 0.8,
+                "mean_confidence": 0.861590730226178,
+                "n": 1
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 1.0,
+                "lo": 0.9,
+                "mean_confidence": 0.9171100122167168,
+                "n": 1
+              }
+            ],
+            "ece": 0.6191823488009454,
+            "n": 6
+          },
+          "latency": {
+            "n": 6,
+            "p50_s": 0.16310879999946337,
+            "p95_s": 0.18543435000174213
+          },
+          "latency_failures": {
+            "n": 0,
+            "p50_s": null,
+            "p95_s": null
+          },
+          "n_attempted": 6,
+          "n_correct": 2,
+          "n_planned": 6,
+          "n_renormalized": 0,
+          "n_scorable": 6,
+          "n_valid": 6,
+          "operational_success": 1.0,
+          "ordinal_mae": null,
+          "price_per_1000_decisions_usd": null,
+          "schema_validity": 1.0,
+          "schema_validity_strict": 1.0
+        }
+      },
+      "version": "jevbench-v1"
+    },
+    "trap": {
+      "accuracy": 0.75,
+      "brier_mean": 0.32479633697871974,
+      "calibration_n": 8,
+      "complete": true,
+      "cost_basis": [
+        "local_gpu_no_provider_tariff"
+      ],
+      "coverage": 1.0,
+      "ece": {
+        "bins": [
+          {
+            "accuracy": null,
+            "hi": 0.1,
+            "lo": 0.0,
+            "mean_confidence": null,
+            "n": 0
+          },
+          {
+            "accuracy": null,
+            "hi": 0.2,
+            "lo": 0.1,
+            "mean_confidence": null,
+            "n": 0
+          },
+          {
+            "accuracy": null,
+            "hi": 0.3,
+            "lo": 0.2,
+            "mean_confidence": null,
+            "n": 0
+          },
+          {
+            "accuracy": null,
+            "hi": 0.4,
+            "lo": 0.3,
+            "mean_confidence": null,
+            "n": 0
+          },
+          {
+            "accuracy": 0.5,
+            "hi": 0.5,
+            "lo": 0.4,
+            "mean_confidence": 0.4219358414411545,
+            "n": 2
+          },
+          {
+            "accuracy": 0.5,
+            "hi": 0.6,
+            "lo": 0.5,
+            "mean_confidence": 0.5450386838603412,
+            "n": 2
+          },
+          {
+            "accuracy": 1.0,
+            "hi": 0.7,
+            "lo": 0.6,
+            "mean_confidence": 0.6412621736526489,
+            "n": 1
+          },
+          {
+            "accuracy": null,
+            "hi": 0.8,
+            "lo": 0.7,
+            "mean_confidence": null,
+            "n": 0
+          },
+          {
+            "accuracy": null,
+            "hi": 0.9,
+            "lo": 0.8,
+            "mean_confidence": null,
+            "n": 0
+          },
+          {
+            "accuracy": 1.0,
+            "hi": 1.0,
+            "lo": 0.9,
+            "mean_confidence": 0.9672954607289558,
+            "n": 3
+          }
+        ],
+        "ece": 0.08788214112485714,
+        "n": 8
+      },
+      "latency": {
+        "n": 8,
+        "p50_s": 0.06786534999992,
+        "p95_s": 0.07068915000199923
+      },
+      "latency_failures": {
+        "n": 0,
+        "p50_s": null,
+        "p95_s": null
+      },
+      "ledger_charged_usd": null,
+      "macro_accuracy": 0.75,
+      "model_identities": [
+        "smalljev_semantic_v8"
+      ],
+      "n_attempted": 8,
+      "n_correct": 6,
+      "n_planned": 8,
+      "n_renormalized": 0,
+      "n_scorable": 8,
+      "n_valid": 8,
+      "operational_success": 1.0,
+      "ordinal_mae": 1.7302600741386414,
+      "paraphrase_consistency": {
+        "agree": 0,
+        "agreement": null,
+        "both_correct_rate_all_pairs": null,
+        "both_valid": 0,
+        "pairs": 0
+      },
+      "per_family": {
+        "trap": {
+          "accuracy": 0.75,
+          "brier_mean": 0.32479633697871974,
+          "calibration_n": 8,
+          "cost_basis": [
+            "local_gpu_no_provider_tariff"
+          ],
+          "coverage": 1.0,
+          "ece": {
+            "bins": [
+              {
+                "accuracy": null,
+                "hi": 0.1,
+                "lo": 0.0,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.2,
+                "lo": 0.1,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.3,
+                "lo": 0.2,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.4,
+                "lo": 0.3,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": 0.5,
+                "hi": 0.5,
+                "lo": 0.4,
+                "mean_confidence": 0.4219358414411545,
+                "n": 2
+              },
+              {
+                "accuracy": 0.5,
+                "hi": 0.6,
+                "lo": 0.5,
+                "mean_confidence": 0.5450386838603412,
+                "n": 2
+              },
+              {
+                "accuracy": 1.0,
+                "hi": 0.7,
+                "lo": 0.6,
+                "mean_confidence": 0.6412621736526489,
+                "n": 1
+              },
+              {
+                "accuracy": null,
+                "hi": 0.8,
+                "lo": 0.7,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.9,
+                "lo": 0.8,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": 1.0,
+                "hi": 1.0,
+                "lo": 0.9,
+                "mean_confidence": 0.9672954607289558,
+                "n": 3
+              }
+            ],
+            "ece": 0.08788214112485714,
+            "n": 8
+          },
+          "latency": {
+            "n": 8,
+            "p50_s": 0.06786534999992,
+            "p95_s": 0.07068915000199923
+          },
+          "latency_failures": {
+            "n": 0,
+            "p50_s": null,
+            "p95_s": null
+          },
+          "n_attempted": 8,
+          "n_correct": 6,
+          "n_planned": 8,
+          "n_renormalized": 0,
+          "n_scorable": 8,
+          "n_valid": 8,
+          "operational_success": 1.0,
+          "ordinal_mae": 1.7302600741386414,
+          "price_per_1000_decisions_usd": null,
+          "schema_validity": 1.0,
+          "schema_validity_strict": 1.0
+        }
+      },
+      "price_per_1000_decisions_usd": null,
+      "probability_sources": [
+        "native"
+      ],
+      "schema_validity": 1.0,
+      "schema_validity_strict": 1.0,
+      "splits": {
+        "public": {
+          "accuracy": 0.75,
+          "brier_mean": 0.32479633697871974,
+          "calibration_n": 8,
+          "cost_basis": [
+            "local_gpu_no_provider_tariff"
+          ],
+          "coverage": 1.0,
+          "ece": {
+            "bins": [
+              {
+                "accuracy": null,
+                "hi": 0.1,
+                "lo": 0.0,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.2,
+                "lo": 0.1,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.3,
+                "lo": 0.2,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.4,
+                "lo": 0.3,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": 0.5,
+                "hi": 0.5,
+                "lo": 0.4,
+                "mean_confidence": 0.4219358414411545,
+                "n": 2
+              },
+              {
+                "accuracy": 0.5,
+                "hi": 0.6,
+                "lo": 0.5,
+                "mean_confidence": 0.5450386838603412,
+                "n": 2
+              },
+              {
+                "accuracy": 1.0,
+                "hi": 0.7,
+                "lo": 0.6,
+                "mean_confidence": 0.6412621736526489,
+                "n": 1
+              },
+              {
+                "accuracy": null,
+                "hi": 0.8,
+                "lo": 0.7,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.9,
+                "lo": 0.8,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": 1.0,
+                "hi": 1.0,
+                "lo": 0.9,
+                "mean_confidence": 0.9672954607289558,
+                "n": 3
+              }
+            ],
+            "ece": 0.08788214112485714,
+            "n": 8
+          },
+          "latency": {
+            "n": 8,
+            "p50_s": 0.06786534999992,
+            "p95_s": 0.07068915000199923
+          },
+          "latency_failures": {
+            "n": 0,
+            "p50_s": null,
+            "p95_s": null
+          },
+          "n_attempted": 8,
+          "n_correct": 6,
+          "n_planned": 8,
+          "n_renormalized": 0,
+          "n_scorable": 8,
+          "n_valid": 8,
+          "operational_success": 1.0,
+          "ordinal_mae": 1.7302600741386414,
+          "price_per_1000_decisions_usd": null,
+          "schema_validity": 1.0,
+          "schema_validity_strict": 1.0
+        }
+      },
+      "version": "jevbench-v1"
+    }
+  },
+  "per_tier": {
+    "easy": {
+      "accuracy": 0.9791666666666666,
+      "brier_mean": 0.05346114999028318,
+      "calibration_n": 48,
+      "complete": true,
+      "cost_basis": [
+        "local_gpu_no_provider_tariff"
+      ],
+      "coverage": 1.0,
+      "ece": {
+        "bins": [
+          {
+            "accuracy": null,
+            "hi": 0.1,
+            "lo": 0.0,
+            "mean_confidence": null,
+            "n": 0
+          },
+          {
+            "accuracy": null,
+            "hi": 0.2,
+            "lo": 0.1,
+            "mean_confidence": null,
+            "n": 0
+          },
+          {
+            "accuracy": null,
+            "hi": 0.3,
+            "lo": 0.2,
+            "mean_confidence": null,
+            "n": 0
+          },
+          {
+            "accuracy": null,
+            "hi": 0.4,
+            "lo": 0.3,
+            "mean_confidence": null,
+            "n": 0
+          },
+          {
+            "accuracy": 1.0,
+            "hi": 0.5,
+            "lo": 0.4,
+            "mean_confidence": 0.480390727519989,
+            "n": 1
+          },
+          {
+            "accuracy": null,
+            "hi": 0.6,
+            "lo": 0.5,
+            "mean_confidence": null,
+            "n": 0
+          },
+          {
+            "accuracy": null,
+            "hi": 0.7,
+            "lo": 0.6,
+            "mean_confidence": null,
+            "n": 0
+          },
+          {
+            "accuracy": null,
+            "hi": 0.8,
+            "lo": 0.7,
+            "mean_confidence": null,
+            "n": 0
+          },
+          {
+            "accuracy": 1.0,
+            "hi": 0.9,
+            "lo": 0.8,
+            "mean_confidence": 0.8683655203941583,
+            "n": 4
+          },
+          {
+            "accuracy": 0.9767441860465116,
+            "hi": 1.0,
+            "lo": 0.9,
+            "mean_confidence": 0.9936374812139,
+            "n": 43
+          }
+        ],
+        "ece": 0.036928310064605875,
+        "n": 48
+      },
+      "latency": {
+        "n": 48,
+        "p50_s": 0.16274644999793964,
+        "p95_s": 0.26047050000343
+      },
+      "latency_failures": {
+        "n": 0,
+        "p50_s": null,
+        "p95_s": null
+      },
+      "ledger_charged_usd": null,
+      "macro_accuracy": 0.9791666666666666,
+      "model_identities": [
+        "smalljev_semantic_v8"
+      ],
+      "n_attempted": 48,
+      "n_correct": 47,
+      "n_planned": 48,
+      "n_renormalized": 0,
+      "n_scorable": 48,
+      "n_valid": 48,
+      "operational_success": 1.0,
+      "ordinal_mae": null,
+      "paraphrase_consistency": {
+        "agree": 0,
+        "agreement": null,
+        "both_correct_rate_all_pairs": null,
+        "both_valid": 0,
+        "pairs": 0
+      },
+      "per_family": {
+        "extraction": {
+          "accuracy": 1.0,
+          "brier_mean": 0.03961141824388572,
+          "calibration_n": 12,
+          "cost_basis": [
+            "local_gpu_no_provider_tariff"
+          ],
+          "coverage": 1.0,
+          "ece": {
+            "bins": [
+              {
+                "accuracy": null,
+                "hi": 0.1,
+                "lo": 0.0,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.2,
+                "lo": 0.1,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.3,
+                "lo": 0.2,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.4,
+                "lo": 0.3,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": 1.0,
+                "hi": 0.5,
+                "lo": 0.4,
+                "mean_confidence": 0.480390727519989,
+                "n": 1
+              },
+              {
+                "accuracy": null,
+                "hi": 0.6,
+                "lo": 0.5,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.7,
+                "lo": 0.6,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.8,
+                "lo": 0.7,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.9,
+                "lo": 0.8,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": 1.0,
+                "hi": 1.0,
+                "lo": 0.9,
+                "mean_confidence": 0.9943817420439287,
+                "n": 11
+              }
+            ],
+            "ece": 0.04845084249973293,
+            "n": 12
+          },
+          "latency": {
+            "n": 12,
+            "p50_s": 0.2302646000025561,
+            "p95_s": 0.4317634299972266
+          },
+          "latency_failures": {
+            "n": 0,
+            "p50_s": null,
+            "p95_s": null
+          },
+          "n_attempted": 12,
+          "n_correct": 12,
+          "n_planned": 12,
+          "n_renormalized": 0,
+          "n_scorable": 12,
+          "n_valid": 12,
+          "operational_success": 1.0,
+          "ordinal_mae": null,
+          "price_per_1000_decisions_usd": null,
+          "schema_validity": 1.0,
+          "schema_validity_strict": 1.0
+        },
+        "fact": {
+          "accuracy": 1.0,
+          "brier_mean": 0.0133368108071805,
+          "calibration_n": 12,
+          "cost_basis": [
+            "local_gpu_no_provider_tariff"
+          ],
+          "coverage": 1.0,
+          "ece": {
+            "bins": [
+              {
+                "accuracy": null,
+                "hi": 0.1,
+                "lo": 0.0,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.2,
+                "lo": 0.1,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.3,
+                "lo": 0.2,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.4,
+                "lo": 0.3,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.5,
+                "lo": 0.4,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.6,
+                "lo": 0.5,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.7,
+                "lo": 0.6,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.8,
+                "lo": 0.7,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": 1.0,
+                "hi": 0.9,
+                "lo": 0.8,
+                "mean_confidence": 0.8683655203941583,
+                "n": 4
+              },
+              {
+                "accuracy": 1.0,
+                "hi": 1.0,
+                "lo": 0.9,
+                "mean_confidence": 0.9796661948034641,
+                "n": 8
+              }
+            ],
+            "ece": 0.05743402999963787,
+            "n": 12
+          },
+          "latency": {
+            "n": 12,
+            "p50_s": 0.1511188999938895,
+            "p95_s": 0.17432806000724665
+          },
+          "latency_failures": {
+            "n": 0,
+            "p50_s": null,
+            "p95_s": null
+          },
+          "n_attempted": 12,
+          "n_correct": 12,
+          "n_planned": 12,
+          "n_renormalized": 0,
+          "n_scorable": 12,
+          "n_valid": 12,
+          "operational_success": 1.0,
+          "ordinal_mae": null,
+          "price_per_1000_decisions_usd": null,
+          "schema_validity": 1.0,
+          "schema_validity_strict": 1.0
+        },
+        "intent": {
+          "accuracy": 0.9166666666666666,
+          "brier_mean": 0.1608945550528708,
+          "calibration_n": 12,
+          "cost_basis": [
+            "local_gpu_no_provider_tariff"
+          ],
+          "coverage": 1.0,
+          "ece": {
+            "bins": [
+              {
+                "accuracy": null,
+                "hi": 0.1,
+                "lo": 0.0,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.2,
+                "lo": 0.1,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.3,
+                "lo": 0.2,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.4,
+                "lo": 0.3,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.5,
+                "lo": 0.4,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.6,
+                "lo": 0.5,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.7,
+                "lo": 0.6,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.8,
+                "lo": 0.7,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.9,
+                "lo": 0.8,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": 0.9166666666666666,
+                "hi": 1.0,
+                "lo": 0.9,
+                "mean_confidence": 0.996378148595492,
+                "n": 12
+              }
+            ],
+            "ece": 0.07971148192882538,
+            "n": 12
+          },
+          "latency": {
+            "n": 12,
+            "p50_s": 0.16274644999793964,
+            "p95_s": 0.6265544899986701
+          },
+          "latency_failures": {
+            "n": 0,
+            "p50_s": null,
+            "p95_s": null
+          },
+          "n_attempted": 12,
+          "n_correct": 11,
+          "n_planned": 12,
+          "n_renormalized": 0,
+          "n_scorable": 12,
+          "n_valid": 12,
+          "operational_success": 1.0,
+          "ordinal_mae": null,
+          "price_per_1000_decisions_usd": null,
+          "schema_validity": 1.0,
+          "schema_validity_strict": 1.0
+        },
+        "tool_selection": {
+          "accuracy": 1.0,
+          "brier_mean": 1.815857195589235e-06,
+          "calibration_n": 12,
+          "cost_basis": [
+            "local_gpu_no_provider_tariff"
+          ],
+          "coverage": 1.0,
+          "ece": {
+            "bins": [
+              {
+                "accuracy": null,
+                "hi": 0.1,
+                "lo": 0.0,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.2,
+                "lo": 0.1,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.3,
+                "lo": 0.2,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.4,
+                "lo": 0.3,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.5,
+                "lo": 0.4,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.6,
+                "lo": 0.5,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.7,
+                "lo": 0.6,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.8,
+                "lo": 0.7,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.9,
+                "lo": 0.8,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": 1.0,
+                "hi": 1.0,
+                "lo": 0.9,
+                "mean_confidence": 0.9995287656784058,
+                "n": 12
+              }
+            ],
+            "ece": 0.0004712343215942383,
+            "n": 12
+          },
+          "latency": {
+            "n": 12,
+            "p50_s": 0.15199255000334233,
+            "p95_s": 0.19872562500386265
+          },
+          "latency_failures": {
+            "n": 0,
+            "p50_s": null,
+            "p95_s": null
+          },
+          "n_attempted": 12,
+          "n_correct": 12,
+          "n_planned": 12,
+          "n_renormalized": 0,
+          "n_scorable": 12,
+          "n_valid": 12,
+          "operational_success": 1.0,
+          "ordinal_mae": null,
+          "price_per_1000_decisions_usd": null,
+          "schema_validity": 1.0,
+          "schema_validity_strict": 1.0
+        }
+      },
+      "price_per_1000_decisions_usd": null,
+      "probability_sources": [
+        "native"
+      ],
+      "schema_validity": 1.0,
+      "schema_validity_strict": 1.0,
+      "splits": {
+        "public": {
+          "accuracy": 0.9791666666666666,
+          "brier_mean": 0.05346114999028318,
+          "calibration_n": 48,
+          "cost_basis": [
+            "local_gpu_no_provider_tariff"
+          ],
+          "coverage": 1.0,
+          "ece": {
+            "bins": [
+              {
+                "accuracy": null,
+                "hi": 0.1,
+                "lo": 0.0,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.2,
+                "lo": 0.1,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.3,
+                "lo": 0.2,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.4,
+                "lo": 0.3,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": 1.0,
+                "hi": 0.5,
+                "lo": 0.4,
+                "mean_confidence": 0.480390727519989,
+                "n": 1
+              },
+              {
+                "accuracy": null,
+                "hi": 0.6,
+                "lo": 0.5,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.7,
+                "lo": 0.6,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.8,
+                "lo": 0.7,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": 1.0,
+                "hi": 0.9,
+                "lo": 0.8,
+                "mean_confidence": 0.8683655203941583,
+                "n": 4
+              },
+              {
+                "accuracy": 0.9767441860465116,
+                "hi": 1.0,
+                "lo": 0.9,
+                "mean_confidence": 0.9936374812139,
+                "n": 43
+              }
+            ],
+            "ece": 0.036928310064605875,
+            "n": 48
+          },
+          "latency": {
+            "n": 48,
+            "p50_s": 0.16274644999793964,
+            "p95_s": 0.26047050000343
+          },
+          "latency_failures": {
+            "n": 0,
+            "p50_s": null,
+            "p95_s": null
+          },
+          "n_attempted": 48,
+          "n_correct": 47,
+          "n_planned": 48,
+          "n_renormalized": 0,
+          "n_scorable": 48,
+          "n_valid": 48,
+          "operational_success": 1.0,
+          "ordinal_mae": null,
+          "price_per_1000_decisions_usd": null,
+          "schema_validity": 1.0,
+          "schema_validity_strict": 1.0
+        }
+      },
+      "version": "jevbench-v1"
+    },
+    "hard": {
+      "accuracy": 0.36036036036036034,
+      "brier_mean": 0.7887237947916489,
+      "calibration_n": 111,
+      "complete": true,
+      "cost_basis": [
+        "local_gpu_no_provider_tariff"
+      ],
+      "coverage": 1.0,
+      "ece": {
+        "bins": [
+          {
+            "accuracy": null,
+            "hi": 0.1,
+            "lo": 0.0,
+            "mean_confidence": null,
+            "n": 0
+          },
+          {
+            "accuracy": null,
+            "hi": 0.2,
+            "lo": 0.1,
+            "mean_confidence": null,
+            "n": 0
+          },
+          {
+            "accuracy": 0.16666666666666666,
+            "hi": 0.3,
+            "lo": 0.2,
+            "mean_confidence": 0.26537321011225384,
+            "n": 6
+          },
+          {
+            "accuracy": 0.1875,
+            "hi": 0.4,
+            "lo": 0.3,
+            "mean_confidence": 0.3604038115590811,
+            "n": 16
+          },
+          {
+            "accuracy": 0.29411764705882354,
+            "hi": 0.5,
+            "lo": 0.4,
+            "mean_confidence": 0.4526848512537339,
+            "n": 17
+          },
+          {
+            "accuracy": 0.47619047619047616,
+            "hi": 0.6,
+            "lo": 0.5,
+            "mean_confidence": 0.5520247533820409,
+            "n": 21
+          },
+          {
+            "accuracy": 0.46153846153846156,
+            "hi": 0.7,
+            "lo": 0.6,
+            "mean_confidence": 0.6405260196292082,
+            "n": 13
+          },
+          {
+            "accuracy": 0.36363636363636365,
+            "hi": 0.8,
+            "lo": 0.7,
+            "mean_confidence": 0.7495407147006735,
+            "n": 11
+          },
+          {
+            "accuracy": 0.3333333333333333,
+            "hi": 0.9,
+            "lo": 0.8,
+            "mean_confidence": 0.8390642795994466,
+            "n": 12
+          },
+          {
+            "accuracy": 0.4666666666666667,
+            "hi": 1.0,
+            "lo": 0.9,
+            "mean_confidence": 0.94758610809923,
+            "n": 15
+          }
+        ],
+        "ece": 0.2477586633470638,
+        "n": 111
+      },
+      "latency": {
+        "n": 111,
+        "p50_s": 0.17982930000289343,
+        "p95_s": 1.154189499997301
+      },
+      "latency_failures": {
+        "n": 0,
+        "p50_s": null,
+        "p95_s": null
+      },
+      "ledger_charged_usd": null,
+      "macro_accuracy": 0.3666408668730651,
+      "model_identities": [
+        "smalljev_semantic_v8"
+      ],
+      "n_attempted": 111,
+      "n_correct": 40,
+      "n_planned": 111,
+      "n_renormalized": 0,
+      "n_scorable": 111,
+      "n_valid": 111,
+      "operational_success": 1.0,
+      "ordinal_mae": 0.9578666122009357,
+      "paraphrase_consistency": {
+        "agree": 0,
+        "agreement": null,
+        "both_correct_rate_all_pairs": null,
+        "both_valid": 0,
+        "pairs": 0
+      },
+      "per_family": {
+        "adversarial": {
+          "accuracy": 0.6666666666666666,
+          "brier_mean": 0.42823544774110517,
+          "calibration_n": 6,
+          "cost_basis": [
+            "local_gpu_no_provider_tariff"
+          ],
+          "coverage": 1.0,
+          "ece": {
+            "bins": [
+              {
+                "accuracy": null,
+                "hi": 0.1,
+                "lo": 0.0,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.2,
+                "lo": 0.1,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.3,
+                "lo": 0.2,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.4,
+                "lo": 0.3,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.5,
+                "lo": 0.4,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.6,
+                "lo": 0.5,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": 0.5,
+                "hi": 0.7,
+                "lo": 0.6,
+                "mean_confidence": 0.6399597227573395,
+                "n": 2
+              },
+              {
+                "accuracy": 1.0,
+                "hi": 0.8,
+                "lo": 0.7,
+                "mean_confidence": 0.7817163467407227,
+                "n": 1
+              },
+              {
+                "accuracy": 0.5,
+                "hi": 0.9,
+                "lo": 0.8,
+                "mean_confidence": 0.835027867166272,
+                "n": 2
+              },
+              {
+                "accuracy": 1.0,
+                "hi": 1.0,
+                "lo": 0.9,
+                "mean_confidence": 0.9483141899108887,
+                "n": 1
+              }
+            ],
+            "ece": 0.20332410719926858,
+            "n": 6
+          },
+          "latency": {
+            "n": 6,
+            "p50_s": 0.1715540000004694,
+            "p95_s": 0.26627105000807205
+          },
+          "latency_failures": {
+            "n": 0,
+            "p50_s": null,
+            "p95_s": null
+          },
+          "n_attempted": 6,
+          "n_correct": 4,
+          "n_planned": 6,
+          "n_renormalized": 0,
+          "n_scorable": 6,
+          "n_valid": 6,
+          "operational_success": 1.0,
+          "ordinal_mae": 0.5606680698692799,
+          "price_per_1000_decisions_usd": null,
+          "schema_validity": 1.0,
+          "schema_validity_strict": 1.0
+        },
+        "ambiguous": {
+          "accuracy": 0.0,
+          "brier_mean": 1.39116765359354,
+          "calibration_n": 7,
+          "cost_basis": [
+            "local_gpu_no_provider_tariff"
+          ],
+          "coverage": 1.0,
+          "ece": {
+            "bins": [
+              {
+                "accuracy": null,
+                "hi": 0.1,
+                "lo": 0.0,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.2,
+                "lo": 0.1,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.3,
+                "lo": 0.2,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.4,
+                "lo": 0.3,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 0.5,
+                "lo": 0.4,
+                "mean_confidence": 0.4209023416042328,
+                "n": 1
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 0.6,
+                "lo": 0.5,
+                "mean_confidence": 0.5706472992897034,
+                "n": 1
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 0.7,
+                "lo": 0.6,
+                "mean_confidence": 0.6240741610527039,
+                "n": 1
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 0.8,
+                "lo": 0.7,
+                "mean_confidence": 0.7764925360679626,
+                "n": 1
+              },
+              {
+                "accuracy": null,
+                "hi": 0.9,
+                "lo": 0.8,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 1.0,
+                "lo": 0.9,
+                "mean_confidence": 0.9366603295008341,
+                "n": 3
+              }
+            ],
+            "ece": 0.743156760931015,
+            "n": 7
+          },
+          "latency": {
+            "n": 7,
+            "p50_s": 0.17982930000289343,
+            "p95_s": 0.32290339999017303
+          },
+          "latency_failures": {
+            "n": 0,
+            "p50_s": null,
+            "p95_s": null
+          },
+          "n_attempted": 7,
+          "n_correct": 0,
+          "n_planned": 7,
+          "n_renormalized": 0,
+          "n_scorable": 7,
+          "n_valid": 7,
+          "operational_success": 1.0,
+          "ordinal_mae": null,
+          "price_per_1000_decisions_usd": null,
+          "schema_validity": 1.0,
+          "schema_validity_strict": 1.0
+        },
+        "judge_hard": {
+          "accuracy": 0.7058823529411765,
+          "brier_mean": 0.4442234261707019,
+          "calibration_n": 17,
+          "cost_basis": [
+            "local_gpu_no_provider_tariff"
+          ],
+          "coverage": 1.0,
+          "ece": {
+            "bins": [
+              {
+                "accuracy": null,
+                "hi": 0.1,
+                "lo": 0.0,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.2,
+                "lo": 0.1,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.3,
+                "lo": 0.2,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.4,
+                "lo": 0.3,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.5,
+                "lo": 0.4,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": 0.8333333333333334,
+                "hi": 0.6,
+                "lo": 0.5,
+                "mean_confidence": 0.5564482027905915,
+                "n": 6
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 0.7,
+                "lo": 0.6,
+                "mean_confidence": 0.6145675182342529,
+                "n": 1
+              },
+              {
+                "accuracy": 0.6,
+                "hi": 0.8,
+                "lo": 0.7,
+                "mean_confidence": 0.7383445315240206,
+                "n": 5
+              },
+              {
+                "accuracy": 0.75,
+                "hi": 0.9,
+                "lo": 0.8,
+                "mean_confidence": 0.8439590648483863,
+                "n": 4
+              },
+              {
+                "accuracy": 1.0,
+                "hi": 1.0,
+                "lo": 0.9,
+                "mean_confidence": 0.9001041919024048,
+                "n": 1
+              }
+            ],
+            "ece": 0.20254900156482047,
+            "n": 17
+          },
+          "latency": {
+            "n": 17,
+            "p50_s": 0.06904890001169406,
+            "p95_s": 0.08272061999305151
+          },
+          "latency_failures": {
+            "n": 0,
+            "p50_s": null,
+            "p95_s": null
+          },
+          "n_attempted": 17,
+          "n_correct": 12,
+          "n_planned": 17,
+          "n_renormalized": 0,
+          "n_scorable": 17,
+          "n_valid": 17,
+          "operational_success": 1.0,
+          "ordinal_mae": null,
+          "price_per_1000_decisions_usd": null,
+          "schema_validity": 1.0,
+          "schema_validity_strict": 1.0
+        },
+        "long_policy": {
+          "accuracy": 0.21052631578947367,
+          "brier_mean": 0.9187029176352374,
+          "calibration_n": 19,
+          "cost_basis": [
+            "local_gpu_no_provider_tariff"
+          ],
+          "coverage": 1.0,
+          "ece": {
+            "bins": [
+              {
+                "accuracy": null,
+                "hi": 0.1,
+                "lo": 0.0,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.2,
+                "lo": 0.1,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 0.3,
+                "lo": 0.2,
+                "mean_confidence": 0.26717233657836914,
+                "n": 1
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 0.4,
+                "lo": 0.3,
+                "mean_confidence": 0.33294805884361267,
+                "n": 1
+              },
+              {
+                "accuracy": 0.2857142857142857,
+                "hi": 0.5,
+                "lo": 0.4,
+                "mean_confidence": 0.45626006381852285,
+                "n": 7
+              },
+              {
+                "accuracy": 0.4,
+                "hi": 0.6,
+                "lo": 0.5,
+                "mean_confidence": 0.5529071414476051,
+                "n": 5
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 0.7,
+                "lo": 0.6,
+                "mean_confidence": 0.6248951554298401,
+                "n": 1
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 0.8,
+                "lo": 0.7,
+                "mean_confidence": 0.7415656072367909,
+                "n": 1
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 0.9,
+                "lo": 0.8,
+                "mean_confidence": 0.814272313986107,
+                "n": 2
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 1.0,
+                "lo": 0.9,
+                "mean_confidence": 0.9024283684247352,
+                "n": 1
+              }
+            ],
+            "ece": 0.3397847530764867,
+            "n": 19
+          },
+          "latency": {
+            "n": 19,
+            "p50_s": 1.0785288999904878,
+            "p95_s": 1.2678127800027124
+          },
+          "latency_failures": {
+            "n": 0,
+            "p50_s": null,
+            "p95_s": null
+          },
+          "n_attempted": 19,
+          "n_correct": 4,
+          "n_planned": 19,
+          "n_renormalized": 0,
+          "n_scorable": 19,
+          "n_valid": 19,
+          "operational_success": 1.0,
+          "ordinal_mae": 0.6916134972125292,
+          "price_per_1000_decisions_usd": null,
+          "schema_validity": 1.0,
+          "schema_validity_strict": 1.0
+        },
+        "multi_hop": {
+          "accuracy": 0.16666666666666666,
+          "brier_mean": 0.8786030677698062,
+          "calibration_n": 18,
+          "cost_basis": [
+            "local_gpu_no_provider_tariff"
+          ],
+          "coverage": 1.0,
+          "ece": {
+            "bins": [
+              {
+                "accuracy": null,
+                "hi": 0.1,
+                "lo": 0.0,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.2,
+                "lo": 0.1,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 0.3,
+                "lo": 0.2,
+                "mean_confidence": 0.2606129050254822,
+                "n": 2
+              },
+              {
+                "accuracy": 0.16666666666666666,
+                "hi": 0.4,
+                "lo": 0.3,
+                "mean_confidence": 0.36996180812517804,
+                "n": 6
+              },
+              {
+                "accuracy": 0.6666666666666666,
+                "hi": 0.5,
+                "lo": 0.4,
+                "mean_confidence": 0.4761277635892232,
+                "n": 3
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 0.6,
+                "lo": 0.5,
+                "mean_confidence": 0.5536131709814072,
+                "n": 4
+              },
+              {
+                "accuracy": null,
+                "hi": 0.7,
+                "lo": 0.6,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 0.8,
+                "lo": 0.7,
+                "mean_confidence": 0.7511502380139433,
+                "n": 3
+              },
+              {
+                "accuracy": null,
+                "hi": 0.9,
+                "lo": 0.8,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 1.0,
+                "lo": 0.9,
+                "mean_confidence": null,
+                "n": 0
+              }
+            ],
+            "ece": 0.37669537588899005,
+            "n": 18
+          },
+          "latency": {
+            "n": 18,
+            "p50_s": 0.8544771999950171,
+            "p95_s": 1.151166204993933
+          },
+          "latency_failures": {
+            "n": 0,
+            "p50_s": null,
+            "p95_s": null
+          },
+          "n_attempted": 18,
+          "n_correct": 3,
+          "n_planned": 18,
+          "n_renormalized": 0,
+          "n_scorable": 18,
+          "n_valid": 18,
+          "operational_success": 1.0,
+          "ordinal_mae": 0.34343792498111725,
+          "price_per_1000_decisions_usd": null,
+          "schema_validity": 1.0,
+          "schema_validity_strict": 1.0
+        },
+        "probability": {
+          "accuracy": 0.3,
+          "brier_mean": 1.0340900095961794,
+          "calibration_n": 10,
+          "cost_basis": [
+            "local_gpu_no_provider_tariff"
+          ],
+          "coverage": 1.0,
+          "ece": {
+            "bins": [
+              {
+                "accuracy": null,
+                "hi": 0.1,
+                "lo": 0.0,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.2,
+                "lo": 0.1,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.3,
+                "lo": 0.2,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 0.4,
+                "lo": 0.3,
+                "mean_confidence": 0.3763521909713745,
+                "n": 1
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 0.5,
+                "lo": 0.4,
+                "mean_confidence": 0.4416843056678772,
+                "n": 1
+              },
+              {
+                "accuracy": 1.0,
+                "hi": 0.6,
+                "lo": 0.5,
+                "mean_confidence": 0.5162807106971741,
+                "n": 1
+              },
+              {
+                "accuracy": 0.5,
+                "hi": 0.7,
+                "lo": 0.6,
+                "mean_confidence": 0.6142675876617432,
+                "n": 2
+              },
+              {
+                "accuracy": null,
+                "hi": 0.8,
+                "lo": 0.7,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 0.9,
+                "lo": 0.8,
+                "mean_confidence": 0.870553195476532,
+                "n": 1
+              },
+              {
+                "accuracy": 0.25,
+                "hi": 1.0,
+                "lo": 0.9,
+                "mean_confidence": 0.9688419802327517,
+                "n": 4
+              }
+            ],
+            "ece": 0.5276212077673103,
+            "n": 10
+          },
+          "latency": {
+            "n": 10,
+            "p50_s": 0.20555419999436708,
+            "p95_s": 0.38612019000138365
+          },
+          "latency_failures": {
+            "n": 0,
+            "p50_s": null,
+            "p95_s": null
+          },
+          "n_attempted": 10,
+          "n_correct": 3,
+          "n_planned": 10,
+          "n_renormalized": 0,
+          "n_scorable": 10,
+          "n_valid": 10,
+          "operational_success": 1.0,
+          "ordinal_mae": null,
+          "price_per_1000_decisions_usd": null,
+          "schema_validity": 1.0,
+          "schema_validity_strict": 1.0
+        },
+        "routing_hard": {
+          "accuracy": 0.2,
+          "brier_mean": 0.7105165367523045,
+          "calibration_n": 5,
+          "cost_basis": [
+            "local_gpu_no_provider_tariff"
+          ],
+          "coverage": 1.0,
+          "ece": {
+            "bins": [
+              {
+                "accuracy": null,
+                "hi": 0.1,
+                "lo": 0.0,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.2,
+                "lo": 0.1,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.3,
+                "lo": 0.2,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 0.4,
+                "lo": 0.3,
+                "mean_confidence": 0.35713572800159454,
+                "n": 2
+              },
+              {
+                "accuracy": null,
+                "hi": 0.5,
+                "lo": 0.4,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 0.6,
+                "lo": 0.5,
+                "mean_confidence": 0.5386330485343933,
+                "n": 1
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 0.7,
+                "lo": 0.6,
+                "mean_confidence": 0.6666093468666077,
+                "n": 1
+              },
+              {
+                "accuracy": null,
+                "hi": 0.8,
+                "lo": 0.7,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.9,
+                "lo": 0.8,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": 1.0,
+                "hi": 1.0,
+                "lo": 0.9,
+                "mean_confidence": 0.9585995674133301,
+                "n": 1
+              }
+            ],
+            "ece": 0.39218285679817205,
+            "n": 5
+          },
+          "latency": {
+            "n": 5,
+            "p50_s": 0.07165499999246094,
+            "p95_s": 0.24901268000248816
+          },
+          "latency_failures": {
+            "n": 0,
+            "p50_s": null,
+            "p95_s": null
+          },
+          "n_attempted": 5,
+          "n_correct": 1,
+          "n_planned": 5,
+          "n_renormalized": 0,
+          "n_scorable": 5,
+          "n_valid": 5,
+          "operational_success": 1.0,
+          "ordinal_mae": null,
+          "price_per_1000_decisions_usd": null,
+          "schema_validity": 1.0,
+          "schema_validity_strict": 1.0
+        },
+        "temporal_numeric": {
+          "accuracy": 0.3333333333333333,
+          "brier_mean": 0.8166410223721641,
+          "calibration_n": 15,
+          "cost_basis": [
+            "local_gpu_no_provider_tariff"
+          ],
+          "coverage": 1.0,
+          "ece": {
+            "bins": [
+              {
+                "accuracy": null,
+                "hi": 0.1,
+                "lo": 0.0,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.2,
+                "lo": 0.1,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": 0.3333333333333333,
+                "hi": 0.3,
+                "lo": 0.2,
+                "mean_confidence": 0.2679470380147298,
+                "n": 3
+              },
+              {
+                "accuracy": 0.2,
+                "hi": 0.4,
+                "lo": 0.3,
+                "mean_confidence": 0.3538120985031128,
+                "n": 5
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 0.5,
+                "lo": 0.4,
+                "mean_confidence": 0.447569876909256,
+                "n": 1
+              },
+              {
+                "accuracy": 1.0,
+                "hi": 0.6,
+                "lo": 0.5,
+                "mean_confidence": 0.5592037868737045,
+                "n": 1
+              },
+              {
+                "accuracy": 0.6666666666666666,
+                "hi": 0.7,
+                "lo": 0.6,
+                "mean_confidence": 0.6726720135254275,
+                "n": 3
+              },
+              {
+                "accuracy": null,
+                "hi": 0.8,
+                "lo": 0.7,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 0.9,
+                "lo": 0.8,
+                "mean_confidence": 0.8310954038961734,
+                "n": 2
+              },
+              {
+                "accuracy": null,
+                "hi": 1.0,
+                "lo": 0.9,
+                "mean_confidence": null,
+                "n": 0
+              }
+            ],
+            "ece": 0.23558615445837033,
+            "n": 15
+          },
+          "latency": {
+            "n": 15,
+            "p50_s": 0.16498980000324082,
+            "p95_s": 0.2535154400073224
+          },
+          "latency_failures": {
+            "n": 0,
+            "p50_s": null,
+            "p95_s": null
+          },
+          "n_attempted": 15,
+          "n_correct": 5,
+          "n_planned": 15,
+          "n_renormalized": 0,
+          "n_scorable": 15,
+          "n_valid": 15,
+          "operational_success": 1.0,
+          "ordinal_mae": 1.7296066097915173,
+          "price_per_1000_decisions_usd": null,
+          "schema_validity": 1.0,
+          "schema_validity_strict": 1.0
+        },
+        "tradeoff": {
+          "accuracy": 0.3333333333333333,
+          "brier_mean": 0.9462128748846865,
+          "calibration_n": 6,
+          "cost_basis": [
+            "local_gpu_no_provider_tariff"
+          ],
+          "coverage": 1.0,
+          "ece": {
+            "bins": [
+              {
+                "accuracy": null,
+                "hi": 0.1,
+                "lo": 0.0,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.2,
+                "lo": 0.1,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.3,
+                "lo": 0.2,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": 1.0,
+                "hi": 0.4,
+                "lo": 0.3,
+                "mean_confidence": 0.3540579378604889,
+                "n": 1
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 0.5,
+                "lo": 0.4,
+                "mean_confidence": 0.45970526337623596,
+                "n": 2
+              },
+              {
+                "accuracy": null,
+                "hi": 0.6,
+                "lo": 0.5,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": 1.0,
+                "hi": 0.7,
+                "lo": 0.6,
+                "mean_confidence": 0.6289592385292053,
+                "n": 1
+              },
+              {
+                "accuracy": null,
+                "hi": 0.8,
+                "lo": 0.7,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 0.9,
+                "lo": 0.8,
+                "mean_confidence": 0.861590730226178,
+                "n": 1
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 1.0,
+                "lo": 0.9,
+                "mean_confidence": 0.9171100122167168,
+                "n": 1
+              }
+            ],
+            "ece": 0.6191823488009454,
+            "n": 6
+          },
+          "latency": {
+            "n": 6,
+            "p50_s": 0.16310879999946337,
+            "p95_s": 0.18543435000174213
+          },
+          "latency_failures": {
+            "n": 0,
+            "p50_s": null,
+            "p95_s": null
+          },
+          "n_attempted": 6,
+          "n_correct": 2,
+          "n_planned": 6,
+          "n_renormalized": 0,
+          "n_scorable": 6,
+          "n_valid": 6,
+          "operational_success": 1.0,
+          "ordinal_mae": null,
+          "price_per_1000_decisions_usd": null,
+          "schema_validity": 1.0,
+          "schema_validity_strict": 1.0
+        },
+        "trap": {
+          "accuracy": 0.75,
+          "brier_mean": 0.32479633697871974,
+          "calibration_n": 8,
+          "cost_basis": [
+            "local_gpu_no_provider_tariff"
+          ],
+          "coverage": 1.0,
+          "ece": {
+            "bins": [
+              {
+                "accuracy": null,
+                "hi": 0.1,
+                "lo": 0.0,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.2,
+                "lo": 0.1,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.3,
+                "lo": 0.2,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.4,
+                "lo": 0.3,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": 0.5,
+                "hi": 0.5,
+                "lo": 0.4,
+                "mean_confidence": 0.4219358414411545,
+                "n": 2
+              },
+              {
+                "accuracy": 0.5,
+                "hi": 0.6,
+                "lo": 0.5,
+                "mean_confidence": 0.5450386838603412,
+                "n": 2
+              },
+              {
+                "accuracy": 1.0,
+                "hi": 0.7,
+                "lo": 0.6,
+                "mean_confidence": 0.6412621736526489,
+                "n": 1
+              },
+              {
+                "accuracy": null,
+                "hi": 0.8,
+                "lo": 0.7,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.9,
+                "lo": 0.8,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": 1.0,
+                "hi": 1.0,
+                "lo": 0.9,
+                "mean_confidence": 0.9672954607289558,
+                "n": 3
+              }
+            ],
+            "ece": 0.08788214112485714,
+            "n": 8
+          },
+          "latency": {
+            "n": 8,
+            "p50_s": 0.06786534999992,
+            "p95_s": 0.07068915000199923
+          },
+          "latency_failures": {
+            "n": 0,
+            "p50_s": null,
+            "p95_s": null
+          },
+          "n_attempted": 8,
+          "n_correct": 6,
+          "n_planned": 8,
+          "n_renormalized": 0,
+          "n_scorable": 8,
+          "n_valid": 8,
+          "operational_success": 1.0,
+          "ordinal_mae": 1.7302600741386414,
+          "price_per_1000_decisions_usd": null,
+          "schema_validity": 1.0,
+          "schema_validity_strict": 1.0
+        }
+      },
+      "price_per_1000_decisions_usd": null,
+      "probability_sources": [
+        "native"
+      ],
+      "schema_validity": 1.0,
+      "schema_validity_strict": 1.0,
+      "splits": {
+        "public": {
+          "accuracy": 0.36036036036036034,
+          "brier_mean": 0.7887237947916489,
+          "calibration_n": 111,
+          "cost_basis": [
+            "local_gpu_no_provider_tariff"
+          ],
+          "coverage": 1.0,
+          "ece": {
+            "bins": [
+              {
+                "accuracy": null,
+                "hi": 0.1,
+                "lo": 0.0,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.2,
+                "lo": 0.1,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": 0.16666666666666666,
+                "hi": 0.3,
+                "lo": 0.2,
+                "mean_confidence": 0.26537321011225384,
+                "n": 6
+              },
+              {
+                "accuracy": 0.1875,
+                "hi": 0.4,
+                "lo": 0.3,
+                "mean_confidence": 0.3604038115590811,
+                "n": 16
+              },
+              {
+                "accuracy": 0.29411764705882354,
+                "hi": 0.5,
+                "lo": 0.4,
+                "mean_confidence": 0.4526848512537339,
+                "n": 17
+              },
+              {
+                "accuracy": 0.47619047619047616,
+                "hi": 0.6,
+                "lo": 0.5,
+                "mean_confidence": 0.5520247533820409,
+                "n": 21
+              },
+              {
+                "accuracy": 0.46153846153846156,
+                "hi": 0.7,
+                "lo": 0.6,
+                "mean_confidence": 0.6405260196292082,
+                "n": 13
+              },
+              {
+                "accuracy": 0.36363636363636365,
+                "hi": 0.8,
+                "lo": 0.7,
+                "mean_confidence": 0.7495407147006735,
+                "n": 11
+              },
+              {
+                "accuracy": 0.3333333333333333,
+                "hi": 0.9,
+                "lo": 0.8,
+                "mean_confidence": 0.8390642795994466,
+                "n": 12
+              },
+              {
+                "accuracy": 0.4666666666666667,
+                "hi": 1.0,
+                "lo": 0.9,
+                "mean_confidence": 0.94758610809923,
+                "n": 15
+              }
+            ],
+            "ece": 0.2477586633470638,
+            "n": 111
+          },
+          "latency": {
+            "n": 111,
+            "p50_s": 0.17982930000289343,
+            "p95_s": 1.154189499997301
+          },
+          "latency_failures": {
+            "n": 0,
+            "p50_s": null,
+            "p95_s": null
+          },
+          "n_attempted": 111,
+          "n_correct": 40,
+          "n_planned": 111,
+          "n_renormalized": 0,
+          "n_scorable": 111,
+          "n_valid": 111,
+          "operational_success": 1.0,
+          "ordinal_mae": 0.9578666122009357,
+          "price_per_1000_decisions_usd": null,
+          "schema_validity": 1.0,
+          "schema_validity_strict": 1.0
+        }
+      },
+      "version": "jevbench-v1"
+    },
+    "standard": {
+      "accuracy": 0.6666666666666666,
+      "brier_mean": 0.47211530608940255,
+      "calibration_n": 72,
+      "complete": true,
+      "cost_basis": [
+        "local_gpu_no_provider_tariff"
+      ],
+      "coverage": 1.0,
+      "ece": {
+        "bins": [
+          {
+            "accuracy": null,
+            "hi": 0.1,
+            "lo": 0.0,
+            "mean_confidence": null,
+            "n": 0
+          },
+          {
+            "accuracy": null,
+            "hi": 0.2,
+            "lo": 0.1,
+            "mean_confidence": null,
+            "n": 0
+          },
+          {
+            "accuracy": null,
+            "hi": 0.3,
+            "lo": 0.2,
+            "mean_confidence": null,
+            "n": 0
+          },
+          {
+            "accuracy": null,
+            "hi": 0.4,
+            "lo": 0.3,
+            "mean_confidence": null,
+            "n": 0
+          },
+          {
+            "accuracy": 0.0,
+            "hi": 0.5,
+            "lo": 0.4,
+            "mean_confidence": 0.4503237307071686,
+            "n": 1
+          },
+          {
+            "accuracy": 0.2727272727272727,
+            "hi": 0.6,
+            "lo": 0.5,
+            "mean_confidence": 0.5435770617250288,
+            "n": 11
+          },
+          {
+            "accuracy": 0.5555555555555556,
+            "hi": 0.7,
+            "lo": 0.6,
+            "mean_confidence": 0.6512950325404397,
+            "n": 9
+          },
+          {
+            "accuracy": 1.0,
+            "hi": 0.8,
+            "lo": 0.7,
+            "mean_confidence": 0.7522888338664367,
+            "n": 4
+          },
+          {
+            "accuracy": 0.625,
+            "hi": 0.9,
+            "lo": 0.8,
+            "mean_confidence": 0.8623610491562043,
+            "n": 8
+          },
+          {
+            "accuracy": 0.7948717948717948,
+            "hi": 1.0,
+            "lo": 0.9,
+            "mean_confidence": 0.9783299892300746,
+            "n": 39
+          }
+        ],
+        "ece": 0.19911012972643394,
+        "n": 72
+      },
+      "latency": {
+        "n": 72,
+        "p50_s": 0.1521679000070435,
+        "p95_s": 0.2624705050038756
+      },
+      "latency_failures": {
+        "n": 0,
+        "p50_s": null,
+        "p95_s": null
+      },
+      "ledger_charged_usd": null,
+      "macro_accuracy": 0.6666666666666666,
+      "model_identities": [
+        "smalljev_semantic_v8"
+      ],
+      "n_attempted": 72,
+      "n_correct": 48,
+      "n_planned": 72,
+      "n_renormalized": 0,
+      "n_scorable": 72,
+      "n_valid": 72,
+      "operational_success": 1.0,
+      "ordinal_mae": 0.343420473933899,
+      "paraphrase_consistency": {
+        "agree": 23,
+        "agreement": 0.6388888888888888,
+        "both_correct_rate_all_pairs": 0.5,
+        "both_valid": 36,
+        "pairs": 36
+      },
+      "per_family": {
+        "adequacy": {
+          "accuracy": 0.5833333333333334,
+          "brier_mean": 0.4459313519566463,
+          "calibration_n": 12,
+          "cost_basis": [
+            "local_gpu_no_provider_tariff"
+          ],
+          "coverage": 1.0,
+          "ece": {
+            "bins": [
+              {
+                "accuracy": null,
+                "hi": 0.1,
+                "lo": 0.0,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.2,
+                "lo": 0.1,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.3,
+                "lo": 0.2,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.4,
+                "lo": 0.3,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.5,
+                "lo": 0.4,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 0.6,
+                "lo": 0.5,
+                "mean_confidence": 0.5492675766130559,
+                "n": 2
+              },
+              {
+                "accuracy": 0.5,
+                "hi": 0.7,
+                "lo": 0.6,
+                "mean_confidence": 0.6690824125950562,
+                "n": 4
+              },
+              {
+                "accuracy": 1.0,
+                "hi": 0.8,
+                "lo": 0.7,
+                "mean_confidence": 0.732686508573336,
+                "n": 2
+              },
+              {
+                "accuracy": 0.5,
+                "hi": 0.9,
+                "lo": 0.8,
+                "mean_confidence": 0.8443719665241852,
+                "n": 2
+              },
+              {
+                "accuracy": 1.0,
+                "hi": 1.0,
+                "lo": 0.9,
+                "mean_confidence": 0.9494655444721609,
+                "n": 2
+              }
+            ],
+            "ece": 0.2582753858803094,
+            "n": 12
+          },
+          "latency": {
+            "n": 12,
+            "p50_s": 0.1456513500015717,
+            "p95_s": 0.15721629499748813
+          },
+          "latency_failures": {
+            "n": 0,
+            "p50_s": null,
+            "p95_s": null
+          },
+          "n_attempted": 12,
+          "n_correct": 7,
+          "n_planned": 12,
+          "n_renormalized": 0,
+          "n_scorable": 12,
+          "n_valid": 12,
+          "operational_success": 1.0,
+          "ordinal_mae": null,
+          "price_per_1000_decisions_usd": null,
+          "schema_validity": 1.0,
+          "schema_validity_strict": 1.0
+        },
+        "extraction": {
+          "accuracy": 0.5833333333333334,
+          "brier_mean": 0.7551209381445089,
+          "calibration_n": 12,
+          "cost_basis": [
+            "local_gpu_no_provider_tariff"
+          ],
+          "coverage": 1.0,
+          "ece": {
+            "bins": [
+              {
+                "accuracy": null,
+                "hi": 0.1,
+                "lo": 0.0,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.2,
+                "lo": 0.1,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.3,
+                "lo": 0.2,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.4,
+                "lo": 0.3,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.5,
+                "lo": 0.4,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.6,
+                "lo": 0.5,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": 0.5,
+                "hi": 0.7,
+                "lo": 0.6,
+                "mean_confidence": 0.610624223947525,
+                "n": 2
+              },
+              {
+                "accuracy": null,
+                "hi": 0.8,
+                "lo": 0.7,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.9,
+                "lo": 0.8,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": 0.6,
+                "hi": 1.0,
+                "lo": 0.9,
+                "mean_confidence": 0.9920222401618958,
+                "n": 10
+              }
+            ],
+            "ece": 0.34512257079283404,
+            "n": 12
+          },
+          "latency": {
+            "n": 12,
+            "p50_s": 0.1521679000070435,
+            "p95_s": 0.28305862000561316
+          },
+          "latency_failures": {
+            "n": 0,
+            "p50_s": null,
+            "p95_s": null
+          },
+          "n_attempted": 12,
+          "n_correct": 7,
+          "n_planned": 12,
+          "n_renormalized": 0,
+          "n_scorable": 12,
+          "n_valid": 12,
+          "operational_success": 1.0,
+          "ordinal_mae": null,
+          "price_per_1000_decisions_usd": null,
+          "schema_validity": 1.0,
+          "schema_validity_strict": 1.0
+        },
+        "intent": {
+          "accuracy": 0.3333333333333333,
+          "brier_mean": 0.8446736278781697,
+          "calibration_n": 12,
+          "cost_basis": [
+            "local_gpu_no_provider_tariff"
+          ],
+          "coverage": 1.0,
+          "ece": {
+            "bins": [
+              {
+                "accuracy": null,
+                "hi": 0.1,
+                "lo": 0.0,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.2,
+                "lo": 0.1,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.3,
+                "lo": 0.2,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.4,
+                "lo": 0.3,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 0.5,
+                "lo": 0.4,
+                "mean_confidence": 0.4503237307071686,
+                "n": 1
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 0.6,
+                "lo": 0.5,
+                "mean_confidence": 0.5373020172119141,
+                "n": 3
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 0.7,
+                "lo": 0.6,
+                "mean_confidence": 0.6256495714187622,
+                "n": 1
+              },
+              {
+                "accuracy": null,
+                "hi": 0.8,
+                "lo": 0.7,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.9,
+                "lo": 0.8,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": 0.5714285714285714,
+                "hi": 1.0,
+                "lo": 0.9,
+                "mean_confidence": 0.9749755944524493,
+                "n": 7
+              }
+            ],
+            "ece": 0.4593923762440682,
+            "n": 12
+          },
+          "latency": {
+            "n": 12,
+            "p50_s": 0.14677264999772888,
+            "p95_s": 0.2139564450058969
+          },
+          "latency_failures": {
+            "n": 0,
+            "p50_s": null,
+            "p95_s": null
+          },
+          "n_attempted": 12,
+          "n_correct": 4,
+          "n_planned": 12,
+          "n_renormalized": 0,
+          "n_scorable": 12,
+          "n_valid": 12,
+          "operational_success": 1.0,
+          "ordinal_mae": null,
+          "price_per_1000_decisions_usd": null,
+          "schema_validity": 1.0,
+          "schema_validity_strict": 1.0
+        },
+        "ordinal": {
+          "accuracy": 0.9166666666666666,
+          "brier_mean": 0.1795788585301403,
+          "calibration_n": 12,
+          "cost_basis": [
+            "local_gpu_no_provider_tariff"
+          ],
+          "coverage": 1.0,
+          "ece": {
+            "bins": [
+              {
+                "accuracy": null,
+                "hi": 0.1,
+                "lo": 0.0,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.2,
+                "lo": 0.1,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.3,
+                "lo": 0.2,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.4,
+                "lo": 0.3,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.5,
+                "lo": 0.4,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": 0.75,
+                "hi": 0.6,
+                "lo": 0.5,
+                "mean_confidence": 0.5560046136379242,
+                "n": 4
+              },
+              {
+                "accuracy": 1.0,
+                "hi": 0.7,
+                "lo": 0.6,
+                "mean_confidence": 0.6698509454727173,
+                "n": 1
+              },
+              {
+                "accuracy": null,
+                "hi": 0.8,
+                "lo": 0.7,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": 1.0,
+                "hi": 0.9,
+                "lo": 0.8,
+                "mean_confidence": 0.8594265580177307,
+                "n": 3
+              },
+              {
+                "accuracy": 1.0,
+                "hi": 1.0,
+                "lo": 0.9,
+                "mean_confidence": 0.9677737802267075,
+                "n": 4
+              }
+            ],
+            "ece": 0.138062983751297,
+            "n": 12
+          },
+          "latency": {
+            "n": 12,
+            "p50_s": 0.15383385000313865,
+            "p95_s": 0.1642122599980212
+          },
+          "latency_failures": {
+            "n": 0,
+            "p50_s": null,
+            "p95_s": null
+          },
+          "n_attempted": 12,
+          "n_correct": 11,
+          "n_planned": 12,
+          "n_renormalized": 0,
+          "n_scorable": 12,
+          "n_valid": 12,
+          "operational_success": 1.0,
+          "ordinal_mae": 0.343420473933899,
+          "price_per_1000_decisions_usd": null,
+          "schema_validity": 1.0,
+          "schema_validity_strict": 1.0
+        },
+        "policy": {
+          "accuracy": 0.9166666666666666,
+          "brier_mean": 0.19539626832320744,
+          "calibration_n": 12,
+          "cost_basis": [
+            "local_gpu_no_provider_tariff"
+          ],
+          "coverage": 1.0,
+          "ece": {
+            "bins": [
+              {
+                "accuracy": null,
+                "hi": 0.1,
+                "lo": 0.0,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.2,
+                "lo": 0.1,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.3,
+                "lo": 0.2,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.4,
+                "lo": 0.3,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.5,
+                "lo": 0.4,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.6,
+                "lo": 0.5,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": 1.0,
+                "hi": 0.7,
+                "lo": 0.6,
+                "mean_confidence": 0.668576677697202,
+                "n": 1
+              },
+              {
+                "accuracy": 1.0,
+                "hi": 0.8,
+                "lo": 0.7,
+                "mean_confidence": 0.7847734934937882,
+                "n": 1
+              },
+              {
+                "accuracy": 1.0,
+                "hi": 0.9,
+                "lo": 0.8,
+                "mean_confidence": 0.8755518794059753,
+                "n": 1
+              },
+              {
+                "accuracy": 0.8888888888888888,
+                "hi": 1.0,
+                "lo": 0.9,
+                "mean_confidence": 0.9675182656890858,
+                "n": 9
+              }
+            ],
+            "ece": 0.11489686171706728,
+            "n": 12
+          },
+          "latency": {
+            "n": 12,
+            "p50_s": 0.16135270000086166,
+            "p95_s": 0.5852761699992695
+          },
+          "latency_failures": {
+            "n": 0,
+            "p50_s": null,
+            "p95_s": null
+          },
+          "n_attempted": 12,
+          "n_correct": 11,
+          "n_planned": 12,
+          "n_renormalized": 0,
+          "n_scorable": 12,
+          "n_valid": 12,
+          "operational_success": 1.0,
+          "ordinal_mae": null,
+          "price_per_1000_decisions_usd": null,
+          "schema_validity": 1.0,
+          "schema_validity_strict": 1.0
+        },
+        "routing": {
+          "accuracy": 0.6666666666666666,
+          "brier_mean": 0.4119907917037425,
+          "calibration_n": 12,
+          "cost_basis": [
+            "local_gpu_no_provider_tariff"
+          ],
+          "coverage": 1.0,
+          "ece": {
+            "bins": [
+              {
+                "accuracy": null,
+                "hi": 0.1,
+                "lo": 0.0,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.2,
+                "lo": 0.1,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.3,
+                "lo": 0.2,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.4,
+                "lo": 0.3,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.5,
+                "lo": 0.4,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 0.6,
+                "lo": 0.5,
+                "mean_confidence": 0.5224440097808838,
+                "n": 2
+              },
+              {
+                "accuracy": null,
+                "hi": 0.7,
+                "lo": 0.6,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": 1.0,
+                "hi": 0.8,
+                "lo": 0.7,
+                "mean_confidence": 0.7590088248252869,
+                "n": 1
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 0.9,
+                "lo": 0.8,
+                "mean_confidence": 0.878156453371048,
+                "n": 2
+              },
+              {
+                "accuracy": 1.0,
+                "hi": 1.0,
+                "lo": 0.9,
+                "mean_confidence": 0.9903039165905544,
+                "n": 7
+              }
+            ],
+            "ece": 0.259172057112058,
+            "n": 12
+          },
+          "latency": {
+            "n": 12,
+            "p50_s": 0.15827145000366727,
+            "p95_s": 0.16987809499987633
+          },
+          "latency_failures": {
+            "n": 0,
+            "p50_s": null,
+            "p95_s": null
+          },
+          "n_attempted": 12,
+          "n_correct": 8,
+          "n_planned": 12,
+          "n_renormalized": 0,
+          "n_scorable": 12,
+          "n_valid": 12,
+          "operational_success": 1.0,
+          "ordinal_mae": null,
+          "price_per_1000_decisions_usd": null,
+          "schema_validity": 1.0,
+          "schema_validity_strict": 1.0
+        }
+      },
+      "price_per_1000_decisions_usd": null,
+      "probability_sources": [
+        "native"
+      ],
+      "schema_validity": 1.0,
+      "schema_validity_strict": 1.0,
+      "splits": {
+        "public": {
+          "accuracy": 0.6666666666666666,
+          "brier_mean": 0.47211530608940255,
+          "calibration_n": 72,
+          "cost_basis": [
+            "local_gpu_no_provider_tariff"
+          ],
+          "coverage": 1.0,
+          "ece": {
+            "bins": [
+              {
+                "accuracy": null,
+                "hi": 0.1,
+                "lo": 0.0,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.2,
+                "lo": 0.1,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.3,
+                "lo": 0.2,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": null,
+                "hi": 0.4,
+                "lo": 0.3,
+                "mean_confidence": null,
+                "n": 0
+              },
+              {
+                "accuracy": 0.0,
+                "hi": 0.5,
+                "lo": 0.4,
+                "mean_confidence": 0.4503237307071686,
+                "n": 1
+              },
+              {
+                "accuracy": 0.2727272727272727,
+                "hi": 0.6,
+                "lo": 0.5,
+                "mean_confidence": 0.5435770617250288,
+                "n": 11
+              },
+              {
+                "accuracy": 0.5555555555555556,
+                "hi": 0.7,
+                "lo": 0.6,
+                "mean_confidence": 0.6512950325404397,
+                "n": 9
+              },
+              {
+                "accuracy": 1.0,
+                "hi": 0.8,
+                "lo": 0.7,
+                "mean_confidence": 0.7522888338664367,
+                "n": 4
+              },
+              {
+                "accuracy": 0.625,
+                "hi": 0.9,
+                "lo": 0.8,
+                "mean_confidence": 0.8623610491562043,
+                "n": 8
+              },
+              {
+                "accuracy": 0.7948717948717948,
+                "hi": 1.0,
+                "lo": 0.9,
+                "mean_confidence": 0.9783299892300746,
+                "n": 39
+              }
+            ],
+            "ece": 0.19911012972643394,
+            "n": 72
+          },
+          "latency": {
+            "n": 72,
+            "p50_s": 0.1521679000070435,
+            "p95_s": 0.2624705050038756
+          },
+          "latency_failures": {
+            "n": 0,
+            "p50_s": null,
+            "p95_s": null
+          },
+          "n_attempted": 72,
+          "n_correct": 48,
+          "n_planned": 72,
+          "n_renormalized": 0,
+          "n_scorable": 72,
+          "n_valid": 72,
+          "operational_success": 1.0,
+          "ordinal_mae": 0.343420473933899,
+          "price_per_1000_decisions_usd": null,
+          "schema_validity": 1.0,
+          "schema_validity_strict": 1.0
+        }
+      },
+      "version": "jevbench-v1"
+    }
+  },
+  "price_input_per_m_estimated": 0.04,
+  "protocol_note": "JevBench Score requires four axes (intelligence, calibration, speed, cost). The v1.2 official score also requires the held-out items (109 hard + 24 easy + 24 standard + 146 judge items); those are not accessible from public data, so this run reports a public-only subset. The 'speed' axis is computed on the public 72-item standard subset, not the 242-item standard+judge run specified by v1.1.2.",
+  "run_dir": "C:\\Users\\Aditya\\AppData\\Local\\Temp\\smalljev_jevbench_eval\\runs\\2026-09-20_semantic_v8",
+  "split": "public-only"
+}

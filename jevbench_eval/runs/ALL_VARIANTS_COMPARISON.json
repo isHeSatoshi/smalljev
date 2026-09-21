@@ -1,0 +1,289 @@
+{
+  "n_variants": 5,
+  "note": "All variants are the same v1 architecture (openbmb/MiniCPM5-2B-Base + HeadsBundle + LoRA). Variants differ only in the supervised/RL training mixture. public-only: held-out items are not accessible from this repo.",
+  "per_tier": {
+    "easy": {
+      "2026-09-19_crown": {
+        "accuracy": 1.0,
+        "brier_mean": 0.0001250697431881899,
+        "n_attempted": 48,
+        "n_scorable": 48,
+        "schema_validity": 1.0
+      },
+      "2026-09-19_f2llm_4b": {
+        "accuracy": 0.4375,
+        "brier_mean": 1.0299000948779078,
+        "n_attempted": 48,
+        "n_scorable": 48,
+        "schema_validity": 1.0
+      },
+      "2026-09-19_lettered": {
+        "accuracy": 0.3958333333333333,
+        "brier_mean": 1.0687002368963414,
+        "n_attempted": 48,
+        "n_scorable": 48,
+        "schema_validity": 1.0
+      },
+      "2026-09-19_v4_bundle": {
+        "accuracy": 0.9583333333333334,
+        "brier_mean": 0.055141563325429736,
+        "n_attempted": 48,
+        "n_scorable": 48,
+        "schema_validity": 1.0
+      },
+      "2026-09-19_v5_holdout": {
+        "accuracy": 0.9583333333333334,
+        "brier_mean": 0.0801853804504777,
+        "n_attempted": 48,
+        "n_scorable": 48,
+        "schema_validity": 1.0
+      }
+    },
+    "hard": {
+      "2026-09-19_crown": {
+        "accuracy": 0.3333333333333333,
+        "brier_mean": 1.1333216049654675,
+        "n_attempted": 111,
+        "n_scorable": 111,
+        "schema_validity": 1.0
+      },
+      "2026-09-19_f2llm_4b": {
+        "accuracy": 0.34234234234234234,
+        "brier_mean": 1.1429414050726248,
+        "n_attempted": 111,
+        "n_scorable": 111,
+        "schema_validity": 1.0
+      },
+      "2026-09-19_lettered": {
+        "accuracy": 0.2972972972972973,
+        "brier_mean": 1.230761114859945,
+        "n_attempted": 111,
+        "n_scorable": 111,
+        "schema_validity": 1.0
+      },
+      "2026-09-19_v4_bundle": {
+        "accuracy": 0.2972972972972973,
+        "brier_mean": 1.1763862473841327,
+        "n_attempted": 111,
+        "n_scorable": 111,
+        "schema_validity": 1.0
+      },
+      "2026-09-19_v5_holdout": {
+        "accuracy": 0.45045045045045046,
+        "brier_mean": 0.9016077889535754,
+        "n_attempted": 111,
+        "n_scorable": 111,
+        "schema_validity": 1.0
+      }
+    },
+    "standard": {
+      "2026-09-19_crown": {
+        "accuracy": 0.7222222222222222,
+        "brier_mean": 0.5110766468122001,
+        "n_attempted": 72,
+        "n_scorable": 72,
+        "schema_validity": 1.0
+      },
+      "2026-09-19_f2llm_4b": {
+        "accuracy": 0.375,
+        "brier_mean": 1.137717709543306,
+        "n_attempted": 72,
+        "n_scorable": 72,
+        "schema_validity": 1.0
+      },
+      "2026-09-19_lettered": {
+        "accuracy": 0.3055555555555556,
+        "brier_mean": 1.153803861898087,
+        "n_attempted": 72,
+        "n_scorable": 72,
+        "schema_validity": 1.0
+      },
+      "2026-09-19_v4_bundle": {
+        "accuracy": 0.7222222222222222,
+        "brier_mean": 0.526121421048914,
+        "n_attempted": 72,
+        "n_scorable": 72,
+        "schema_validity": 1.0
+      },
+      "2026-09-19_v5_holdout": {
+        "accuracy": 0.5416666666666666,
+        "brier_mean": 0.82362591141008,
+        "n_attempted": 72,
+        "n_scorable": 72,
+        "schema_validity": 1.0
+      }
+    }
+  },
+  "rows": [
+    {
+      "accuracy": 0.5844155844155844,
+      "axes": {
+        "calibration": 35.660480023906004,
+        "cost": 59.03331847623614,
+        "intelligence": 58.46784284284285,
+        "speed": 79.99824225539606
+      },
+      "brier_mean": 0.7066165734069071,
+      "calibration": 35.660480023906004,
+      "cost": 59.03331847623614,
+      "cost_basis": "local_gpu_no_provider_tariff",
+      "ece_overall": 0.32169759988047,
+      "estimate_usd_per_1000": 0.023203636363636367,
+      "intelligence": 58.46784284284285,
+      "jevbench_score_public_only": 56.01708100445386,
+      "latency_hard_p50_raw": 0.11219100000016624,
+      "latency_hard_p95_raw": 3.8210031500020705,
+      "latency_standard_p50_adjusted": 0.41983560000371656,
+      "latency_standard_p50_raw": 0.13491780000185827,
+      "latency_standard_p95_adjusted": 0.4304228200038779,
+      "latency_standard_p95_raw": 0.14021141000193893,
+      "macro_accuracy": 0.5672523492827931,
+      "measured_usd_per_1000": null,
+      "n_attempted": 231,
+      "n_scorable": 231,
+      "operational_success": 1.0,
+      "ordinal_mae": 0.655722251912165,
+      "paraphrase_consistency": 0.8611111111111112,
+      "schema_validity": 1.0,
+      "schema_validity_strict": 1.0,
+      "speed": 79.99824225539606,
+      "variant": "2026-09-19_v5_holdout"
+    },
+    {
+      "accuracy": 0.5930735930735931,
+      "axes": {
+        "calibration": 33.788237712513336,
+        "cost": 59.03331847623614,
+        "intelligence": 61.41975308641975,
+        "speed": 80.01659235978889
+      },
+      "brier_mean": 0.7039057145857938,
+      "calibration": 33.788237712513336,
+      "cost": 59.03331847623614,
+      "cost_basis": "local_gpu_no_provider_tariff",
+      "ece_overall": 0.3310588114374333,
+      "estimate_usd_per_1000": 0.023203636363636367,
+      "intelligence": 61.41975308641975,
+      "jevbench_score_public_only": 55.95484720398388,
+      "latency_hard_p50_raw": 0.14634289999958128,
+      "latency_hard_p95_raw": 3.8548167499975534,
+      "latency_standard_p50_adjusted": 0.41954600000317444,
+      "latency_standard_p50_raw": 0.1347730000015872,
+      "latency_standard_p95_adjusted": 0.4285864999968908,
+      "latency_standard_p95_raw": 0.1392932499984454,
+      "macro_accuracy": 0.5854976493521385,
+      "measured_usd_per_1000": null,
+      "n_attempted": 231,
+      "n_scorable": 231,
+      "operational_success": 1.0,
+      "ordinal_mae": 0.41963512353120475,
+      "paraphrase_consistency": 0.8333333333333334,
+      "schema_validity": 1.0,
+      "schema_validity_strict": 1.0,
+      "speed": 80.01659235978889,
+      "variant": "2026-09-19_crown"
+    },
+    {
+      "accuracy": 0.5670995670995671,
+      "axes": {
+        "calibration": 31.594116442324793,
+        "cost": 59.03331847623614,
+        "intelligence": 59.108066399733076,
+        "speed": 82.56788073897343
+      },
+      "brier_mean": 0.7407203931375804,
+      "calibration": 31.594116442324793,
+      "cost": 59.03331847623614,
+      "cost_basis": "local_gpu_no_provider_tariff",
+      "ece_overall": 0.34202941778837603,
+      "estimate_usd_per_1000": 0.023203636363636367,
+      "intelligence": 59.108066399733076,
+      "jevbench_score_public_only": 54.927562315919054,
+      "latency_hard_p50_raw": 0.10817710000264924,
+      "latency_hard_p95_raw": 1.4380650999992213,
+      "latency_standard_p50_adjusted": 0.2797455999956583,
+      "latency_standard_p50_raw": 0.06487279999782913,
+      "latency_standard_p95_adjusted": 0.3151529699956882,
+      "latency_standard_p95_raw": 0.08257648499784409,
+      "macro_accuracy": 0.5407915895402995,
+      "measured_usd_per_1000": null,
+      "n_attempted": 231,
+      "n_scorable": 231,
+      "operational_success": 1.0,
+      "ordinal_mae": 0.5572173283079691,
+      "paraphrase_consistency": 0.8333333333333334,
+      "schema_validity": 1.0,
+      "schema_validity_strict": 1.0,
+      "speed": 82.56788073897343,
+      "variant": "2026-09-19_v4_bundle"
+    },
+    {
+      "accuracy": 0.3722943722943723,
+      "axes": {
+        "calibration": 0.0,
+        "cost": 59.03331847623614,
+        "intelligence": 37.35454204204204,
+        "speed": 69.73427761635594
+      },
+      "brier_mean": 1.1178241368152333,
+      "calibration": 0.0,
+      "cost": 59.03331847623614,
+      "cost_basis": "local_gpu_no_provider_tariff",
+      "ece_overall": 0.5121740669316841,
+      "estimate_usd_per_1000": 0.023203636363636367,
+      "intelligence": 37.35454204204204,
+      "jevbench_score_public_only": 19.80257788107619,
+      "latency_hard_p50_raw": 4.382833499999833,
+      "latency_hard_p95_raw": 339.8061354499996,
+      "latency_standard_p50_adjusted": 0.4178861000001689,
+      "latency_standard_p50_raw": 0.13394305000008444,
+      "latency_standard_p95_adjusted": 5.317196079999895,
+      "latency_standard_p95_raw": 2.583598039999947,
+      "macro_accuracy": 0.369261457019455,
+      "measured_usd_per_1000": null,
+      "n_attempted": 231,
+      "n_scorable": 231,
+      "operational_success": 1.0,
+      "ordinal_mae": 1.037009178164479,
+      "paraphrase_consistency": 0.8333333333333334,
+      "schema_validity": 1.0,
+      "schema_validity_strict": 1.0,
+      "speed": 69.73427761635594,
+      "variant": "2026-09-19_f2llm_4b"
+    },
+    {
+      "accuracy": 0.3203463203463203,
+      "axes": {
+        "calibration": 0.0,
+        "cost": 59.03331847623614,
+        "intelligence": 31.966862696029363,
+        "speed": 79.90638527460871
+      },
+      "brier_mean": 1.1730994509832926,
+      "calibration": 0.0,
+      "cost": 59.03331847623614,
+      "cost_basis": "local_gpu_no_provider_tariff",
+      "ece_overall": 0.5553532431377863,
+      "estimate_usd_per_1000": 0.023203636363636367,
+      "intelligence": 31.966862696029363,
+      "jevbench_score_public_only": 19.705827394724018,
+      "latency_hard_p50_raw": 0.19833850000577513,
+      "latency_hard_p95_raw": 3.526167349999014,
+      "latency_standard_p50_adjusted": 0.4233573000004981,
+      "latency_standard_p50_raw": 0.13667865000024904,
+      "latency_standard_p95_adjusted": 0.4375788200028182,
+      "latency_standard_p95_raw": 0.14378941000140913,
+      "macro_accuracy": 0.31627366346148594,
+      "measured_usd_per_1000": null,
+      "n_attempted": 231,
+      "n_scorable": 231,
+      "operational_success": 1.0,
+      "ordinal_mae": 0.9641237846865098,
+      "paraphrase_consistency": 0.9722222222222222,
+      "schema_validity": 1.0,
+      "schema_validity_strict": 1.0,
+      "speed": 79.90638527460871,
+      "variant": "2026-09-19_lettered"
+    }
+  ]
+}

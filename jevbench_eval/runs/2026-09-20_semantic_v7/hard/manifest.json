@@ -1,0 +1,30 @@
+{
+  "adapter": "smalljev_semantic",
+  "adapter_dir": "D:/Project/smalljev/evals/arms/semantic-v7-lora",
+  "backbone": "openbmb/MiniCPM5-2B-Base",
+  "charged_usd": 4.6199999999999894,
+  "cost_basis": "local_gpu_no_provider_tariff",
+  "dataset_files": [
+    "C:\\Users\\Aditya\\AppData\\Local\\Temp\\smalljev_jevbench_eval\\jevbench\\datasets\\public\\hard.jsonl"
+  ],
+  "dataset_hash": "e816e106f562dec75a8da12e69b75e957a4bbd9f6300f1145fc71837327a3c61",
+  "delay_s": 0.0,
+  "device": "cuda",
+  "finished_utc": "2026-09-20T08:12:58Z",
+  "load_s": 17.219381499999145,
+  "n_attempted": 111,
+  "n_failed": 0,
+  "n_planned": 111,
+  "noulscore_ckpt": "D:/Project/smalljev/evals/arms/semantic-v7-noulscore.pt",
+  "peft_version": "0.15.2",
+  "resolved_models": [
+    "smalljev_semantic_v7"
+  ],
+  "run_label": "smalljev_semantic_v7",
+  "scorer_ckpt": "D:/Project/smalljev/evals/arms/semantic-v7-scorer.pt",
+  "started_utc": "2026-09-20T08:12:34Z",
+  "threads": 2,
+  "torch_version": "2.8.0+cu129",
+  "transformers_version": "4.57.6",
+  "variant_label": "smalljev_semantic_v7"
+}
