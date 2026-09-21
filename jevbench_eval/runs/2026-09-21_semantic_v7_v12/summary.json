@@ -1,0 +1,60 @@
+{
+  "calibration": 60.69060175283296,
+  "calibration_detail": {
+    "brier_mean": 0.5522620993799767,
+    "ece": 0.17755434333036438,
+    "ece_term": 64.48913133392713,
+    "n_distributions": 231,
+    "tvd_mean": 0.431079278282612,
+    "tvd_term": 56.892072171738796
+  },
+  "cost": 58.90175303322291,
+  "cost_detail": {
+    "basis": "reference_tariff_0.04_per_m_input",
+    "charged_usd": 4.6199999999999894,
+    "reference_tariff_in_per_m": 0.04,
+    "total_input_tokens": 135361,
+    "usd_per_1000": 0.023439134199134203
+  },
+  "harness_root": "D:\\Project\\smalljev\\jevbench_latest",
+  "intelligence": 59.934413580246904,
+  "jevbench_score": 64.72499520078513,
+  "n_decisions": 231,
+  "run_label": "smalljev_semantic_v7",
+  "scoring_rules": "composite_v12 (4 axes, geometric mean)",
+  "speed": 81.91476377898562,
+  "speed_detail": {
+    "p50": 0.0739560999936657,
+    "p50_adj": 0.2979121999873314,
+    "p95": 1.0049542000051588,
+    "p95_adj": 2.1599084000103175
+  },
+  "tier_accuracies": {
+    "easy": 0.9791666666666666,
+    "hard": 0.3333333333333333,
+    "judge": null,
+    "standard": 0.6944444444444444
+  },
+  "tier_detail": {
+    "easy": {
+      "accuracy": 0.9791666666666666,
+      "correct": 47,
+      "n": 48
+    },
+    "hard": {
+      "accuracy": 0.3333333333333333,
+      "correct": 37,
+      "n": 111
+    },
+    "judge": {
+      "accuracy": null,
+      "correct": 0,
+      "n": 0
+    },
+    "standard": {
+      "accuracy": 0.6944444444444444,
+      "correct": 50,
+      "n": 72
+    }
+  }
+}

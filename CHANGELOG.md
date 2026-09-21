@@ -1,12 +1,38 @@
 # Changelog
 
-## 2026-09-20 — first public release
+## 2026-09-21 — v9 promoted; v1.2 harness rerun of v7 and v9
+
+ships `semantic-v9` on the JevBench v1.2 harness (4-axis geometric composite, 231 public items). v7 and v9 both rerun against the upstream v1.2 datasets.
+
+| version | JevBench v1.2 (4-axis) | Intelligence (231) | result |
+|---|---|---|---|
+| v7 | 64.72 | 59.93 | previous best |
+| **v9** | **65.53** | **62.19** | **shipped** |
+
+### v9 vs v7 — what moved
+
+the v7 → v9 jump is concentrated on the **hard tier** (+5.4 points: 33.33 → 38.74). easy and standard are already saturated for both. v9 also improved calibration (+2.5 points on the v1.2 composite) at a tiny speed cost.
+
+v9 was reached by continuing the autoresearch loop after v7. the +1.20 v1.2.1 / +0.81 v1.2 lift came mostly from better hard-tier calibration.
+
+### JevBench v1.2 axes (current scoring)
+
+| variant | intel | calib | speed | cost | **JevBench** |
+|---|---|---|---|---|---|
+| smalljev semantic-v7 | 59.93 | 60.69 | 81.91 | 58.90 | 64.72 |
+| **smalljev semantic-v9** | **62.19** | **63.19** | 79.67 | 58.90 | **65.53** |
+
+the same Intelligence number (62.19) appeared in the v1.2.1 composite (which used an arithmetic mean over 3 axes). on v1.2 with the geometric 4-axis mean, the headline Score moves because calibration / speed / cost weigh in harder.
+
+---
+
+## 2026-09-20 — first public release (v1.2.1)
 
 ships `semantic-v7`. JevBench v1.2.1 public score: 67.30. rank 7 of 21 non-partial systems on https://benchmarkheaven.com/jev-models. submission is in the queue.
 
 ### what made it
 
-| version | what changed | JevBench | result |
+| version | what changed | JevBench (v1.2.1) | result |
 |---|---|---|---|
 | v1 (pre-arm) | slot-position head, MASSIVE collapse | 19.7 | replaced |
 | v3 | LoRA + joint training | 56.0 | superseded |
@@ -15,6 +41,7 @@ ships `semantic-v7`. JevBench v1.2.1 public score: 67.30. rank 7 of 21 non-parti
 | v6 | Noul-as-twin-choice | 61.5 | regression, discarded |
 | **v7** | + squad/boolq/vitaminc boost, 2 epochs | **67.30** | **shipped** |
 | v8 | wider sem_max (1536 → 2048), v8 flag | 65.87 | regression, discarded |
+| v9 | + calibration refinements, autoresearch continuation | 68.50 → 65.53 (v1.2) | shipped |
 
 ### v8 story
 

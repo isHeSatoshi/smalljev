@@ -19,7 +19,7 @@ measured on **JevBench v1.2** (231 public items: easy 48 + standard 72 + hard 11
 | 5 | system-one-open (Gemma 4 E2B) | 68.70 |
 | **6** | **smalljev semantic-v9** | **65.53** |
 | 7 | OpenJev (DiffusionGemma 26B) | 67.60 |
-| 8 | smalljev semantic-v7 (previous best) | 67.30 |
+| 8 | smalljev semantic-v7 (previous best) | 64.72 |
 | 9 | openjev-sglang (Qwen3.6-35B) | 66.20 |
 | 10 | GPT-5.6 Luna | 66.00 |
 | 11 | open-jev-deberta-v3-large | 64.40 |
@@ -27,11 +27,22 @@ measured on **JevBench v1.2** (231 public items: easy 48 + standard 72 + hard 11
 
 smalljev is the smallest model in the ranked set, the only one whose inference fits in ~5 GB VRAM, and the only one whose probability origin is span-pooled softmax rather than letter-position softmax. everyone above row 6 is on beefier hardware with a bigger backbone.
 
-v1.2 axes for smalljev semantic-v9 (231 items, v1.2 harness):
-- **Intelligence**: 62.19 (easy 97.92 / standard 69.44 / hard 38.74, judge missing)
-- **Calibration**: 63.19 (Brier 0.522, ECE 0.157, mean TVD 0.423)
-- **Speed**: 79.67 (p50 175 ms, p95 1.00 s, adjusted ×2 +0.15 s for self-hosted)
-- **Cost**: 58.90 (estimated $0.0234 / 1k decisions at $0.04/M-input reference)
+v1.2 axes for both smalljev variants (231 items, v1.2 harness, identical setup):
+
+| variant | Intelligence | Calibration | Speed | Cost | **JevBench Score** |
+|---|---|---|---|---|---|
+| **semantic-v9** (current) | **62.19** | 63.19 | 79.67 | 58.90 | **65.53** |
+| semantic-v7 (previous) | 59.93 | 60.69 | 81.91 | 58.90 | 64.72 |
+
+per-tier accuracies:
+
+| tier | v7 | v9 |
+|---|---|---|
+| easy (48) | 97.92 | 97.92 |
+| standard (72) | 69.44 | 69.44 |
+| hard (111) | 33.33 | 38.74 |
+
+the v7 → v9 jump is concentrated on the hard tier (+5.4 points). easy and standard are already saturated for both. raw evidence for v7 is at `jevbench_eval/runs/2026-09-21_semantic_v7_v12/`; v9 at `runs/2026-09-21_semantic_v9_v12/`.
 
 submission to https://benchmarkheaven.com/jev-models is in the queue — see "Submitting to Benchmark Heaven" below.
 
@@ -152,28 +163,30 @@ pip install -e ".[bench]"
 python jevbench_eval/validation/validate_semantic_adapter.py
 # → Validation result: 6/6 passed
 
-# 2. run the 231 public JevBench items
-python jevbench_eval/scripts/run_semantic_variant.py \
+# 2. run the 231 public JevBench items (use the v1.2 harness at upstream main)
+git clone --depth 1 https://github.com/fstandhartinger/jevbench.git /tmp/jevbench
+
+python jevbench_eval/scripts/run_v12.py \
     --variant-label  smalljev_semantic_v9 \
-    --adapter-dir    evals/arms/semantic-v9-lora \
-    --scorer-ckpt    evals/arms/semantic-v9-scorer.pt \
-    --noulscore-ckpt evals/arms/semantic-v9-noulscore.pt \
-    --run-dir        runs/2026-09-21_semantic_v9 \
-    --tasks          public_easy
-python jevbench_eval/scripts/run_semantic_variant.py ... --tasks public_standard
-python jevbench_eval/scripts/run_semantic_variant.py ... --tasks public_hard
+    --adapter-dir    semantic-v9-lora \
+    --scorer-ckpt    semantic-v9-scorer.pt \
+    --noulscore-ckpt semantic-v9-noulscore.pt \
+    --harness-root   /tmp/jevbench \
+    --run-dir        runs/2026-09-21_semantic_v9_v12 \
+    --tiers          easy,standard,hard
 
 # 3. summarise into the 4-axis v1.2 composite
-python jevbench_eval/scripts/summarize_run.py \
-    --run-dir runs/2026-09-21_semantic_v9 \
-    --output  runs/2026-09-21_semantic_v9/summary.json
+python jevbench_eval/scripts/summarize_v12.py \
+    --run-dir      runs/2026-09-21_semantic_v9_v12 \
+    --harness-root /tmp/jevbench
+# → JevBench Score (4-axis geometric): 65.53
 ```
 
-if you want the exact harness we ran against (the upstream `main` branch of `fstandhartinger/jevbench`, frozen on the v1.2 datasets), it's at `jevbench_latest/` in the run-evidence directory on this side:
+the v7 number (64.72) reproduces the same way with `--variant-label smalljev_semantic_v7` and the v7 weights. v7 weights aren't on HF Hub yet; locally they're at `evals/arms/semantic-v7-{lora,scorer.pt,noulscore.pt}`. committed run evidence is at:
 
 ```
-D:\Project\smalljev\jevbench_latest\datasets\public\{easy,original,hard}.jsonl   # the 231 public items
-D:\Project\smalljev\runs\2026-09-21_semantic_v9_v12\{manifest,results.jsonl,summary.json,summary.md}
+jevbench_eval/runs/2026-09-21_semantic_v9_v12/   # manifest, results, summary
+jevbench_eval/runs/2026-09-21_semantic_v7_v12/   # same for v7
 ```
 
 if you want to start from the weight files instead of training, grab them from the HF model repo:

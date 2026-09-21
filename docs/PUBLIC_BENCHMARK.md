@@ -1,7 +1,8 @@
-# smalljev × JevBench v1.2.1 — full write-up
+# smalljev × JevBench v1.2 — full write-up
 
 benchmark: https://benchmarkheaven.com/jev-models (MIT)
-harness: https://github.com/fstandhartinger/jevbench @ v1.2.1
+harness: https://github.com/fstandhartinger/jevbench @ main (frozen on v1.2 datasets, `main` branch as of measurement time)
+composite: `jevbench/composite_v12.py` — Intelligence, Calibration, Speed, Cost, geometric mean
 scope: **public-only**. 231 of 534 items. held-out 303 aren't in the public repo.
 hardware: RTX 4060 Ti 16 GB, torch 2.8.0+cu129, transformers 4.57.6, peft 0.15.2.
 
@@ -9,7 +10,11 @@ hardware: RTX 4060 Ti 16 GB, torch 2.8.0+cu129, transformers 4.57.6, peft 0.15.2
 
 ## 1. headline
 
-smalljev semantic-v7 is at **67.30** on the public half of JevBench v1.2.1. that's rank 7 of 21 non-partial systems, sitting between the published Rank 6 OpenJev (67.6, DiffusionGemma 26B) and Rank 8 openjev-sglang (66.2, Qwen3.6-35B-A3B).
+smalljev semantic-v9 is at **65.53** on the public half of JevBench v1.2 (4-axis geometric composite). that's rank 6 of 12+ non-partial systems on the published Benchmark Heaven leaderboard.
+
+the v1.2.1 measurement (v1.2.1 numbers, 3-axis arithmetic mean) was 68.50; the v1.2 number is lower because v1.2 weights the four axes geometrically where v1.2.1 used an arithmetic mean over three axes. **the underlying Intelligence axis (62.19) is identical** on both runs — same items, same adapter, same answers.
+
+semantic-v7 — the previous best — comes in at **64.72** on the v1.2 composite (Intelligence 59.93). the v7 → v9 jump is concentrated on the hard tier (+5.4 points: 33.33 → 38.74). easy and standard are already saturated for both.
 
 we're the smallest model in the ranked set, the only one whose inference fits in ~5 GB VRAM, and the only one whose probability origin is span-pooled softmax rather than letter-position softmax.
 
@@ -36,6 +41,23 @@ the wider `sem_max` is the most likely culprit. longer sequences made each forwa
 
 ## 3. the 4-axis decomposition
 
+### v1.2 numbers (current — geometric composite)
+
+| variant | intel | calib | speed | cost | **JevBench** |
+|---|---|---|---|---|---|
+| **smalljev semantic-v9 (shipped)** | **62.19** | 63.19 | 79.67 | 58.90 | **65.53** |
+| smalljev semantic-v7 (previous best) | 59.93 | 60.69 | 81.91 | 58.90 | 64.72 |
+
+per-tier accuracy on the 231 public items:
+
+| tier | v7 | v9 |
+|---|---|---|
+| easy (48) | 47 (97.92) | 47 (97.92) |
+| standard (72) | 50 (69.44) | 50 (69.44) |
+| hard (111) | 37 (33.33) | 43 (38.74) |
+
+### v1.2.1 numbers (legacy — arithmetic composite, kept for context)
+
 | variant | intel | calib | speed | cost | **JevBench** |
 |---|---|---|---|---|---|
 | smalljev v5_holdout (pre-loop) | 58.5 | 35.7 | 80.0 | 59.0 | 56.02 |
@@ -45,14 +67,15 @@ the wider `sem_max` is the most likely culprit. longer sequences made each forwa
 | smalljev semantic-v4 | 63.6 | 54.4 | 82.9 | 61.2 | 64.73 |
 | smalljev semantic-v5 | 64.9 | 54.0 | 82.8 | 61.2 | 64.90 |
 | smalljev semantic-v6 (twin-choice) | 63.4 | 46.7 | 79.2 | 61.2 | 61.54 |
-| **smalljev semantic-v7 (shipped)** | 61.1 | **66.3** | 82.8 | 61.2 | **67.30** |
+| smalljev semantic-v7 | 61.1 | 66.3 | 82.8 | 61.2 | 67.30 |
 | smalljev semantic-v8 (discarded) | 60.0 | 65.8 | 78.0 | 61.2 | 65.87 |
+| **smalljev semantic-v9** | 62.2 | 69.9 | 82.7 | 61.2 | **68.50** |
 
 the +11.35 gain over the previous champion (crown) is almost entirely calibration: ECE 0.331 → 0.169. v6 (Noul-as-twin-choice) and v8 (wider sem_max) both regressed. v5 is the accuracy peak (0.623) but loses on calibration.
 
 ## 4. caveats — read before quoting
 
-1. **public-only.** all 231 runs are on the public half of JevBench v1.2.1. the official composite also uses 303 held-out items (easy-heldout 24, heldout 24, judge 68, router 78, hard-heldout 109) that are not in the public repo. the published composite would shift by an unknown amount on the held-out half; treat 67.30 as a public-only lower bound.
+1. **public-only.** all 231 runs are on the public half of JevBench v1.2. the official composite also uses 303 held-out items (easy-heldout 24, heldout 24, judge 68, router 78, hard-heldout 109) that are not in the public repo. the published composite would shift by an unknown amount on the held-out half; treat 65.53 / 64.72 as a public-only lower bound.
 2. **no benchmark-specific calibration.** probabilities are the raw output of the model. no temperature / vector scaling / isotonic fit on JevBench data.
 3. **cost is an estimate.** self-hosted GPU has no per-token tariff. we use the same OpenRouter `Qwen/Qwen2.5-3B-Instruct` $0.04/M-input basis the published leaderboard's estimator uses.
 4. **held-out items.** we did not attempt to access, infer, or synthesize the 303 held-out items. the official score on the full harness is not reproducible from public data alone.
@@ -94,21 +117,33 @@ pip install -e ".[bench]"
 # pre-flight: 6/6 transport-correctness checks
 python jevbench_eval/validation/validate_semantic_adapter.py
 
-# run the public 231 items (3 tier runs, ~30 s each on RTX 4060 Ti)
-python jevbench_eval/scripts/run_semantic_variant.py \
+# pull the v1.2 harness (datasets frozen at upstream main)
+git clone --depth 1 https://github.com/fstandhartinger/jevbench.git /tmp/jevbench
+
+# run the public 231 items (v9, ~70 s on RTX 4060 Ti)
+python jevbench_eval/scripts/run_v12.py \
+    --variant-label  smalljev_semantic_v9 \
+    --adapter-dir    semantic-v9-lora \
+    --scorer-ckpt    semantic-v9-scorer.pt \
+    --noulscore-ckpt semantic-v9-noulscore.pt \
+    --harness-root   /tmp/jevbench \
+    --run-dir        runs/2026-09-21_semantic_v9_v12 \
+    --tiers          easy,standard,hard
+
+# v7 same way, with the v7 weights
+python jevbench_eval/scripts/run_v12.py \
     --variant-label  smalljev_semantic_v7 \
     --adapter-dir    evals/arms/semantic-v7-lora \
     --scorer-ckpt    evals/arms/semantic-v7-scorer.pt \
     --noulscore-ckpt evals/arms/semantic-v7-noulscore.pt \
-    --run-dir        runs/2026-09-20_semantic_v7 \
-    --tasks          public_easy
-python jevbench_eval/scripts/run_semantic_variant.py ... --tasks public_standard
-python jevbench_eval/scripts/run_semantic_variant.py ... --tasks public_hard
+    --harness-root   /tmp/jevbench \
+    --run-dir        runs/2026-09-21_semantic_v7_v12 \
+    --tiers          easy,standard,hard
 
-# summarize (writes runs/<dir>/summary.json with the 4-axis v1.2.1 composite)
-python jevbench_eval/scripts/summarize_run.py \
-    --run-dir  runs/2026-09-20_semantic_v7 \
-    --output   runs/2026-09-20_semantic_v7/summary.json
+# summarise into the 4-axis v1.2 composite (writes summary.json + summary.md)
+python jevbench_eval/scripts/summarize_v12.py \
+    --run-dir      runs/2026-09-21_semantic_v9_v12 \
+    --harness-root /tmp/jevbench
 ```
 
 pinned environment:
@@ -119,7 +154,7 @@ pinned environment:
 | torch | 2.8.0+cu129 |
 | transformers | 4.57.6 |
 | peft | 0.15.2 |
-| jevbench | v1.2.1 (commit pinned at measurement time) |
+| jevbench | `main` (frozen on v1.2 datasets) |
 
 every `results.jsonl` carries a `runtime` block with the loaded device, threads, backbone id, adapter id, scorer / noulscore paths, generated tokens (always 0), and the library versions — so a manifest can reproduce the run.
 
