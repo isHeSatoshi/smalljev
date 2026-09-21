@@ -62,6 +62,9 @@ runs/*/hard/raw/
 runs/*/*/results.jsonl
 runs/*/ledger.jsonl
 
+# Local-only dev tooling (not part of the public repo)
+jevbench_eval/
+
 # Local data
 data/
 hf_cache/

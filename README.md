@@ -19,8 +19,6 @@ huggingface-cli download isHeSatoshi/smalljev-semantic-v9 --local-dir ./weights/
 
 two downloads: one for the base model (`openbmb/MiniCPM5-2B-Base`, ~5 GB, Apache-2.0), one for the smalljev LoRA adapter + heads (~17 MB, Apache-2.0). both live on HuggingFace Hub.
 
-if you want the JevBench harness scripts too (`jevbench_eval/scripts/run_v12.py`, etc.), also run `pip install -e ".[bench]"` for matplotlib/seaborn/datasets.
-
 verified environment: python 3.11, torch 2.8.0, transformers 4.57.6, peft 0.15.2.
 
 ---
@@ -130,7 +128,7 @@ MASSIVE en/de in nimble13 is disjoint-split same-source, not zero-shot. the +0.1
 
 cost is estimated at $0.04/m-input × measured tokens, same basis the leaderboard uses for self-hosted rows. self-hosting doesn't have a tariff; we don't invent one.
 
-full per-tier write-up: docs/PUBLIC_BENCHMARK.md.
+full per-tier write-up: docs/PUBLIC_BENCHMARK.md (also links the v9 weights, the harness scripts live outside this repo on the v9 development branch).
 
 **license** apache-2.0. backbone is apache-2.0. nothing proprietary in here.
 
@@ -151,11 +149,9 @@ full per-tier write-up: docs/PUBLIC_BENCHMARK.md.
 ```
 smalljev/                 # the library (~700 LOC)
 tests/                    # unit tests, ~30 s on cpu
-evals/                    # training recipe + nimble13 harness
-jevbench_eval/            # jevbench harness + per-variant runs + v9 run evidence
+weights/                  # local cache for the base model + smalljev LoRA
 docs/                     # PUBLIC_BENCHMARK.md + CHANGELOG.md
 assets/                   # leaderboard + axes + progression PNGs
-weights/                  # local cache for v9 LoRA + heads (download via huggingface-cli)
 ```
 
 **submitting to benchmark heaven** in the queue. the maintainer needs this repo, the weights (HF Hub: `isHeSatoshi/smalljev-semantic-v9`), and the run command in *what it actually does*. file an issue at https://github.com/fstandhartinger/jevbench/issues or ping https://benchmarkheaven.com.
