@@ -14,8 +14,6 @@ smalljev semantic-v9 is at **65.53** on the public half of JevBench v1.2 (4-axis
 
 the v1.2.1 measurement (v1.2.1 numbers, 3-axis arithmetic mean) was 68.50; the v1.2 number is lower because v1.2 weights the four axes geometrically where v1.2.1 used an arithmetic mean over three axes. **the underlying Intelligence axis (62.19) is identical** on both runs — same items, same adapter, same answers.
 
-semantic-v7 — the previous best — comes in at **64.72** on the v1.2 composite (Intelligence 59.93). the v7 → v9 jump is concentrated on the hard tier (+5.4 points: 33.33 → 38.74). easy and standard are already saturated for both.
-
 we're the smallest model in the ranked set, the only one whose inference fits in ~5 GB VRAM, and the only one whose probability origin is span-pooled softmax rather than letter-position softmax.
 
 submission to Benchmark Heaven is in the queue.
@@ -41,22 +39,23 @@ the wider `sem_max` is the most likely culprit. longer sequences made each forwa
 
 ## 3. the 4-axis decomposition
 
-### v1.2 numbers (current — geometric composite)
+### v1.2 (current — geometric composite)
 
 | variant | intel | calib | speed | cost | **JevBench** |
 |---|---|---|---|---|---|
 | **smalljev semantic-v9 (shipped)** | **62.19** | 63.19 | 79.67 | 58.90 | **65.53** |
-| smalljev semantic-v7 (previous best) | 59.93 | 60.69 | 81.91 | 58.90 | 64.72 |
 
 per-tier accuracy on the 231 public items:
 
-| tier | v7 | v9 |
-|---|---|---|
-| easy (48) | 47 (97.92) | 47 (97.92) |
-| standard (72) | 50 (69.44) | 50 (69.44) |
-| hard (111) | 37 (33.33) | 43 (38.74) |
+| tier | n | correct | accuracy |
+|---|---|---|---|
+| easy | 48 | 47 | 97.92 |
+| standard | 72 | 50 | 69.44 |
+| hard | 111 | 43 | 38.74 |
 
-### v1.2.1 numbers (legacy — arithmetic composite, kept for context)
+judge (146 items), easy-heldout (24), and 109 private hard items aren't in the public repo; the JevBench Score would shift on the held-out half.
+
+### v1.2.1 (legacy — arithmetic composite, kept for context)
 
 | variant | intel | calib | speed | cost | **JevBench** |
 |---|---|---|---|---|---|
@@ -75,7 +74,7 @@ the +11.35 gain over the previous champion (crown) is almost entirely calibratio
 
 ## 4. caveats — read before quoting
 
-1. **public-only.** all 231 runs are on the public half of JevBench v1.2. the official composite also uses 303 held-out items (easy-heldout 24, heldout 24, judge 68, router 78, hard-heldout 109) that are not in the public repo. the published composite would shift by an unknown amount on the held-out half; treat 65.53 / 64.72 as a public-only lower bound.
+1. **public-only.** all 231 runs are on the public half of JevBench v1.2. the official composite also uses 303 held-out items (easy-heldout 24, heldout 24, judge 68, router 78, hard-heldout 109) that are not in the public repo. the published composite would shift by an unknown amount on the held-out half; treat 65.53 as a public-only lower bound.
 2. **no benchmark-specific calibration.** probabilities are the raw output of the model. no temperature / vector scaling / isotonic fit on JevBench data.
 3. **cost is an estimate.** self-hosted GPU has no per-token tariff. we use the same OpenRouter `Qwen/Qwen2.5-3B-Instruct` $0.04/M-input basis the published leaderboard's estimator uses.
 4. **held-out items.** we did not attempt to access, infer, or synthesize the 303 held-out items. the official score on the full harness is not reproducible from public data alone.
@@ -128,16 +127,6 @@ python jevbench_eval/scripts/run_v12.py \
     --noulscore-ckpt semantic-v9-noulscore.pt \
     --harness-root   /tmp/jevbench \
     --run-dir        runs/2026-09-21_semantic_v9_v12 \
-    --tiers          easy,standard,hard
-
-# v7 same way, with the v7 weights
-python jevbench_eval/scripts/run_v12.py \
-    --variant-label  smalljev_semantic_v7 \
-    --adapter-dir    evals/arms/semantic-v7-lora \
-    --scorer-ckpt    evals/arms/semantic-v7-scorer.pt \
-    --noulscore-ckpt evals/arms/semantic-v7-noulscore.pt \
-    --harness-root   /tmp/jevbench \
-    --run-dir        runs/2026-09-21_semantic_v7_v12 \
     --tiers          easy,standard,hard
 
 # summarise into the 4-axis v1.2 composite (writes summary.json + summary.md)

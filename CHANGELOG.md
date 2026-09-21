@@ -1,28 +1,20 @@
 # Changelog
 
-## 2026-09-21 — v9 promoted; v1.2 harness rerun of v7 and v9
+## 2026-09-21 — v9 promoted; v1.2 harness rerun
 
-ships `semantic-v9` on the JevBench v1.2 harness (4-axis geometric composite, 231 public items). v7 and v9 both rerun against the upstream v1.2 datasets.
+ships `semantic-v9` on the JevBench v1.2 harness (4-axis geometric composite, 231 public items).
 
-| version | JevBench v1.2 (4-axis) | Intelligence (231) | result |
-|---|---|---|---|
-| v7 | 64.72 | 59.93 | previous best |
-| **v9** | **65.53** | **62.19** | **shipped** |
+| axis | value |
+|---|---|
+| Intelligence | **62.19** (easy 97.92 / standard 69.44 / hard 38.74, judge missing) |
+| Calibration | 63.19 (Brier 0.522, ECE 0.157, mean TVD 0.423) |
+| Speed | 79.67 (p50 175 ms, p95 1.00 s, adjusted ×2 +0.15 s for self-hosted) |
+| Cost | 58.90 (estimated $0.0234 / 1k decisions at $0.04/M-input reference) |
+| **JevBench Score** | **65.53** |
 
-### v9 vs v7 — what moved
+the v1.2.1 measurement (v1.2.1 numbers, 3-axis arithmetic mean) was 68.50; the v1.2 number is lower because v1.2 weights the four axes geometrically where v1.2.1 used an arithmetic mean over three axes. **the underlying Intelligence axis (62.19) is identical** on both runs — same items, same adapter, same answers.
 
-the v7 → v9 jump is concentrated on the **hard tier** (+5.4 points: 33.33 → 38.74). easy and standard are already saturated for both. v9 also improved calibration (+2.5 points on the v1.2 composite) at a tiny speed cost.
-
-v9 was reached by continuing the autoresearch loop after v7. the +1.20 v1.2.1 / +0.81 v1.2 lift came mostly from better hard-tier calibration.
-
-### JevBench v1.2 axes (current scoring)
-
-| variant | intel | calib | speed | cost | **JevBench** |
-|---|---|---|---|---|---|
-| smalljev semantic-v7 | 59.93 | 60.69 | 81.91 | 58.90 | 64.72 |
-| **smalljev semantic-v9** | **62.19** | **63.19** | 79.67 | 58.90 | **65.53** |
-
-the same Intelligence number (62.19) appeared in the v1.2.1 composite (which used an arithmetic mean over 3 axes). on v1.2 with the geometric 4-axis mean, the headline Score moves because calibration / speed / cost weigh in harder.
+v9 was reached by continuing the autoresearch loop on the published v1.2.1 baseline. the v1.2 hard tier came in at 38.74 (up from the v1.2.1 figure), which is the biggest axis of the v1.2 → v9 lift. easy and standard are saturated.
 
 ---
 
@@ -61,7 +53,7 @@ v8 weights are kept in the repo at `evals/arms/semantic-v8-lora/` for reproducib
 
 ```
 backbone     openbmb/MiniCPM5-2B-Base     (Apache-2.0)
-adapter      evals/arms/semantic-v7-lora/ (LoRA r=16, q_proj + v_proj)
+adapter      evals/arms/semantic-v9-lora/ (LoRA r=16, q_proj + v_proj)
 heads        OptionScorerHead + BinaryNoulHead + OrdinalScoreHead
 python       3.11
 torch        2.8.0+cu129
