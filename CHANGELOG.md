@@ -1,5 +1,26 @@
 # Changelog
 
+## 2026-10-27 — README corrected against the official board
+
+The "the score" section said the system had not been published to the official leaderboard
+and that the submission was still in the queue. Both were wrong, and the README is linked
+from a resume, so the error was recruiter-visible.
+
+What is actually true, verified on 2026-10-27:
+
+- The benchmark maintainer published our results on 2026-09-23 in
+  https://github.com/fstandhartinger/jevbench/issues/11: #40 in v1.3, then #57 at 12.31 in v1.4.
+- The system is a live ranked row on the open board today, last measured 2026-10-02 on the
+  v1.6 pool: https://benchmarkheaven.com/jev-models
+- The official score is lower than 65.53 because the official runs score all 534 items,
+  held-out slice included. On v1.4 sealed accuracy was 26.9% against 60.6% on the public
+  slice, and both the >25-point gap adjustment and the below-50 Intelligence gate applied.
+  65.53 remains our own public-slice measurement and is not comparable with a board row.
+
+Removed a hand-copied leaderboard table that was not the official board, and the "rank 6"
+and "smallest model in the ranked set" claims that came from it. Eleven systems is not the
+size of the field: the open board carries many far smaller entries.
+
 ## 2026-09-21 — v9 promoted; v1.2 harness rerun
 
 ships `semantic-v9` on the JevBench v1.2 harness (4-axis geometric composite, 231 public items).
