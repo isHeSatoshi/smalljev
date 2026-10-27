@@ -77,7 +77,7 @@ class HFBackend:
         device = "cuda" if torch.cuda.is_available() else "cpu"
         dtype = torch.bfloat16 if device == "cuda" else torch.float32
         self.model = AutoModelForCausalLM.from_pretrained(
-            model_id, torch_dtype=dtype, device_map="auto" if device == "cuda" else None,
+            model_id, dtype=dtype, device_map="auto" if device == "cuda" else None,
             trust_remote_code=False,
             attn_implementation="eager",  # required: v1 packed sampler passes 4D masks
         ).eval()

@@ -1,0 +1,14 @@
+#!/usr/bin/bash
+
+start=$(date +%s%3N);
+
+for test in tests/*; do
+  echo $test;
+  python3 $test;
+done
+
+end=$(date +%s%3N);
+
+total_time=$(echo "scale=3; ($end - $start) / 1000" | bc)
+
+echo "Total time: $total_time s"

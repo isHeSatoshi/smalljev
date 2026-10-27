@@ -75,7 +75,7 @@ class Backbone:
         if self.tokenizer.pad_token is None:
             self.tokenizer.pad_token = self.tokenizer.eos_token
         self.model = AutoModel.from_pretrained(
-            self.spec["model_id"], torch_dtype=dtype,
+            self.spec["model_id"], dtype=dtype,
             device_map="auto" if device == "cuda" else None, **kw).eval()
         self.device = next(self.model.parameters()).device
         self.hidden_size = self.model.config.hidden_size

@@ -45,6 +45,10 @@ class ScoreQuestion:
     def __init__(self, name, question, levels=("very low", "low", "medium",
                                               "high", "very high"),
                  values=(0.0, 0.25, 0.5, 0.75, 1.0)):
+        print("name ", name)
+        print("question ", question)
+        print("values = ", values, "type of values ", type(values))
+        print("levels = ", levels, "type of levels ", type(levels))
         levels, values = tuple(levels), tuple(values)
         if len(levels) != len(values) or len(levels) < 2:
             raise ValueError(f"ScoreQuestion '{name}' needs >= 2 levels with values.")

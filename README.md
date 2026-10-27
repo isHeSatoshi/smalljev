@@ -15,8 +15,8 @@ cd smalljev
 pip install -e .
 
 # step 2: download the base model + the smalljev LoRA adapter from HuggingFace
-huggingface-cli download openbmb/MiniCPM5-2B-Base   --local-dir ./weights/base
-huggingface-cli download isHeSatoshi/smalljev-semantic-v9 --local-dir ./weights/semantic-v9
+hf download openbmb/MiniCPM5-2B-Base --local-dir ./weights/base
+hf download isHeSatoshi/smalljev-semantic-v9 --local-dir ./weights/semantic-v9
 ```
 
 two downloads: one for the base model (`openbmb/MiniCPM5-2B-Base`, ~5 GB, Apache-2.0), one for the smalljev LoRA adapter + heads (~17 MB, Apache-2.0). both live on HuggingFace Hub.
