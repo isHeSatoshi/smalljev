@@ -35,25 +35,13 @@ smalljev is the same idea, open weights. the v9 model is a 2.5B backbone (`openb
 
 ## the score
 
-**rank 6 on JevBench (private measurement, 65.53 / 100).** the official benchmark has 534 items; we ran on 231 public items and got Intelligence 62.19 / Calibration 63.19 / Speed 79.67 / Cost 58.90. full leaderboard:
+**65.53 / 100 on JevBench v1.2, our own measurement.** the official benchmark has 534 items; we ran on 231 public items and got Intelligence 62.19 / Calibration 63.19 / Speed 79.67 / Cost 58.90.
 
-| rank | system | score |
-|---|---|---|
-| 1 | jev 1.13.0 (TypeSafe) | 75.30 |
-| 2 | semif (Qwen3.5-4B) | 74.60 |
-| 3 | djev (Maisa) | 74.30 |
-| 4 | open-alternative-jev | 69.80 |
-| 5 | system-one-open (Gemma 4 E2B) | 68.70 |
-| **6** | **smalljev semantic-v9** | **65.53** |
-| 7 | openjev (DiffusionGemma 26B) | 67.60 |
-| 8 | openjev-sglang (Qwen3.6-35B) | 66.20 |
-| 9 | GPT-5.6 Luna | 66.00 |
-| 10 | open-jev-deberta-v3-large | 64.40 |
-| 11 | Bespoke Nimble 9B | 63.50 |
+Benchmark Heaven has since published the system. the maintainer posted our results on 2026-09-23: #40 on v1.3, then #57 at 12.31 on v1.4. it is a live ranked row on the open board now, last measured 2026-10-02: https://benchmarkheaven.com/jev-models
 
-smallest model in the ranked set. everyone above row 6 has more parameters and a bigger GPU bill.
+the official score sits below 65.53 because the official runs score all 534 items, held-out slice included. on v1.4 sealed accuracy was 26.9% against 60.6% on the public slice, and both the >25-point gap adjustment and the below-50 Intelligence gate applied.
 
-(this is our own private JevBench score. we haven't been published to the official leaderboard yet. the submission is in the queue at https://github.com/fstandhartinger/jevbench/issues/11, the Benchmark Heaven team hasn't rerun us on their infrastructure.)
+so 65.53 is our public-slice number and it is not comparable with a board row. for the official score, read the board.
 
 ---
 
@@ -124,7 +112,7 @@ the heads (option scorer, yes/no, ordinal) are ~200 lines in `smalljev/heads.py`
 
 ## things worth knowing
 
-the official benchmark has 534 items. 303 are held out and not in the public repo. the headline score here is on 231 public items. if Benchmark Heaven reruns on their infrastructure the number might shift; that's fine, that's how benchmarks work.
+the official benchmark has 534 items. 303 are held out and not in the public repo. the headline score here is on 231 public items. Benchmark Heaven has since rerun it on their own infrastructure and the number moved, for the reasons above; that's fine, that's how benchmarks work.
 
 MASSIVE en/de in nimble13 is disjoint-split same-source, not zero-shot. the +0.18 over zero-shot Laya is the architectural contribution. the +0.41 raw delta is the train/test overlap by design.
 
@@ -153,4 +141,4 @@ smalljev/                 # the library (~700 LOC)
 tests/                    # unit tests, ~30 s on cpu
 ```
 
-**benchmark** the JevBench submission lives at https://github.com/fstandhartinger/jevbench/issues/11. weights live on HuggingFace: [`isHeSatoshi/smalljev-semantic-v9`](https://huggingface.co/isHeSatoshi/smalljev-semantic-v9).
+**benchmark** the JevBench submission lives at https://github.com/fstandhartinger/jevbench/issues/11, with the maintainer's published results in that thread. weights live on HuggingFace: [`isHeSatoshi/smalljev-semantic-v9`](https://huggingface.co/isHeSatoshi/smalljev-semantic-v9).
