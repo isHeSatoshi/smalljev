@@ -6,7 +6,6 @@ from .spec import ChoiceQuestion, NoulQuestion, build_spec
 def _as_items(questions):
     if isinstance(questions, dict):
         return [{"name": name, **spec} for name, spec in questions.items()]
-    print("no dict")
     return list(questions)
 
 
