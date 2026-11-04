@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-11-04 — leftover debug prints removed
+
+Removed five print() calls that came in with the merged test-and-package work and were
+never meant to ship: four in ScoreQuestion.__init__ (smalljev/spec.py) and one in
+_as_items (smalljev/api.py). They printed on every question construction and on every
+non-dict call. Removing them changes no behaviour, no signature and no output.
+
+Promised on 2026-10-27 in the review of #1. python -m pytest -q gives 64 passed.
+
 ## 2026-10-27 — README corrected against the official board
 
 The "the score" section said the system had not been published to the official leaderboard
